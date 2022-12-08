@@ -14,7 +14,7 @@ project_entries:
     # desc: This is an example project, configured in _data/home.yml
 
   - title: India
-    url: overview-post
+    url: https://hatscripts.github.io/circle-flags/flags/in.svg
     # desc: Projects are shown in card layout
 
   - title: Switzerland

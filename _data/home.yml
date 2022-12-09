@@ -21,20 +21,24 @@ project_entries:
 
   - title: Switzerland
     url: overview-post
+    flag: https://hatscripts.github.io/circle-flags/flags/ch.svg
     # desc: You can control visibility from _config.yml file
 
   - title: Greece
     url: overview-post
+    flag: https://hatscripts.github.io/circle-flags/flags/gr.svg
     # desc: This project uses highlight markup, configured in _data/home.yml
     highlight: WIP
 
   - title: Germany
     url: overview-post
+    flag: https://hatscripts.github.io/circle-flags/flags/de.svg
     # desc: Moonwalk also has horizontal list (used in header and footer)
     highlight: WIP
 
   - title: UK
     url: overview-post
+    flag: https://hatscripts.github.io/circle-flags/flags/gb.svg
     # desc: It also has a scalable vertical list (in case you need it)
 
 

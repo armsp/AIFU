@@ -2,8 +2,6 @@
 
  Algorithmic or AI fuck ups
 
-
-
 ## Features to come
 
 [] automatic extraction of Affected Group
@@ -14,7 +12,7 @@
 
 []  Graph representations of relations
 
-
+[ ] take snapshots of articles using github actions becasue articles may expire or move
 
 ## Technical Workflow
 

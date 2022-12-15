@@ -24,11 +24,16 @@
   <meta name="msapplication-TileColor" content="#00aba9">
   <meta name="msapplication-config" content="/assets/images/favicon/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
-  <link rel="stylesheet" href="blogposts.css">
 
   <!-- Favicon -->
 
   <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}" />
+  {% if page.custom_css %}
+    {% for stylesheet in page.custom_css %}
+    <link rel="stylesheet" href="{{ "/assets/css/{{ stylesheet }}.css" | relative_url" />
+    {% endfor %}
+  {% endif %}
+  
   {% if site.theme_config.appearance_toggle %}
     {% include toggle_theme_js.html %}
   {% endif %}

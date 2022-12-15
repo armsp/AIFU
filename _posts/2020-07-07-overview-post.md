@@ -1,6 +1,7 @@
 ---
 layout: post
 author: Shantam Raj
+custom_css: button
 ---
 # Sample heading 1
 ## Sample heading 2

@@ -15,16 +15,16 @@ project_entries:
     desc: This is an example project, configured in _data/home.yml
 
   - title: China
-    url: china
+    url: cn-china
     flag: https://hatscripts.github.io/circle-flags/flags/cn.svg
     # desc: This is an example project, configured in _data/home.yml  
   - title: Japan
-    url: overview-post
+    url: jp-japan
     flag: https://hatscripts.github.io/circle-flags/flags/jp.svg
     # desc: This is an example project, configured in _data/home.yml
 
   - title: India
-    url: india
+    url: in-india
     flag: https://hatscripts.github.io/circle-flags/flags/in.svg
     # desc: Projects are shown in card layout
 

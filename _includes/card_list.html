@@ -2,8 +2,8 @@
   {% for item in include.collection %}
 
     <li class="card">
-      <img src="{{ item.flag }}" width="96">
       <a href="{{ item.url }}">
+        <img src="{{ item.flag }}" width="96">
         <span class="header">
           {{ item.title }}
 
@@ -13,14 +13,14 @@
 
         </span>
 
-        <hr />
-
         {% if item.desc != false %}
         <p class="body">
           {{ item.desc }}
         </p>
         {% endif %}
       </a>
+      <hr />
+      <span>{{ x }} articles</span>
     </li>
 
   {% endfor %}

@@ -2,19 +2,20 @@ navbar_entries:
   - title: about
     url: about
 
-  - title: blog
-    url: blog
+  # - title: blog
+  #   url: blog
 
-  - title: website
-    url: https://www.shantam.io
+  # - title: website
+  #   url: https://www.shantam.io
 
 project_entries:
   - title: USA
-    url: overview-post
+    url: us-united-states
     flag: https://hatscripts.github.io/circle-flags/flags/us.svg
-    # desc: This is an example project, configured in _data/home.yml
+    desc: This is an example project, configured in _data/home.yml
+
   - title: China
-    url: overview-post
+    url: china
     flag: https://hatscripts.github.io/circle-flags/flags/cn.svg
     # desc: This is an example project, configured in _data/home.yml  
   - title: Japan
@@ -23,7 +24,7 @@ project_entries:
     # desc: This is an example project, configured in _data/home.yml
 
   - title: India
-    url: https://hatscripts.github.io/circle-flags/flags/br.svg
+    url: india
     flag: https://hatscripts.github.io/circle-flags/flags/in.svg
     # desc: Projects are shown in card layout
 

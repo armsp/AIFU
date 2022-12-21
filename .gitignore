@@ -2,3 +2,4 @@ _site
 Gemfile.lock
 .bundles_cache
 data_processing
+server/__pycache__

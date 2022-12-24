@@ -5,6 +5,7 @@ WORKDIR /server
 
 # 
 COPY ./requirements.txt /server/requirements.txt
+COPY ./BaltimoreCyberTrustRoot.crt.pem /server/BaltimoreCyberTrustRoot.crt.pem
 
 #
 RUN python -m pip install --upgrade pip 

@@ -36,3 +36,5 @@ jobs:
           registry-password: ${{ secrets.REGISTRY_PASSWORD }}
           name: aifuserver
           location: 'east us'
+          ports:
+            8000

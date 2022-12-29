@@ -1,5 +1,7 @@
-<form action="http://aifutestgroup.eastus.azurecontainer.io/submit" method="POST" onsubmit="return false">
-    <div>
+<form id="formforserver" action="#" method="POST">
+  <fieldset>
+    <legend> Submit new article here </legend>
+  <div>
       <label>
         Article:
         <input type="text" id="at" name="article_title" />
@@ -31,14 +33,13 @@
     </div> -->
     <div>
       <!-- <a href="something" class="button6">Submit</a> -->
-      <input type="submit" value="Submit" />
+      <button type="button" value="Submit" onclick="formSubmit(event)">Submit</button>
       <!-- <button type="submit">Send</button> -->
     </div>
+  </fieldset>
+
 </form>
-<form action="http://aifutestgroup.eastus.azurecontainer.io/submit" method="post">
-
-  <!-- <h1>Sign Up</h1> -->
-
+<!-- <form action="http://aifutestgroup.eastus.azurecontainer.io:8000/submit" method="post">
   <fieldset>
     <legend><span class="number">1</span> Your basic info</legend>
     <label for="name">Name:</label>
@@ -87,9 +88,9 @@
   <input type="checkbox" id="design" value="interest_design" name="user_interest"><label class="light" for="design">Design</label><br>
   <input type="checkbox" id="business" value="interest_business" name="user_interest"><label class="light" for="business">Business</label>
   
-  <button type="submit">Submit</button>
+  <button type="submit" onclick="formSubmit(event)">Submit</button>
 
-</form>
+</form> -->
 <!-- <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
 <form action="https://verificationserver.com" method="POST">
   <div class="mb-3 pt-0">

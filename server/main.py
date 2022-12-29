@@ -1,8 +1,14 @@
 import uvicorn
 from fastapi import FastAPI
-from app.db_utilities import get_records_from_table
+from pydantic import BaseModel
+from app.db_utilities import get_records_from_table, submit
 
 app = FastAPI()
+
+class Data(BaseModel):
+    article_title: str
+    organization: str
+    url: str
 
 @app.get("/heartbeat")
 async def heartbeat():
@@ -15,6 +21,11 @@ async def get_records_from(table_name):
     return records
 
 # push reocrds to given table
+@app.post("/submit")
+async def post_new_record(data: Data):
+    print(data)
+    return data
+    # return submit(data)
 
 if __name__=="__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)

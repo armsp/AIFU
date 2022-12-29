@@ -32,9 +32,18 @@ def get_records_from_table(table_name):
         print(f"Headline: {headline}, Media org: {org}, URL: {url}")
     conn.close()
     return {"records": records}
-# object models
 
+# submit record to table
+def submit(data):
+    #check table_name
 
+    #check json data for validity
+    return {"You sent": data}
+
+    # return {"message": "record submitted for human verification!"}
+
+if __name__=="__main__":
+    get_records_from_table("gbr")
 
 
 

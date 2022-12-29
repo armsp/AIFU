@@ -15,6 +15,7 @@ fetch('http:aifutestgroup.eastus.azurecontainer.io:8000/submit', {
   method: 'POST', // or 'PUT'
   headers: {
     'Content-Type': 'application/json',
+    'Origin': 'https://aifu.shantam.io'
   },
   body: formData,
 //   body: frm.serialize(),

@@ -1,5 +1,5 @@
 function showTable(){
-  let tableName = {{ page.table }};
+  let tableName = "{{ page.table }}";
   fetch('http://aifutestgroup.eastus.azurecontainer.io:8000/records?'+ new URLSearchParams({
     table_name: tableName}), {
     method: 'GET', // or 'PUT'

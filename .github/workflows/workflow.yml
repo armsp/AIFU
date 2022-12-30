@@ -1,5 +1,5 @@
 on: [push, workflow_dispatch]
-name: Azure_Container_Update
+name: Python_Server_Update
 
 jobs:
   build-and-deploy:

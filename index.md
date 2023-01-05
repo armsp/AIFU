@@ -1,7 +1,6 @@
 ---
 layout: home
 ---
-Hi from Codespaces!
 ### How to contribute?
 **Steps** -
 1. Go to the country of the concerned article/news.

@@ -12,7 +12,7 @@ project_entries:
   - title: USA
     url: us-united-states
     flag: https://hatscripts.github.io/circle-flags/flags/us.svg
-    desc: This is an example project, configured in _data/home.yml
+    # desc: This is an example project, configured in _data/home.yml
 
   - title: China
     url: cn-china
@@ -88,7 +88,7 @@ project_entries:
 
   - title: Spain
     url: https://hatscripts.github.io/circle-flags/flags/es.svg
-    flag: https://hatscripts.github.io/circle-flags/flags/in.svg
+    flag: https://hatscripts.github.io/circle-flags/flags/es.svg
     # desc: Projects are shown in card layout
 
   - title: Saudi Arabia
@@ -186,7 +186,7 @@ project_entries:
 
   - title: Philippines
     url: https://hatscripts.github.io/circle-flags/flags/ph.svg
-    flag: https://hatscripts.github.io/circle-flags/flags/in.svg
+    flag: https://hatscripts.github.io/circle-flags/flags/ph.svg
     # desc: Projects are shown in card layout
 
   - title: Malaysia

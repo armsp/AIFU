@@ -1,4 +1,5 @@
 FROM caddy:latest
 
-COPY Caddyfile /etc/caddy/Caddyfile
-COPY site /srv
+# COPY Caddyfile /etc/caddy/Caddyfile
+# COPY site /srv
+CMD ["caddy","reverse-proxy","--from","aifutestgroup.eastus.azurecontainer.io","--to","localhost:8000"]

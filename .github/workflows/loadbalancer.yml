@@ -21,9 +21,9 @@ jobs:
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
           context: server
-          file: server/LoadBalancerDockerfile
+          # file: server/LoadBalancerDockerfile
       - run: |
-          docker build -f LoadBalancerDockerfile -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/aifulbv1:${{ github.sha }} .
+          docker build server -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/aifulbv1:${{ github.sha }} -f LoadBalancerDockerfile
           docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/aifulbv1:${{ github.sha }}
 
       - name: 'Deploy to Azure Container Instances'

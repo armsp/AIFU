@@ -31,7 +31,7 @@ jobs:
         with:
           resource-group: ${{ secrets.RESOURCE_GROUP }}
           # dns-name-label: ${{ secrets.RESOURCE_GROUP }}${{ github.run_number }}
-          dns-name-label: ${{ secrets.RESOURCE_GROUP }}${{ github.run_number }}
+          dns-name-label: aifurevproxy
           image: ${{ secrets.REGISTRY_LOGIN_SERVER }}/aifulbv1:${{ github.sha }}
           registry-login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
           registry-username: ${{ secrets.REGISTRY_USERNAME }}

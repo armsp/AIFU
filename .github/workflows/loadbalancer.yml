@@ -1,5 +1,5 @@
 on: [push, workflow_dispatch]
-name: Load_Balancer _Update
+name: Load_Balancer_Update
 
 jobs:
   build-and-deploy:
@@ -21,7 +21,7 @@ jobs:
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
       - run: |
-          docker build -f LoadBalancerDockerfile -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/aifulbv1:${{ github.sha }}
+          docker build server -f LoadBalancerDockerfile -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/aifulbv1:${{ github.sha }}
           docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/aifulbv1:${{ github.sha }}
 
       - name: 'Deploy to Azure Container Instances'

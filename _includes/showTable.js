@@ -1,6 +1,6 @@
 function showTable(){
   let tableName = "{{ page.table }}";
-  fetch('https://aifurevproxy.eastus.azurecontainer.io:8000/records?'+ new URLSearchParams({
+  fetch('https://aifurevproxy.eastus.azurecontainer.io/records?'+ new URLSearchParams({
     table_name: tableName}), {
     method: 'GET', // or 'PUT'
   })

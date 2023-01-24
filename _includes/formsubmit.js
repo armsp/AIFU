@@ -11,7 +11,7 @@ function formSubmit(e){
 
 // const data = { username: 'example' };
 
-fetch('https://aifurevproxy.eastus.azurecontainer.io:8000/submit', {
+fetch('https://aifurevproxy.eastus.azurecontainer.io/submit', {
   method: 'POST', // or 'PUT'
   headers: {
     'Content-Type': 'application/json',

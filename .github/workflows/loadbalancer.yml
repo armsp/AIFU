@@ -20,6 +20,8 @@ jobs:
           login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
+          context: server
+          file: server/LoadBalancerDockerfile
       - run: |
           docker build -f LoadBalancerDockerfile -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/aifulbv1:${{ github.sha }} .
           docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/aifulbv1:${{ github.sha }}

@@ -1,0 +1,13 @@
+# see: https://caddyserver.com/docs/caddyfile/concepts
+
+aifurevproxy.eastus.azurecontainer.io {
+  reverse_proxy /records* {
+    to aifutestgroup.eastus.azurecontainer.io:8000
+    header_down Access-Control-Allow-Origin *
+  }
+  reverse_proxy /submit {
+    to aifutestgroup.eastus.azurecontainer.io:8000
+    header_down Access-Control-Allow-Origin *
+  }
+
+}

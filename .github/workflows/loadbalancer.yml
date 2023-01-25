@@ -39,4 +39,5 @@ jobs:
           name: aifulb
           location: 'east us'
           ports:
-              443
+            - 443
+            - 80

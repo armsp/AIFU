@@ -6,18 +6,18 @@ aifurevproxy.eastus.azurecontainer.io {
     }
     header {
         Access-Control-Allow-Origin *
-        Access-Control-Allow-Credentials true
+        Access-Control-Allow-Credentials false
         Access-Control-Allow-Methods *
         Access-Control-Allow-Headers *
         defer
     }
-    reverse_proxy /records* {
-        to aifutestgroup.eastus.azurecontainer.io:8000
+    reverse_proxy /records {
+        to http://aifutestgroup.eastus.azurecontainer.io:8000
         header_down Access-Control-Allow-Origin *
         header Access-Control-Allow-Methods "GET, OPTIONS"
     }
     reverse_proxy /submit {
-        to aifutestgroup.eastus.azurecontainer.io:8000
+        to http://aifutestgroup.eastus.azurecontainer.io:8000
         header_down Access-Control-Allow-Origin *
         header Access-Control-Allow-Methods "POST, OPTIONS"
     }

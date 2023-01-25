@@ -1,13 +1,25 @@
 # see: https://caddyserver.com/docs/caddyfile/concepts
 
 aifurevproxy.eastus.azurecontainer.io {
-  reverse_proxy /records* {
-    to aifutestgroup.eastus.azurecontainer.io:8000
-    header_down Access-Control-Allow-Origin *
-  }
-  reverse_proxy /submit {
-    to aifutestgroup.eastus.azurecontainer.io:8000
-    header_down Access-Control-Allow-Origin *
-  }
-
+    @options {
+        method OPTIONS
+    }
+    header {
+        Access-Control-Allow-Origin *
+        Access-Control-Allow-Credentials true
+        Access-Control-Allow-Methods *
+        Access-Control-Allow-Headers *
+        defer
+    }
+    reverse_proxy /records* {
+        to aifutestgroup.eastus.azurecontainer.io:8000
+        header_down Access-Control-Allow-Origin *
+        header Access-Control-Allow-Methods "GET, OPTIONS"
+    }
+    reverse_proxy /submit {
+        to aifutestgroup.eastus.azurecontainer.io:8000
+        header_down Access-Control-Allow-Origin *
+        header Access-Control-Allow-Methods "POST, OPTIONS"
+    }
+    respond @options 204
 }

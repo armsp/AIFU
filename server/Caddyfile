@@ -21,5 +21,10 @@ aifurevproxy.eastus.azurecontainer.io {
         header_down Access-Control-Allow-Origin *
         header Access-Control-Allow-Methods "POST, OPTIONS"
     }
+    reverse_proxy /heartbeat {
+        to http://aifutestgroup.eastus.azurecontainer.io:8000
+        header_down Access-Control-Allow-Origin *
+        header Access-Control-Allow-Methods "GET, OPTIONS"
+    }
     respond @options 204
 }

@@ -1,5 +1,10 @@
-# see: https://caddyserver.com/docs/caddyfile/concepts
-
+{
+    log default {
+	    output stdout
+	    format json
+	    include http.log.access admin.api
+    }
+}
 aifurevproxy.eastus.azurecontainer.io {
     @options {
         method OPTIONS

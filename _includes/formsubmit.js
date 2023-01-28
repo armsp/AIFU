@@ -15,7 +15,7 @@ fetch('https://aifurevproxy.eastus.azurecontainer.io/submit', {
   method: 'POST', // or 'PUT'
   headers: {
     'Content-Type': 'application/json',
-    'Origin': 'https://aifu.shantam.io'
+    // 'Origin': 'https://aifu.shantam.io'
   },
   body: formData,
 //   body: frm.serialize(),

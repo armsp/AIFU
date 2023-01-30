@@ -41,8 +41,8 @@ async def get_records_from(table_name):
 # push reocrds to given table
 @app.post("/submit")
 async def post_new_record(data: Data):
-    print(data)
-    return JSONResponse(content=data, headers=headers)
+    print(data, type(data))
+    return JSONResponse(content=dict(data), headers=headers)
     # return submit(data)
 
 if __name__=="__main__":

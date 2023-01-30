@@ -18,6 +18,7 @@ project_entries:
     url: cn-china
     flag: https://hatscripts.github.io/circle-flags/flags/cn.svg
     # desc: This is an example project, configured in _data/home.yml  
+
   - title: Japan
     url: jp-japan
     flag: https://hatscripts.github.io/circle-flags/flags/jp.svg
@@ -29,18 +30,18 @@ project_entries:
     # desc: Projects are shown in card layout
 
   - title: Switzerland
-    url: overview-post
+    url: ch-switzerland
     flag: https://hatscripts.github.io/circle-flags/flags/ch.svg
     # desc: You can control visibility from _config.yml file
 
   - title: Greece
-    url: overview-post
+    url: gr-greece
     flag: https://hatscripts.github.io/circle-flags/flags/gr.svg
     # desc: This project uses highlight markup, configured in _data/home.yml
     highlight: WIP
 
   - title: Germany
-    url: overview-post
+    url: de-germany
     flag: https://hatscripts.github.io/circle-flags/flags/de.svg
     # desc: Moonwalk also has horizontal list (used in header and footer)
     highlight: WIP
@@ -49,189 +50,218 @@ project_entries:
     url: overview-post
     flag: https://hatscripts.github.io/circle-flags/flags/gb.svg
     # desc: It also has a scalable vertical list (in case you need it)
+
   - title: Russia
-    url: overview-post
+    url: ru-russia
     flag: https://hatscripts.github.io/circle-flags/flags/ru.svg
     # desc: This is an example project, configured in _data/home.yml
+
   - title: Indonesia
-    url: overview-post
+    url: id-indonesia
     flag: https://hatscripts.github.io/circle-flags/flags/id.svg
     # desc: This is an example project, configured in _data/home.yml
+
   - title: Brazil
-    url: overview-post
+    url: br-brazil
     flag: https://hatscripts.github.io/circle-flags/flags/br.svg
     # desc: This is an example project, configured in _data/home.yml
+
   - title: France
-    url: overview-post
+    url: fr-france
     flag: https://hatscripts.github.io/circle-flags/flags/fr.svg
     # desc: This is an example project, configured in _data/home.yml
+
   - title: Turkey
-    url: overview-post
+    url: tr-turkey
     flag: https://hatscripts.github.io/circle-flags/flags/tr.svg
     # desc: This is an example project, configured in _data/home.yml
+
   - title: Italy
-    url: overview-post
+    url: it-italy
     flag: https://hatscripts.github.io/circle-flags/flags/it.svg
     # desc: This is an example project, configured in _data/home.yml
+
   - title: Mexico
-    url: overview-post
+    url: mx-mexico
     flag: https://hatscripts.github.io/circle-flags/flags/mx.svg
     # desc: This is an example project, configured in _data/home.yml
+
   - title: South Korea
-    url: overview-post
+    url: kr-korea
     flag: https://hatscripts.github.io/circle-flags/flags/kr.svg
     # desc: This is an example project, configured in _data/home.yml  
+
   - title: Canada
-    url: overview-post
+    url: cn-canada
     flag: https://hatscripts.github.io/circle-flags/flags/cn.svg
     # desc: This is an example project, configured in _data/home.yml
 
   - title: Spain
-    url: https://hatscripts.github.io/circle-flags/flags/es.svg
+    url: es-spain
     flag: https://hatscripts.github.io/circle-flags/flags/es.svg
     # desc: Projects are shown in card layout
 
   - title: Saudi Arabia
-    url: overview-post
+    url: sa-saudi-arabia
     flag: https://hatscripts.github.io/circle-flags/flags/sa.svg
     # desc: You can control visibility from _config.yml file
 
   - title: Egypt
-    url: overview-post
+    url: eg-egypt
     flag: https://hatscripts.github.io/circle-flags/flags/eg.svg
     # desc: This project uses highlight markup, configured in _data/home.yml
     highlight: WIP
 
   - title: Taiwan
-    url: overview-post
+    url: tw-taiwan
     flag: https://hatscripts.github.io/circle-flags/flags/tw.svg
     # desc: Moonwalk also has horizontal list (used in header and footer)
     highlight: WIP
 
   - title: Ireland
-    url: overview-post
-    flag: https://hatscripts.github.io/circle-flags/flags/ae.svg
+    url: ie-ireland
+    flag: https://hatscripts.github.io/circle-flags/flags/ie.svg
     # desc: It also has a scalable vertical list (in case you need it)
+
   - title: Norway
-    url: overview-post
-    flag: https://hatscripts.github.io/circle-flags/flags/ro.svg
+    url: no-norway
+    flag: https://hatscripts.github.io/circle-flags/flags/no.svg
     # desc: This is an example project, configured in _data/home.yml
+
   - title: Qatar
-    url: overview-post
-    flag: https://hatscripts.github.io/circle-flags/flags/be.svg
+    url: qa-qatar
+    flag: https://hatscripts.github.io/circle-flags/flags/qa.svg
     # desc: This is an example project, configured in _data/home.yml
+
   - title: Iceland
-    url: overview-post
-    flag: https://hatscripts.github.io/circle-flags/flags/sg.svg
+    url: is-iceland
+    flag: https://hatscripts.github.io/circle-flags/flags/is.svg
     # desc: This is an example project, configured in _data/home.yml
+
   - title: Austria
-    url: overview-post
-    flag: https://hatscripts.github.io/circle-flags/flags/se.svg
+    url: at-austria
+    flag: https://hatscripts.github.io/circle-flags/flags/at.svg
     # desc: This is an example project, configured in _data/home.yml
+
   - title: Finland
-    url: overview-post
-    flag: https://hatscripts.github.io/circle-flags/flags/hk.svg
+    url: fi-finland
+    flag: https://hatscripts.github.io/circle-flags/flags/fi.svg
     # desc: This is an example project, configured in _data/home.yml
+
   - title: Luxembourg
-    url: overview-post
-    flag: https://hatscripts.github.io/circle-flags/flags/il.svg
+    url: lu-luxembourg
+    flag: https://hatscripts.github.io/circle-flags/flags/lu.svg
     # desc: This is an example project, configured in _data/home.yml
+
   - title: New Zealand
-    url: overview-post
-    flag: https://hatscripts.github.io/circle-flags/flags/il.svg
+    url: new-zealand
+    flag: https://hatscripts.github.io/circle-flags/flags/nz.svg
     # desc: This is an example project, configured in _data/home.yml
 
   - title: Australia
-    url: overview-post
+    url: at-australia
     flag: https://hatscripts.github.io/circle-flags/flags/at.svg
     # desc: It also has a scalable vertical list (in case you need it)
+
   - title: Iran
-    url: overview-post
+    url: ir-iran
     flag: https://hatscripts.github.io/circle-flags/flags/ir.svg
     # desc: This is an example project, configured in _data/home.yml
+
   - title: Poland
-    url: overview-post
+    url: pl-poland
     flag: https://hatscripts.github.io/circle-flags/flags/pl.svg
     # desc: This is an example project, configured in _data/home.yml
+
   - title: Pakistan
-    url: overview-post
+    url: pk-pakistan
     flag: https://hatscripts.github.io/circle-flags/flags/pk.svg
     # desc: This is an example project, configured in _data/home.yml
+
   - title: Thailand
-    url: overview-post
+    url: th-thailand
     flag: https://hatscripts.github.io/circle-flags/flags/th.svg
     # desc: This is an example project, configured in _data/home.yml
+
   - title: Bangladesh
-    url: overview-post
+    url: bd-bangladesh
     flag: https://hatscripts.github.io/circle-flags/flags/bd.svg
     # desc: This is an example project, configured in _data/home.yml
+
   - title: Vietnam
-    url: overview-post
+    url: vn-vietnam
     flag: https://hatscripts.github.io/circle-flags/flags/vn.svg
     # desc: This is an example project, configured in _data/home.yml
 
-
   - title: Nigeria
-    url: overview-post
+    url: ne-nigeria
     flag: https://hatscripts.github.io/circle-flags/flags/ne.svg
     # desc: This is an example project, configured in _data/home.yml
+
   - title: Netherlands
-    url: overview-post
+    url: nl-netherlands
     flag: https://hatscripts.github.io/circle-flags/flags/nl.svg
     # desc: This is an example project, configured in _data/home.yml  
+
   - title: Argentina
-    url: overview-post
+    url: ar-argentina
     flag: https://hatscripts.github.io/circle-flags/flags/ar.svg
     # desc: This is an example project, configured in _data/home.yml
 
   - title: Philippines
-    url: https://hatscripts.github.io/circle-flags/flags/ph.svg
+    url: ph-philippines
     flag: https://hatscripts.github.io/circle-flags/flags/ph.svg
     # desc: Projects are shown in card layout
 
   - title: Malaysia
-    url: overview-post
+    url: my-malaysia
     flag: https://hatscripts.github.io/circle-flags/flags/my.svg
     # desc: You can control visibility from _config.yml file
 
   - title: Colombia
-    url: overview-post
+    url: co-colombia
     flag: https://hatscripts.github.io/circle-flags/flags/co.svg
     # desc: This project uses highlight markup, configured in _data/home.yml
     highlight: WIP
 
   - title: South Africa
-    url: overview-post
+    url: za-south-africa
     flag: https://hatscripts.github.io/circle-flags/flags/za.svg
     # desc: Moonwalk also has horizontal list (used in header and footer)
     highlight: WIP
 
   - title: UAE
-    url: overview-post
+    url: ae-united-arab-emirates
     flag: https://hatscripts.github.io/circle-flags/flags/ae.svg
     # desc: It also has a scalable vertical list (in case you need it)
+
   - title: Romania
-    url: overview-post
+    url: ro-romania
     flag: https://hatscripts.github.io/circle-flags/flags/ro.svg
     # desc: This is an example project, configured in _data/home.yml
+
   - title: Belgium
-    url: overview-post
+    url: be-belgium
     flag: https://hatscripts.github.io/circle-flags/flags/be.svg
     # desc: This is an example project, configured in _data/home.yml
+
   - title: Singapore
-    url: overview-post
+    url: sg-singapore
     flag: https://hatscripts.github.io/circle-flags/flags/sg.svg
     # desc: This is an example project, configured in _data/home.yml
+
   - title: Sweden
-    url: overview-post
+    url: se-sweden
     flag: https://hatscripts.github.io/circle-flags/flags/se.svg
     # desc: This is an example project, configured in _data/home.yml
+
   - title: Hong Kong
-    url: overview-post
+    url: hk-hong-kong
     flag: https://hatscripts.github.io/circle-flags/flags/hk.svg
     # desc: This is an example project, configured in _data/home.yml
+
   - title: Israel
-    url: overview-post
+    url: il-israel
     flag: https://hatscripts.github.io/circle-flags/flags/il.svg
     # desc: This is an example project, configured in _data/home.yml
 

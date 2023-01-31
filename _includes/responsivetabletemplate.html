@@ -1,0 +1,20 @@
+<div id="datatable" class="">
+	<input class="search" placeholder="Search" />
+  <button class="sort" data-sort="title">Sort by Title</button>
+  <button class="sort" data-sort="media">Sort by News Org</button>
+  
+  <ul id="listdata" class="responsive-table list">
+    <li class="table-header">
+        <div class="col col-1 title">Headline</div>
+        <div class="col col-2 media">Organization</div>
+        <div class="col col-3">URL</div>
+    </li>
+
+</div>
+<!-- <script src="showTable.js"></script>
+<script src="list.min.js"></script> -->
+<script type="text/javascript" defer>
+  showList();
+  var options = {valueNames: ["title", "media"]};
+  var userList = new List('datatable', options);
+</script>

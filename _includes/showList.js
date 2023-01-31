@@ -14,7 +14,7 @@ function showList(){
       <div class="col col-1" data-label="Headline">${row["Headline"]}</div>
       <div class="col col-2" data-label="Organization">${row["Media org"]}</div>
       <div class="col col-3" data-label="URL">${row["URL"]}</div>
-  </li>`).join("")
+      </li>`).join("")
       })
     .catch((error) => {
       console.error('Error:', error);

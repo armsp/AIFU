@@ -4,10 +4,11 @@ function formSubmit(e){
     // var frm = $('#'+ $(this).data('name') +'');
     var frm = document.getElementById("formforserver");
     const formObj = new FormData(frm);
-    formObj.table = tableName;
-    const formData = JSON.stringify(Object.fromEntries(formObj.entries()))
+    console.log(formObj);
+    const formData = JSON.stringify(Object.fromEntries(formObj.entries()));
+    formData.table = tableName;
     console.log(JSON.stringify(Object.fromEntries(formObj.entries())));
-    // console.log(JSON.stringify(formData));
+    console.log(formData);
 
 
 // const data = { username: 'example' };

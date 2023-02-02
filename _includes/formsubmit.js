@@ -5,7 +5,7 @@ function formSubmit(e){
     var frm = document.getElementById("formforserver");
     const formObj = new FormData(frm);
     formObj.table = tableName;
-    // const formData = JSON.stringify(Object.fromEntries(formObj.entries()))
+    const formData = JSON.stringify(Object.fromEntries(formObj.entries()))
     console.log(JSON.stringify(Object.fromEntries(formObj.entries())));
     // console.log(JSON.stringify(formData));
 
@@ -16,7 +16,7 @@ fetch('https://aifuv2.eastus.azurecontainer.io/submit', {
   method: 'POST', // or 'PUT'
   headers: {
     'Content-Type': 'application/json',
-    // 'Origin': 'https://aifu.shantam.io'
+    'Origin': 'https://aifu.shantam.io'
   },
   body: formData,
 //   body: frm.serialize(),

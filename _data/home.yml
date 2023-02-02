@@ -47,7 +47,7 @@ project_entries:
     highlight: WIP
 
   - title: UK
-    url: overview-post
+    url: gb-united-kingdom
     flag: https://hatscripts.github.io/circle-flags/flags/gb.svg
     # desc: It also has a scalable vertical list (in case you need it)
 

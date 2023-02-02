@@ -1,10 +1,11 @@
 function formSubmit(e){
     e.preventDefault(); //This will prevent the default click action
-
+    let tableName = "{{ page.table }}";
     // var frm = $('#'+ $(this).data('name') +'');
     var frm = document.getElementById("formforserver");
     const formObj = new FormData(frm);
-    const formData = JSON.stringify(Object.fromEntries(formObj.entries()))
+    formObj.table = tableName;
+    // const formData = JSON.stringify(Object.fromEntries(formObj.entries()))
     console.log(JSON.stringify(Object.fromEntries(formObj.entries())));
     // console.log(JSON.stringify(formData));
 

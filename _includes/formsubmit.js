@@ -4,10 +4,9 @@ function formSubmit(e){
     // var frm = $('#'+ $(this).data('name') +'');
     var frm = document.getElementById("formforserver");
     const formObj = new FormData(frm);
-    console.log(formObj);
-    const formData = JSON.stringify(Object.fromEntries(formObj.entries()));
+    const formData = Object.fromEntries(formObj.entries());
     formData.table = tableName;
-    console.log(JSON.stringify(Object.fromEntries(formObj.entries())));
+    // console.log(JSON.stringify(Object.fromEntries(formObj.entries())));
     console.log(formData);
 
 
@@ -19,7 +18,7 @@ fetch('https://aifuv2.eastus.azurecontainer.io/submit', {
     'Content-Type': 'application/json',
     'Origin': 'https://aifu.shantam.io'
   },
-  body: formData,
+  body: JSON.stringify(formData),
 //   body: frm.serialize(),
 })
   .then((response) => response.json())

@@ -215,5 +215,8 @@ p code, li code {
 }
 
 #formforserver label {
-  width: 100%;
+  display: flex;
+}
+#formforserver input {
+  flex: 1;
 }

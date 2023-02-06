@@ -30,6 +30,11 @@ function formSubmit(e){
           background: 'indianred',
           duration: 2000,
           dismissible: true
+        },
+        {
+          type: 'success',
+          duration: 10000,
+          dismissible: true
         }
       ]
     });
@@ -49,7 +54,7 @@ fetch('https://aifuv2.eastus.azurecontainer.io/submit', {
   .then((response) => response.json())
   .then((data) => {
     console.log('Success:', data);
-    notyf.success('Your data has been sent for validation!');
+    notyf.success('Your data has been submitted for validation. Visit the link to view the status of your submission:'+data["Issue URL"]);
 
   })
   .catch((error) => {

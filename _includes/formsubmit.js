@@ -57,6 +57,7 @@ fetch('https://aifuv2.eastus.azurecontainer.io/submit', {
 })
   .then((response) => response.json())
   .then((data) => {
+    document.getElementById("loading-spinner").style.display = "none";//stop the load
     console.log('Success:', data);
     const success = notyf.success('Your data has been submitted for validation. Visit the link to view the status of your submission: '+'<a href='+data['Issue URL']+'>'+data["Issue URL"]+'</a>');
     success.on('click', ({target, event}) => {

@@ -1,6 +1,6 @@
 function formSubmit(e){
     e.preventDefault(); //This will prevent the default click action
-    document.getElementById("loading-spinner").style.display = "inline";
+    document.getElementById("loading-spinner").style.display = "inline-block";
     let tableName = "{{ page.table }}";
     // var frm = $('#'+ $(this).data('name') +'');
     var frm = document.getElementById("formforserver");

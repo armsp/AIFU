@@ -70,6 +70,7 @@ fetch('https://aifuv2.eastus.azurecontainer.io/submit', {
   })
   .catch((error) => {
     console.error('Error:', error);
+    document.getElementById("loading-spinner").style.display = "none";//stop the load
     notyf.error('Something is wrong with the server. Please try again after a few days.');
 
   });

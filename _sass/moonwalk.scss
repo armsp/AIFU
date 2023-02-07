@@ -43,7 +43,11 @@ table, th, td {
   border-collapse: collapse;
   padding: 0.4em;
 }
-
+th{
+  color: #424242;
+  text-align: center;
+  background-color: #eeeeee;
+}
 div.highlighter-rouge pre code, pre code.highlighter-rouge {
   display: block;
   overflow-x: auto;
@@ -226,7 +230,7 @@ p code, li code {
 
 .toast-custom-notyf {
   max-width: 50em !important;
-
+  cursor: pointer;
   .notyf__ripple {
       height: 50em;
       width: 50em;
@@ -234,5 +238,12 @@ p code, li code {
 }
 
 #loading-spinner{
+  color: #C3B1E1;
   display: none;
+}
+
+.url {
+  // height: 0.5em;
+  // width: 0.25em;
+  transform: scale(0.5);
 }

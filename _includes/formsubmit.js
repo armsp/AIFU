@@ -10,6 +10,7 @@ function formSubmit(e){
     console.log(formData);
     var notyf = new Notyf({
       duration: 2000,
+      ripple: true,
       position: {
         x: 'center',
         y: 'center',
@@ -34,7 +35,10 @@ function formSubmit(e){
         {
           type: 'success',
           duration: 10000,
-          dismissible: true
+          dismissible: true,
+          className: "toast-custom-notyf",
+          background: "#77DD77",
+          ripple: false
         }
       ]
     });
@@ -54,7 +58,12 @@ fetch('https://aifuv2.eastus.azurecontainer.io/submit', {
   .then((response) => response.json())
   .then((data) => {
     console.log('Success:', data);
-    notyf.success('Your data has been submitted for validation. Visit the link to view the status of your submission: '+'<a href='+data['Issue URL']+'>'+data["Issue URL"]+'</a>');
+    const success = notyf.success('Your data has been submitted for validation. Visit the link to view the status of your submission: '+'<a href='+data['Issue URL']+'>'+data["Issue URL"]+'</a>');
+    success.on('click', ({target, event}) => {
+      // target: the notification being clicked
+      // event: the mouseevent
+      window.location.href = data['Issue URL'];
+    });
 
   })
   .catch((error) => {

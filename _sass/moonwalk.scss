@@ -223,3 +223,12 @@ p code, li code {
   margin-top: auto;
   margin-bottom: auto;
 }
+
+.toast-custom-notyf {
+  max-width: 50em !important;
+
+  .notyf__ripple {
+      height: 50em;
+      width: 50em;
+  }
+}

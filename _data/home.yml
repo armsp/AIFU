@@ -93,7 +93,7 @@ project_entries:
 
   - title: Canada
     url: ca-canada
-    flag: https://hatscripts.github.io/circle-flags/flags/cn.svg
+    flag: https://hatscripts.github.io/circle-flags/flags/ca.svg
     # desc: This is an example project, configured in _data/home.yml
 
   - title: Spain
@@ -154,7 +154,7 @@ project_entries:
     # desc: This is an example project, configured in _data/home.yml
 
   - title: New Zealand
-    url: new-zealand
+    url: nz-new-zealand
     flag: https://hatscripts.github.io/circle-flags/flags/nz.svg
     # desc: This is an example project, configured in _data/home.yml
 

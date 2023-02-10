@@ -92,7 +92,7 @@ project_entries:
     # desc: This is an example project, configured in _data/home.yml  
 
   - title: Canada
-    url: cn-canada
+    url: ca-canada
     flag: https://hatscripts.github.io/circle-flags/flags/cn.svg
     # desc: This is an example project, configured in _data/home.yml
 
@@ -159,8 +159,8 @@ project_entries:
     # desc: This is an example project, configured in _data/home.yml
 
   - title: Australia
-    url: at-australia
-    flag: https://hatscripts.github.io/circle-flags/flags/at.svg
+    url: au-australia
+    flag: https://hatscripts.github.io/circle-flags/flags/au.svg
     # desc: It also has a scalable vertical list (in case you need it)
 
   - title: Iran
@@ -189,12 +189,12 @@ project_entries:
     # desc: This is an example project, configured in _data/home.yml
 
   - title: Vietnam
-    url: vn-vietnam
+    url: vn-viet-nam
     flag: https://hatscripts.github.io/circle-flags/flags/vn.svg
     # desc: This is an example project, configured in _data/home.yml
 
   - title: Nigeria
-    url: ne-nigeria
+    url: ng-nigeria
     flag: https://hatscripts.github.io/circle-flags/flags/ne.svg
     # desc: This is an example project, configured in _data/home.yml
 
@@ -235,9 +235,9 @@ project_entries:
     flag: https://hatscripts.github.io/circle-flags/flags/ae.svg
     # desc: It also has a scalable vertical list (in case you need it)
 
-  - title: Romania
-    url: ro-romania
-    flag: https://hatscripts.github.io/circle-flags/flags/ro.svg
+  # - title: Romania
+  #   url: ro-romania
+  #   flag: https://hatscripts.github.io/circle-flags/flags/ro.svg
     # desc: This is an example project, configured in _data/home.yml
 
   - title: Belgium

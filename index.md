@@ -1,5 +1,6 @@
 ---
 layout: home
+title: Algorithmic or AI Fuck Ups
 ---
 ### How to contribute?
 **Steps** -

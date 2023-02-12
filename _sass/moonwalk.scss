@@ -247,3 +247,18 @@ p code, li code {
   // width: 0.25em;
   transform: scale(0.5);
 }
+
+.horizontal-list {
+  display: flex;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  align-content: center;
+}
+
+.horizontal-list > li {
+  margin-bottom: 0em;
+  padding-bottom: 0em;
+}

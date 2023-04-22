@@ -1,6 +1,16 @@
 # AIFU
 
- Algorithmic or AI fuck ups
+ **Algorithmic or AI fuck ups**
+ 
+AIFU is a one stop solution for researchers and anyone looking for a place to learn about the repercussions of using Algorithms and AI blatently, too soon, indiscriminately, harmfully.
+
+**How to contribute?**
+
+Steps -
+1. Go to the country of the concerned article/news.
+2. Enter the article, organization and other details you could discern (you see an example when you go to the country)
+3. Press `Submit`
+
 
 ## Features to come
 
@@ -43,3 +53,4 @@
 - [ ] Make an automatic Last Updated <date> tag like the WIP one we have
 - [ ] Whats the best way to show more detailed information about the issue?
 - [ ] How can users request for snapshots if the article link is down?
+- [ ] Caching of DB reuests for countries as well as the whole dataset

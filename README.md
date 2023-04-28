@@ -11,6 +11,11 @@ Steps -
 2. Enter the article, organization and other details you could discern (you see an example when you go to the country)
 3. Press `Submit`
 
+## Outline
+1. Motivation, 
+2. Related literature, 
+3. Data, 
+4. Approach.
 
 ## Features to come
 

@@ -59,3 +59,7 @@ Steps -
 - [ ] Whats the best way to show more detailed information about the issue?
 - [ ] How can users request for snapshots if the article link is down?
 - [ ] Caching of DB reuests for countries as well as the whole dataset
+
+## Change Log
+
+## Decision Log

@@ -64,4 +64,4 @@ Steps -
 
 ## Decision Log
 
-**Clock** - 12 hrs
+**Clock** - 16 hrs

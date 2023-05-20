@@ -61,7 +61,10 @@ Steps -
 - [ ] Caching of DB reuests for countries as well as the whole dataset
 
 ## Change Log
+ * Frontend Tech Stack - React, gatsby, vega-lite, MUIv5
+ * Cases are shown as tables where rows can be expanded. This is the current approach until we face performance issues.
+ * Setup a MongoDB database on Azure. Integration with Python server left.
 
 ## Decision Log
 
-**Clock** - 20 hrs
+**Clock** - 23 hrs

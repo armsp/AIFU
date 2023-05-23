@@ -34,6 +34,8 @@ Steps -
   * What ORG/group of people used it and how?
   * Other technical details
   * Its subsequent effects… 
+  * Did the state/party accept their error?
+  * Were there compensations made? Apologies?
  
 - [ ] Provide an API or ability to download the whole dataset we are curating so that others could it for other purposes.
 

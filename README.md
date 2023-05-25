@@ -36,6 +36,11 @@ Steps -
   * Its subsequent effects… 
   * Did the state/party accept their error?
   * Were there compensations made? Apologies?
+  * Did they address the issue in a more tangible way through any legislation/bills and (or) regulation?
+  * Where there any regulations/bills & legislation already in place that still failed to prevent this?
+  * Did something similar happen again? Why?
+  * Are there any legislations in the pipeline?
+  * Were there any legislations that got blocked? Why? What were the arguements? Who blocked it?
  
 - [ ] Provide an API or ability to download the whole dataset we are curating so that others could it for other purposes.
 

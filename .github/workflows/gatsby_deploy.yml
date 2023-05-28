@@ -1,0 +1,39 @@
+name: Gatsby Publish
+
+on:
+  push:
+    branches: gatsby
+    
+env:
+  GH_PAGES: ${{ secrets.GH_PAGES }}
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: enriikke/gatsby-gh-pages-action@v2
+        with:
+          access-token: ${{ secrets.GH_PAGES }}
+          deploy-branch: gh-pages
+          gatsby-args: --prefix-paths
+#     steps:
+#       - name: GitHub Config
+#         run: |
+#           git config --global user.email "example@example.example"
+#           git config --global user.name "example"
+#       - name: Checkout
+#         uses: actions/checkout@v3
+#       - name: Install Node.js        
+#         uses: actions/setup-node@v1        
+#         with:          
+#           node-version: '18.x'
+#       - name: Install dependencies
+#         run: npm ci      
+#       - name: Install Gatsby CLI        
+#         run: npm install -g gatsby-cli
+#       - name: Build        
+#         run: gatsby build            
+#       - name: Verify build        
+#         run: ls -la public
+

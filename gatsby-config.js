@@ -2,7 +2,7 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
-    pathPrefix: "/aifu",
+    // pathPrefix: "/aifu",
     siteMetadata: {
       title: `AIFU`,
       siteUrl: `https://aifu.shantam.io`

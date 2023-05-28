@@ -2,9 +2,10 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
+    pathPrefix: "/aifu",
     siteMetadata: {
-      title: `dummy`,
-      siteUrl: `https://www.yourdomain.tld`
+      title: `AIFU`,
+      siteUrl: `https://aifu.shantam.io`
     },
     plugins: [{
       resolve: 'gatsby-source-filesystem',

@@ -1,4 +1,4 @@
-import { Grid, Button, Slide, Card, CardActionArea, CardContent, Container, Typography, CardMedia, Chip } from '@mui/material';
+import { Grid, Button, Badge, Slide, Card, CardActionArea, CardContent, Container, Typography, CardMedia, Chip, CardHeader } from '@mui/material';
 import * as React from 'react';
 import { useState } from 'react';
 import countriesyaml from './countries.yaml';
@@ -62,7 +62,13 @@ const CountryGrid = () => {
       {cards.map((item) => (
         <Grid item xs={12} sm={6} md={4} xl={3} style={{display: 'flex'}}>
            <Slide direction="up" in={true} timeout={500}>
-          <Card variant="outlined" sx={{width: "100%"}}>
+         
+          <Card variant="outlined" sx={{width: "100%"}} >
+            {/* <CardHeader title={
+            <Badge badgeContent={item.wip? "WIP": ""} anchorOrigin='right' variant="WIP" color="secondary" />
+             
+          } /> */}
+          
           <CardActionArea sx={{p:1}} component={Link} to={item.url}>
             <CardMedia style={{ backgroundSize: "contain" }} sx={{ height: 175 }} image={item.flag} />
             <CardContent>
@@ -74,10 +80,11 @@ const CountryGrid = () => {
               </Typography>
               
               <Chip color="warning" label={"# known cases"}/>
- 
+             
             </CardContent>
             </CardActionArea>
           </Card>
+         
           </Slide>
         </Grid>
       ))}

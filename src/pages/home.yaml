@@ -15,6 +15,7 @@ project_entries:
   - title: USA
     url: us-united-states
     flag: https://hatscripts.github.io/circle-flags/flags/us.svg
+    wip: true
     # desc: This is an example project, configured in _data/home.yml
 
   - title: China

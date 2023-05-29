@@ -34,16 +34,16 @@ export default function Index() {
     <CssBaseline />
     <Appbar />
     <Main />
-        <Link to="/about" color="secondary">
+        {/* <Link to="/about" color="secondary">
           Go to the about page
         </Link>
-        <br></br>
+        <br></br> */}
         {/* <ProTip /> */}
         {/* <Album /> */}
-        <Link to="/appshell" color="secondary">
+        {/* <Link to="/appshell" color="secondary">
           appshell
         </Link>
-        <br></br>
+        <br></br> */}
         <CountryGrid />
         {/* <MyComponent /> */}
         {/* <SubmitArticle /> */}

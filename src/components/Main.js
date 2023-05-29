@@ -17,6 +17,7 @@ import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import ReactMarkdown from 'react-markdown';
+import SubmissionFormWithCountry from './SubmitWithCountry';
 const markdown = `
 # Algorithmic or AI Fuck Ups
 
@@ -28,6 +29,7 @@ AIFU is a one stop solution for researchers and anyone looking for a place to le
 * Go to the country of the concerned article/news.
 * Enter the article, organization and other details you could discern (you see an example when you go to the country)
 * Press \`Submit\`
+* If the country you want to submit for is not in the list below, then use the form below -
 `;
 
 export default function Main() {
@@ -65,6 +67,7 @@ Steps -
 
             </Typography> */}
             <ReactMarkdown>{markdown}</ReactMarkdown>
+            <SubmissionFormWithCountry />
             {/* <Stack
               sx={{ pt: 4 }}
               direction="row"
@@ -87,7 +90,7 @@ Steps -
                   {/* <CardMedia */}
                     {/* component="img" */}
                     {/* sx={{ */}
-                      // 16:9
+                      {/*// 16:9*/}
                       {/* pt: '56.25%', */}
                     {/* }} */}
                     {/* image="https://source.unsplash.com/random" */}

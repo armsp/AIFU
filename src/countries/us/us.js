@@ -18,7 +18,19 @@ import InfoIcon from '@mui/icons-material/Info';
 import CustomSnackbar from '../../components/MySnackbar';
 import Appbar from '../../components/Appbar';
 import Footer2 from '../../components/Footer2';
-
+const data = {
+  "Affected Group": "",
+  "Who developed the model/AI system?": "",
+  "How and where was it deployed?": "",
+  "What was its effect?": "",
+  "Did the state/party accept their error?": "",
+  "Were there compensations/apologies made?": "",
+  "Did they address the issue through any legislation and (or) regulation?": "",
+  "Where there any regulations & legislation already in place that still failed to prevent this?": "",
+  "Did something similar happen again? Why?": "",
+  "Are there any legislations in the making to address something like this?": "",
+  "Were there any legislations that got blocked? Why? What were the arguements? Who blocked it?": ""
+}
 const showTable = () =>{
   let tableName = "usa";
   fetch('https://aifuv2.eastus.azurecontainer.io/records?'+ new URLSearchParams({
@@ -81,40 +93,41 @@ export default function Usa() {
     }
     fetchData();
   }, []);
-console.log(Chart);
+// console.log(Chart);
     return(
         <>
         <CssBaseline />
         <Appbar />
-        header
-        submit from
-        table/Accordion
-        footer
         <SubmitArticle />
-        <Button variant="contained" onClick={handleButtonClick}>
-        Show Snackbar
-      </Button>
 
-      {showSnackbar && (<CustomSnackbar
-        message="This is a custom snackbar"
-        color="success"
-        icon={<InfoIcon/>}
-        duration={3000}
-        position={{ vertical: 'top', horizontal: 'center' }}
-        onClose={handleSnackbarClose}
-        open={showSnackbar}
-      />)}
-        <SubmissionForm />
-        {/* <Chart /> */}
-        <Card sx={{display: 'flex',flexShrink:1,
-  justifyContent: 'center',
-  alignItems: 'center',
-  height: '300px',}}>
+        {/* the snackbar works! just uncomment it... */}
+        {/* <Button variant="contained" onClick={handleButtonClick}>
+        Show Snackbar
+        </Button>
+        {showSnackbar && (<CustomSnackbar
+          message="This is a custom snackbar"
+          color="success"
+          icon={<InfoIcon/>}
+          duration={3000}
+          position={{ vertical: 'top', horizontal: 'center' }}
+          onClose={handleSnackbarClose}
+          open={showSnackbar}
+        />)} */}
+
+        {/* vega chart works!! */}
+        {/* <Card sx={{display: 'flex',flexShrink:1,
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '300px',}}>
         <Vega spec={Chart} signalListeners={signalListeners} />
-        </Card>
-        {/* <Chart2 /> */}
-        <CollapsibleTable collapseOthers={false}/>
-        <VCollapsibleTable />
+        </Card> */}
+
+        {loading ? (<CircularProgress />): data["records"].length > 0 ? (<CollapsibleTable collapseOthers={false} data={data["records"]} /> ) : (
+    <p>No data found.</p>
+  )} 
+
+        {/* have not been able to get the virtuoso table working so far...
+        <VCollapsibleTable /> */}
         {/* <TableContainer component={Paper}>
       <Table>
         <TableHead>
@@ -135,7 +148,9 @@ console.log(Chart);
         </TableBody>
       </Table>
     </TableContainer> */}
-    {loading ? (
+
+
+    {/* {loading ? (
         <CircularProgress />
       ) : data["records"].length > 0 ? (
     <TableContainer component={Paper}>
@@ -158,82 +173,12 @@ console.log(Chart);
         </TableBody>
       </Table>
     </TableContainer>
-) : (
-  <p>No data found.</p>
-)}
-        <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1bh-content"
-          id="panel1bh-header"
-        >
-          <Typography sx={{ width: '33%', flexShrink: 0 }}>
-            General settings
-          </Typography>
-          <Typography sx={{ color: 'text.secondary' }}>I am an accordion</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat.
-            Aliquam eget maximus est, id dignissim quam.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2bh-content"
-          id="panel2bh-header"
-        >
-          <Typography sx={{ width: '33%', flexShrink: 0 }}>Users</Typography>
-          <Typography sx={{ color: 'text.secondary' }}>
-            You are currently not an owner
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus,
-            varius pulvinar diam eros in elit. Pellentesque convallis laoreet
-            laoreet.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel3bh-content"
-          id="panel3bh-header"
-        >
-          <Typography sx={{ width: '33%', flexShrink: 0 }}>
-            Advanced settings
-          </Typography>
-          <Typography sx={{ color: 'text.secondary' }}>
-            Filtering has been entirely disabled for whole web server
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit
-            amet egestas eros, vitae egestas augue. Duis vel est augue.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel4bh-content"
-          id="panel4bh-header"
-        >
-          <Typography sx={{ width: '33%', flexShrink: 0 }}>Personal data</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit
-            amet egestas eros, vitae egestas augue. Duis vel est augue.
-          </Typography>
-        </AccordionDetails>
-        </Accordion>
-        <Footer2 />
-        </>
-        )
+  ) : (
+    <p>No data found.</p>
+  )} */}
+     
+    {/* #TODO footer needs to stick to the bottom of the viewport */}
+    <Footer2 />
+    </>
+  )
 }

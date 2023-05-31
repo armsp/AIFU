@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import CustomSnackbar from './MySnackbar';
 import InfoIcon from '@mui/icons-material/Info';
 
-const SubmissionForm = () => {
+const SubmissionForm = ({tablename}) => {
   const [loading, setLoading] = useState(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
@@ -19,6 +19,7 @@ const SubmissionForm = () => {
   
     const formData = new FormData(e.target);
     const requestBody = Object.fromEntries(formData.entries());
+    requestBody.table = tablename;
     console.log(formData);
     console.log(requestBody);
     try {

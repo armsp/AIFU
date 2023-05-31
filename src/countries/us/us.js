@@ -102,7 +102,7 @@ export default function Usa() {
         <Container sx={{ flex: '1 0 auto' }} maxWidth="xxl">
         {/* <Box sx={{ flex: '1 0 auto' }} maxWidth="md"> */}
         {/* <SubmitArticle /> */}
-        <SubmissionForm />
+        <SubmissionForm tablename={"usa"} />
 
         {/* the snackbar works! just uncomment it... */}
         {/* <Button variant="contained" onClick={handleButtonClick}>

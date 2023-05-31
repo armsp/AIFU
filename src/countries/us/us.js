@@ -7,7 +7,7 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { TableContainer, Table, TableHead, TableRow, TableCell, TableBody, Paper, CircularProgress  } from "@mui/material";
+import { Box, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, Paper, CircularProgress  } from "@mui/material";
 import CollapsibleTable from '../../components/CollapsibleTable';
 import VCollapsibleTable from '../../components/VTable';
 import SubmissionForm from '../../components/Submit';
@@ -95,10 +95,14 @@ export default function Usa() {
   }, []);
 // console.log(Chart);
     return(
-        <>
+      <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        
         <CssBaseline />
         <Appbar />
-        <SubmitArticle />
+        <Container sx={{ flex: '1 0 auto' }} maxWidth="xxl">
+        {/* <Box sx={{ flex: '1 0 auto' }} maxWidth="md"> */}
+        {/* <SubmitArticle /> */}
+        <SubmissionForm />
 
         {/* the snackbar works! just uncomment it... */}
         {/* <Button variant="contained" onClick={handleButtonClick}>
@@ -178,7 +182,11 @@ export default function Usa() {
   )} */}
      
     {/* #TODO footer needs to stick to the bottom of the viewport */}
+    {/* </Box> */}
+    </Container>
+    {/* <Box sx={{ flex: '0 0 auto' }}> */}
     <Footer2 />
-    </>
+    {/* </Box> */}
+    </Box>
   )
 }

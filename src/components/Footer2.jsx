@@ -22,7 +22,7 @@ function Footer() {
       <div className="footer-middle">
         <ul>
           <li>
-            <a href="#">About</a>
+            <a href="https://github.com/armsp/AIFU#readme">About</a>
           </li>
           <li>
             <a href="#">Blog</a>

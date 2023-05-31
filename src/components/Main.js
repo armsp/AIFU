@@ -44,7 +44,7 @@ export default function Main() {
           }}
         >
           <Container maxWidth="md">
-            <Typography
+            {/* <Typography
               component="h2"
               variant="h2"
               align="center"
@@ -52,7 +52,7 @@ export default function Main() {
               gutterBottom
             >
               AIFU
-            </Typography>
+            </Typography> */}
             {/* <Typography variant="h5" align="left" color="text.secondary" paragraph>
             Algorithmic or AI Fuck Ups
 

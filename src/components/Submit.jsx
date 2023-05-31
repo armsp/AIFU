@@ -1,106 +1,184 @@
-import * as React from 'react';
+import React, { useState } from 'react';
+import { Button, Snackbar } from '@mui/material';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import CustomSnackbar from './MySnackbar';
+import InfoIcon from '@mui/icons-material/Info';
 
 const SubmissionForm = () => {
+  const [loading, setLoading] = useState(false);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState('');
+  const [snackbarSeverity, setSnackbarSeverity] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+  
+    const formData = new FormData(e.target);
+    const requestBody = Object.fromEntries(formData.entries());
+    console.log(formData);
+    console.log(requestBody);
+    try {
+      const response = await fetch('https://aifuv2.eastus.azurecontainer.io/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Origin': 'https://aifu.shantam.io'
+        },
+        body: JSON.stringify(requestBody),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Request failed');
+      }
+  
+      setLoading(false);
+      handleSnackbarOpen('success', 'Your data has been submitted.');
+  
+      // Clear form fields
+      e.target.reset();
+    } catch (error) {
+      setLoading(false);
+      handleSnackbarOpen('error', 'Something went wrong. Please try again.');
+  
+      console.error(error);
+    }
+  };
+  
+
+  const handleSnackbarOpen = (severity, message) => {
+    setSnackbarSeverity(severity);
+    setSnackbarMessage(message);
+    setSnackbarOpen(true);
+  };
+
+  const handleSnackbarClose = () => {
+    setSnackbarOpen(false);
+  };
   return (
-      
-    
-          <Box sx={{ mt: 4, mb: 4, border: '1px solid #ccc', borderRadius: 4, p: 2 }}>
-            <Typography variant="h5" sx={{ mb: 2 }}>
-        Submit Your Article
-      </Typography>
-            <Grid container spacing={2}>
-              <Grid item xs={12} md={6}>
-                <Typography variant="h6" gutterBottom>
-                  Required Fields
-                </Typography>
-                <Box sx={{ borderRight: 1, borderColor: 'divider' }}>
-                  <Grid container spacing={2}>
-                    <Grid item xs={12}>
-                      <TextField
-                        required
-                        id="article"
-                        name="article"
-                        label="Article"
-                        fullWidth
-                      />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <TextField
-                        required
-                        id="url"
-                        name="url"
-                        label="URL"
-                        fullWidth
-                      />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <TextField
-                        required
-                        id="media-org"
-                        name="media-org"
-                        label="Media Org"
-                        fullWidth
-                      />
-                    </Grid>
-                  </Grid>
-                </Box>
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <Typography variant="h6" gutterBottom>
-                  Optional Fields
-                </Typography>
+        <Box sx={{ mt: 4, mb: 4, border: '1px solid #ccc', borderRadius: 4, p: 2 }} maxWidth="lg" 
+        // display="flex"
+        // justifyContent="center"
+        // alignItems="center"
+        // alignSelf="center"
+        component="form" onSubmit={handleSubmit}
+        >
+          <Typography variant="h5" sx={{ mb: 2 }}>
+            Your Submission
+          </Typography>
+          <Grid container spacing={2}>
+            <Grid item xs={12} md={6}>
+              <Typography variant="h6" gutterBottom>
+                Required Fields
+              </Typography>
+              <Box>
                 <Grid container spacing={2}>
                   <Grid item xs={12}>
                     <TextField
-                      id="name"
-                      name="name"
-                      label="Your Name"
+                      required
+                      id="article"
+                      name="article"
+                      label="Article"
                       fullWidth
                     />
                   </Grid>
                   <Grid item xs={12}>
                     <TextField
-                      id="twitter"
-                      name="twitter"
-                      label="Twitter"
+                      required
+                      id="url"
+                      name="url"
+                      label="URL"
                       fullWidth
                     />
                   </Grid>
                   <Grid item xs={12}>
                     <TextField
-                      id="github"
-                      name="github"
-                      label="GitHub"
-                      fullWidth
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextField
-                      id="research-gate"
-                      name="research-gate"
-                      label="ResearchGate"
-                      fullWidth
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextField
-                      id="email"
-                      name="email"
-                      label="Email"
+                      required
+                      id="media-org"
+                      name="media-org"
+                      label="Media Org"
                       fullWidth
                     />
                   </Grid>
                 </Grid>
-              </Grid>
+              </Box>
             </Grid>
+
+            <Grid item xs={12} md={6}>
+              <Typography variant="h6" gutterBottom>
+                Optional Fields
+              </Typography>
+              <Box  maxWidth="xs">
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <TextField
+                    id="name"
+                    name="name"
+                    label="Your Name"
+                    fullWidth
+                  />
+                </Grid>
+                {/* <Grid item xs={12}>
+                  <TextField
+                    id="twitter"
+                    name="twitter"
+                    label="Twitter"
+                    fullWidth
+                  />
+                </Grid> */}
+                <Grid item xs={12}>
+                  <TextField
+                    id="github"
+                    name="github"
+                    label="GitHub"
+                    fullWidth
+                  />
+                </Grid>
+                {/* <Grid item xs={12}>
+                  <TextField
+                    id="research-gate"
+                    name="research-gate"
+                    label="ResearchGate"
+                    fullWidth
+                  />
+                </Grid> */}
+                <Grid item xs={12}>
+                  <TextField
+                    id="email"
+                    name="email"
+                    label="Email"
+                    fullWidth
+                  />
+                </Grid>
+              </Grid>
+              </Box>
+            </Grid>
+          </Grid>
       
       <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 2 }}>
-        <Button variant="contained">Submit</Button>
+        <Button type="submit" variant="contained" disabled={loading}>
+          {loading ? 'Submitting...' : 'Submit'}
+        </Button>
+        {/* <Snackbar
+          open={snackbarOpen}
+          autoHideDuration={6000}
+          onClose={handleSnackbarClose}
+          severity={snackbarSeverity}
+          message={snackbarMessage}
+        /> */}
+         {snackbarOpen && (<CustomSnackbar
+          message={snackbarMessage}
+          severity={snackbarSeverity}
+          color={snackbarSeverity}
+          icon={<InfoIcon/>}
+          duration={3000}
+          position={{ vertical: 'top', horizontal: 'center' }}
+          onClose={handleSnackbarClose}
+          open={snackbarOpen}
+        />)} 
       </Box>
     </Box>
   );

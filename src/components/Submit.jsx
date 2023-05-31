@@ -98,8 +98,8 @@ const SubmissionForm = ({tablename}) => {
                   <Grid item xs={12}>
                     <TextField
                       required
-                      id="media-org"
-                      name="media-org"
+                      id="media_org"
+                      name="media_org"
                       label="Media Org"
                       fullWidth
                     />

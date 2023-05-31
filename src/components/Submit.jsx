@@ -35,9 +35,23 @@ const SubmissionForm = ({tablename}) => {
       if (!response.ok) {
         throw new Error('Request failed');
       }
-  
+      const responseData = await response.json();
       setLoading(false);
-      handleSnackbarOpen('success', 'Your data has been submitted.');
+
+      const successMessage = 'Your data has been submitted.';
+      const successLink = responseData['Issue URL'];
+
+      handleSnackbarOpen('success', (
+        <>
+          {successMessage}
+          <br />
+          Visit the link to view the status of your submission:
+          {' '}
+          <a href={successLink} target="_blank" rel="noopener noreferrer">
+            {successLink}
+          </a>
+        </>
+      ));
   
       // Clear form fields
       e.target.reset();

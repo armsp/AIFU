@@ -33,7 +33,7 @@ const CountryGrid = () => {
     setTimeout(() => {
       setCards(sortedCards);
       setInTransition(false);
-    }, 500); // Adjust the duration as needed
+    }, 50); // Adjust the duration as needed
   };
   return (
     <Container maxWidth="lg">
@@ -58,17 +58,18 @@ const CountryGrid = () => {
           </Card>
         </Grid>
       ))} */}
-
+{cards.map((item) => (console.log(item)))}
       {cards.map((item) => (
+        
         <Grid item xs={12} sm={6} md={4} xl={3} style={{display: 'flex'}}>
            <Slide direction="up" in={true} timeout={500}>
-         
+           {/* <Badge color="error" badgeContent="WIP" anchorOrigin={{ vertical: 'top', horizontal: 'right' }} invisible={!item.wip}> */}
           <Card variant="outlined" sx={{width: "100%"}} >
             {/* <CardHeader title={
             <Badge badgeContent={item.wip? "WIP": ""} anchorOrigin='right' variant="WIP" color="secondary" />
              
           } /> */}
-          
+                      {/* <Badge color="error" badgeContent="WIP" anchorOrigin={{ vertical: 'top', horizontal: 'right' }} invisible={!item.wip}> */}
           <CardActionArea sx={{p:1}} component={Link} to={item.url}>
             <CardMedia style={{ backgroundSize: "contain" }} sx={{ height: 175 }} image={item.flag} />
             <CardContent>
@@ -79,12 +80,15 @@ const CountryGrid = () => {
                 {item.url}
               </Typography>
               
-              <Chip color="warning" label={"# known cases"}/>
+              <Chip color="warning" label={item.reports?`${item.reports} known cases`:"No known cases"}/>
+              {/* <Chip color="warning" label={ }/> */}
              
             </CardContent>
             </CardActionArea>
+           
+            {/* </Badge> */}
           </Card>
-         
+         {/* </Badge> */}
           </Slide>
         </Grid>
       ))}

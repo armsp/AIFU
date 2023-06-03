@@ -1,15 +1,17 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Autocomplete from '@mui/material/Autocomplete';
+import CustomSnackbar from './MySnackbar';
+import InfoIcon from '@mui/icons-material/Info';
 
-function CountrySelect() {
+function CountrySelect(props) {
   return (
     <Autocomplete
-      id="country-select-demo"
+      id="country-select"
       sx={{ width: 300 }}
       options={countries}
       autoHighlight
@@ -29,6 +31,7 @@ function CountrySelect() {
       renderInput={(params) => (
         <TextField
           {...params}
+          {...props}
           label="Choose a country"
           inputProps={{
             ...params.inputProps,
@@ -466,10 +469,75 @@ const countries = [
   { code: 'ZW', label: 'Zimbabwe', phone: '263' },
 ];
 const SubmissionFormWithCountry = () => {
+  const [loading, setLoading] = useState(false);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState('');
+  const [snackbarSeverity, setSnackbarSeverity] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+  
+    const formData = new FormData(e.target);
+    const requestBody = Object.fromEntries(formData.entries());
+    // requestBody.table = tablename;
+    console.log(formData);
+    console.log(requestBody);
+    try {
+      const response = await fetch('https://aifuv2.eastus.azurecontainer.io/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Origin': 'https://aifu.shantam.io'
+        },
+        body: JSON.stringify(requestBody),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Request failed');
+      }
+      const responseData = await response.json();
+      setLoading(false);
+
+      const successMessage = 'Your data has been submitted.';
+      const successLink = responseData['Issue URL'];
+
+      handleSnackbarOpen('success', (
+        <>
+          {successMessage}
+          <br />
+          Visit the link to view the status of your submission:
+          {' '}
+          <a href={successLink} target="_blank" rel="noopener noreferrer">
+            {successLink}
+          </a>
+        </>
+      ));
+  
+      // Clear form fields
+      e.target.reset();
+    } catch (error) {
+      setLoading(false);
+      handleSnackbarOpen('error', 'Something went wrong. Please try again.');
+  
+      console.error(error);
+    }
+  };
+  
+
+  const handleSnackbarOpen = (severity, message) => {
+    setSnackbarSeverity(severity);
+    setSnackbarMessage(message);
+    setSnackbarOpen(true);
+  };
+
+  const handleSnackbarClose = () => {
+    setSnackbarOpen(false);
+  };
   return (
       
     
-          <Box sx={{ mt: 4, mb: 4, border: '1px solid #ccc', borderRadius: 4, p: 2 }}>
+          <Box sx={{ mt: 4, mb: 4, border: '1px solid #ccc', borderRadius: 4, p: 2 }} component="form" onSubmit={handleSubmit}>
             <Typography variant="h5" sx={{ mb: 2 }}>
         Submit Your Article
       </Typography>
@@ -508,7 +576,11 @@ const SubmissionFormWithCountry = () => {
                       />
                     </Grid>
                     <Grid item xs={12}>
-                        <CountrySelect />
+                        <CountrySelect required
+                        id="country"
+                        name="tablename"
+                        label="country"
+                        fullWidth/>
                     </Grid>
                   </Grid>
                 </Box>
@@ -526,14 +598,14 @@ const SubmissionFormWithCountry = () => {
                       fullWidth
                     />
                   </Grid>
-                  <Grid item xs={12}>
+                  {/* <Grid item xs={12}>
                     <TextField
                       id="twitter"
                       name="twitter"
                       label="Twitter"
                       fullWidth
                     />
-                  </Grid>
+                  </Grid> */}
                   <Grid item xs={12}>
                     <TextField
                       id="github"
@@ -563,7 +635,19 @@ const SubmissionFormWithCountry = () => {
             </Grid>
       
       <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 2 }}>
-        <Button variant="contained">Submit</Button>
+        <Button type="submit" variant="contained" disabled={loading}>
+          {loading ? 'Submitting...' : 'Submit'}
+        </Button>
+        {snackbarOpen && (<CustomSnackbar
+          message={snackbarMessage}
+          severity={snackbarSeverity}
+          color={snackbarSeverity}
+          icon={<InfoIcon/>}
+          duration={3000}
+          position={{ vertical: 'top', horizontal: 'center' }}
+          onClose={handleSnackbarClose}
+          open={snackbarOpen}
+        />)} 
       </Box>
     </Box>
   );

@@ -1,121 +1,125 @@
 countries:
   - title: USA
-    url: "/us/"
+    url: "/us"
     flag: https://hatscripts.github.io/circle-flags/flags/us.svg
+    wip: true
+    reports: 1
     # desc: This is an example project, configured in _data/home.yml
 
   - title: China
-    url: cn-china
+    url: /cn
     flag: https://hatscripts.github.io/circle-flags/flags/cn.svg
+    highlight: WIP
+    reports: 0
     # desc: This is an example project, configured in _data/home.yml  
 
   - title: Japan
-    url: jp-japan
+    url: /jp
     flag: https://hatscripts.github.io/circle-flags/flags/jp.svg
     # desc: This is an example project, configured in _data/home.yml
 
   - title: India
-    url: in-india
+    url: /in
     flag: https://hatscripts.github.io/circle-flags/flags/in.svg
     # desc: Projects are shown in card layout
 
   - title: Switzerland
-    url: ch-switzerland
+    url: /ch
     flag: https://hatscripts.github.io/circle-flags/flags/ch.svg
     # desc: You can control visibility from _config.yml file
 
   - title: Greece
-    url: gr-greece
+    url: /gr
     flag: https://hatscripts.github.io/circle-flags/flags/gr.svg
     # desc: This project uses highlight markup, configured in _data/home.yml
     highlight: WIP
 
   - title: Germany
-    url: de-germany
+    url: /de
     flag: https://hatscripts.github.io/circle-flags/flags/de.svg
     # desc: Moonwalk also has horizontal list (used in header and footer)
     highlight: WIP
 
   - title: UK
-    url: gb-united-kingdom
+    url: /gb
     flag: https://hatscripts.github.io/circle-flags/flags/gb.svg
     # desc: It also has a scalable vertical list (in case you need it)
   
   - title: South Korea
-    url: "kr"
+    url: "/kr"
     flag: "https://hatscripts.github.io/circle-flags/flags/kr.svg"
 
   - title: Israel
-    url: "il"
+    url: "/il"
     flag: "https://hatscripts.github.io/circle-flags/flags/il.svg"
 
 
   - title: Sweden
-    url: "se"
+    url: "/se"
     flag: "https://hatscripts.github.io/circle-flags/flags/se.svg"
 
   - title: Singapore
-    url: "sg"
+    url: "/sg"
     flag: "https://hatscripts.github.io/circle-flags/flags/sg.svg"
 
   - title: Finland
-    url: "fi"
+    url: "/fi"
     flag: "https://hatscripts.github.io/circle-flags/flags/fi.svg"
 
   - title: Netherlands
-    url: "nl"
+    url: "/nl"
     flag: "https://hatscripts.github.io/circle-flags/flags/nl.svg"
 
   - title: Canada
-    url: "ca"
+    url: "/ca"
     flag: "https://hatscripts.github.io/circle-flags/flags/ca.svg"
 
   - title: Australia
-    url: "au"
+    url: "/au"
     flag: "https://hatscripts.github.io/circle-flags/flags/au.svg"
 
   - title: France
-    url: "fr"
+    url: "/fr"
     flag: "https://hatscripts.github.io/circle-flags/flags/fr.svg"
 
 
 
   - title: Norway
-    url: "no"
+    url: "/no"
     flag: "https://hatscripts.github.io/circle-flags/flags/no.svg"
 
   - title: Denmark
-    url: "dk"
+    url: "/dk"
     flag: "https://hatscripts.github.io/circle-flags/flags/dk.svg"
 
   - title: Belgium
-    url: "be"
+    url: "/be"
     flag: "https://hatscripts.github.io/circle-flags/flags/be.svg"
 
   - title: Austria
-    url: "at"
+    url: "/at"
     flag: "https://hatscripts.github.io/circle-flags/flags/at.svg"
 
   - title: New Zealand
-    url: "nz"
+    url: "/nz"
     flag: "https://hatscripts.github.io/circle-flags/flags/nz.svg"
     
   - title: UAE
-    url: ae
+    url: /ae
     flag: https://hatscripts.github.io/circle-flags/flags/ae.svg
 
   - title: Qatar
-    url: qa
+    url: /qa
     flag: https://hatscripts.github.io/circle-flags/flags/qa.svg
 
   - title: Hong Kong
-    url: hk
+    url: /hk
     flag: https://hatscripts.github.io/circle-flags/flags/hk.svg
 
   - title: Russia
-    url: ru
+    url: /ru
     flag: https://hatscripts.github.io/circle-flags/flags/ru.svg
 
   - title: Taiwan
-    url: tw
+    url: /tw
     flag: https://hatscripts.github.io/circle-flags/flags/tw.svg

@@ -578,7 +578,7 @@ const SubmissionFormWithCountry = () => {
                     <Grid item xs={12}>
                         <CountrySelect required
                         id="country"
-                        name="tablename"
+                        name="table"
                         label="country"
                         fullWidth/>
                     </Grid>

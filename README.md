@@ -66,6 +66,7 @@ Steps -
 - [ ] Whats the best way to show more detailed information about the issue?
 - [ ] How can users request for snapshots if the article link is down?
 - [ ] Caching of DB reuests for countries as well as the whole dataset
+- [ ] Testimonial Page : If you found this useful or if it helped you in your work or if you used the informaiton here to do somehting then I would love to hear from you.
 
 ## Change Log
  * Frontend Tech Stack - React, gatsby, vega-lite, MUIv5
@@ -74,4 +75,4 @@ Steps -
 
 ## Decision Log
 
-**Clock** - 36 hrs
+**Clock** - 37 hrs

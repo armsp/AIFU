@@ -16,9 +16,11 @@ import {
   Chip,
   List,
   ListItem,
-  ListItemText
+  ListItemText,
+  Divider
 } from '@mui/material';
 import { KeyboardArrowDown, KeyboardArrowUp } from '@mui/icons-material';
+import AnswerMe from './AnswerMe';
 const moredata = [
   {"Affected Group": {"A": "the affected group", "tag": ["GPT 3.5", "human"]}},
   {"Who developed the model/AI system?": {"A": "some contractor", "tag": ["GPT 3.5", "human"]}},
@@ -76,20 +78,43 @@ const Row = React.memo((props) => {
           <strong>{Object.keys(item)[0]}:</strong> {Object.values(item)[0]}
         </Typography>
       ))} */}
-      <List dense>
+      <List >
         {
-          moredata.map((item, index) => (
+          moredata.map((item, index) => ([
 
-          <ListItem key={index} secondaryAction={ Object.values(item)[0].tag.map(who => (
-            // console.log(Object.values(item)[0].tag)
-            <Chip label={who} />
-          ))}>
+          <ListItem key={index} 
+          // primaryAction={ 
+          //   Object.values(item)[0].tag.map(who => (
+          //   <Chip label={who} />
+          //   ))
+          // }
+
+          >
+
             <ListItemText
               primary={<strong>{Object.keys(item)[0]}</strong>}
-              secondary={Object.values(item)[0].A}
+              secondary={
+                <>
+                {Object.values(item)[0].A}
+                {"  "}
+                { Object.values(item)[0].tag.map(who => (
+                  <Chip label={who} color="info" sx={{borderRadius: 1}} size="small"  variant="inset" component="span" />))
+                }
+                </>
+              }
             />
-          </ListItem>
+            
+            <AnswerMe question={Object.keys(item)[0]} answer={Object.values(item)[0].A} />
+            {/* <>{   Object.values(item)[0].tag.map(who => (
+             <Chip label={who} />
+             ))}</> */}
+
+          </ListItem>,
+          // <Divider variant="inset" component="li" />,
+          <Divider />
+        ]
         ))}
+              
       </List>
               {/* <Paper elevation={4}>
                 <Box p={2}>

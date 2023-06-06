@@ -14,8 +14,8 @@ const styles = {
 export default function Appbar() {
     return (
       
-        <AppBar position="static" maxWidth="md" elevation={0} sx={{ backgroundColor: 'white', color: 'darkgrey', borderBottom: '3px solid #ccc', }}>
-          <Toolbar maxWidth="md"  sx={{
+        <AppBar position="static" elevation={0} sx={{ backgroundColor: 'white', color: 'darkgrey', borderBottom: '3px solid #ccc', }}>
+          <Toolbar  sx={{
       width: "100%",
       maxWidth: 1200,
       mx: "auto"

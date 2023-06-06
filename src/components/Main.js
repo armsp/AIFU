@@ -19,7 +19,7 @@ import "/node_modules/flag-icons/css/flag-icons.min.css";
 import ReactMarkdown from 'react-markdown';
 import SubmissionFormWithCountry from './SubmitWithCountry';
 const markdown = `
-# Algorithmic or AI Fuck Ups
+# AI Fuck Ups
 
 AIFU is a one stop solution for researchers and anyone looking for a place to learn about the repercussions of using Algorithms and AI blatantly, too soon, indiscriminately, harmfully.
 

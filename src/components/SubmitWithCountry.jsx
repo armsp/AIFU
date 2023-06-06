@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Box from '@mui/material/Box';
+import {Box, Divider} from '@mui/material';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -630,10 +630,10 @@ const SubmissionFormWithCountry = () => {
                       fullWidth
                     />
                   </Grid>
-                </Grid>
-              </Grid>
-            </Grid>
-      
+                  {/* </Grid> */}
+
+            <Grid item xs={12}>
+              <Divider />
       <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 2 }}>
         <Button type="submit" variant="contained" disabled={loading}>
           {loading ? 'Submitting...' : 'Submit'}
@@ -649,6 +649,11 @@ const SubmissionFormWithCountry = () => {
           open={snackbarOpen}
         />)} 
       </Box>
+              </Grid>
+            </Grid>
+            </Grid>
+            </Grid>
+
     </Box>
   );
 };

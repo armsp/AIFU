@@ -43,6 +43,7 @@ Steps -
   * Were there any legislations that got blocked? Why? What were the arguements? Who blocked it?
  
 - [ ] Provide an API or ability to download the whole dataset we are curating so that others could it for other purposes.
+- [ ] Filepond? securedrop?
 
 
 ## Technical Workflow

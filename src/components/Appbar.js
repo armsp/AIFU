@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Box from '@mui/material/Box'
+import { Box, Button} from '@mui/material'
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -14,7 +14,7 @@ const styles = {
 export default function Appbar() {
     return (
       
-        <AppBar position="static" elevation={0} sx={{ backgroundColor: 'white', color: 'darkgrey', borderBottom: '3px solid #ccc', }}>
+        <AppBar position="static" elevation={0} sx={{ backgroundColor: 'white', color: 'black', borderBottom: '3px solid #ccc', }}>
           <Toolbar  sx={{
       width: "100%",
       maxWidth: 1200,
@@ -36,9 +36,23 @@ export default function Appbar() {
             {/* <CameraIcon sx={{ mr: 2 }} /> */}
             
             {/* <img src={AIFU} alt="React Logo" /> */}
-            <Typography variant="h6" color="inherit" noWrap>
+            <Typography variant="h5" color="inherit"  sx={{
+              mr: 2,
+              // display: { xs: 'flex', md: 'none' },
+              // flexGrow: 1,
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              // letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+            noWrap>
               AIFU
             </Typography>
+            <Box sx={{ flexGrow: 1 }} />
+  
+            <Button color="inherit">About</Button>
+            {/* <Button color="inherit">Testimonials</Button> */}
           </Toolbar>
         </AppBar>
     )

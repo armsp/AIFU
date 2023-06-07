@@ -81,7 +81,7 @@ export default function AnswerMe({question, answer}){
                 label="Answer"
                 size="small"
                 // component="form"
-                // sx={{px:2}}
+                sx={{ flexGrow:1 }}
             />
             {/* <Box onSubmit={handleSubmit} sx={{ display: 'flex', justifyContent: 'flex-end', mt: 2 }}> */}
             <Button type="submit"  variant="contained"  size="small" disabled={loading}>

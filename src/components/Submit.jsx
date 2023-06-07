@@ -75,10 +75,12 @@ const SubmissionForm = ({tablename}) => {
   };
   return (
         <Box sx={{ mt: 4, mb: 4, border: '1px solid #ccc', borderRadius: 4, p: 2 }} maxWidth="lg" 
-        // display="flex"
+        display="flex"
+        flexDirection="column"
         // justifyContent="center"
         // alignItems="center"
         // alignSelf="center"
+        margin='auto'
         component="form" onSubmit={handleSubmit}
         >
           <Typography variant="h5" sx={{ mb: 2 }}>

@@ -18,6 +18,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import CustomSnackbar from '../../components/MySnackbar';
 import Appbar from '../../components/Appbar';
 import Footer2 from '../../components/Footer2';
+import ExportButton from '../../components/Export';
 const data = {
   "Affected Group": "",
   "Who developed the model/AI system?": "",
@@ -183,6 +184,7 @@ export default function Usa() {
      
     {/* #TODO footer needs to stick to the bottom of the viewport */}
     {/* </Box> */}
+    <ExportButton />
     </Container>
     {/* <Box sx={{ flex: '0 0 auto' }}> */}
     <Footer2 />

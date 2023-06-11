@@ -19,6 +19,8 @@ import CustomSnackbar from '../../components/MySnackbar';
 import Appbar from '../../components/Appbar';
 import Footer2 from '../../components/Footer2';
 import ExportButton from '../../components/Export';
+import FixImage from '../../images/186.png';
+
 const data = {
   "Affected Group": "",
   "Who developed the model/AI system?": "",
@@ -50,6 +52,20 @@ const showTable = () =>{
     console.error('Error:', error);
   });
 }
+const ServerErrorPage = () => {
+  return (
+    <Box sx={{ textAlign: 'center', p: 4 }}>
+      {/* <FixImage /> */}
+      <img src={FixImage} alt="Server Error" width="300" height="300" />
+      <Typography variant="h4" color="textSecondary" sx={{ mt: 4 }}>
+        Something is wrong with the server.
+      </Typography>
+      <Typography variant="body1" color="textSecondary" sx={{ mt: 2 }}>
+        We are working to fix it. Please check again later...
+      </Typography>
+    </Box>
+  );
+};
 export default function Usa() {
   const [expanded, setExpanded] = React.useState(false);
   const [data, setData] = useState([]);
@@ -95,6 +111,28 @@ export default function Usa() {
     fetchData();
   }, []);
 // console.log(Chart);
+// if (loading) {
+//   return (
+//     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+//       <CircularProgress />
+//     </Box>
+//   );
+// }
+
+// if (error || !data["records"]) {
+//   return (
+//     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', flexDirection: 'column' }}>
+//       <img src="../../images/186.png" alt="Server Error" width="200" height="200" />
+//       <Typography variant="h4" color="textSecondary" sx={{ mt: 4 }}>
+//         Something is wrong with the server.
+//       </Typography>
+//       <Typography variant="body1" color="textSecondary" sx={{ mt: 2 }}>
+//         We are working to fix it. Please check again later...
+//       </Typography>
+//     </Box>
+//   );
+// }
+
     return(
       <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         
@@ -127,9 +165,12 @@ export default function Usa() {
         <Vega spec={Chart} signalListeners={signalListeners} />
         </Card> */}
 
-        {loading ? (<CircularProgress />): data["records"].length > 0 ? (<CollapsibleTable collapseOthers={false} data={data["records"]} /> ) : (
-    <p>No data found.</p>
-  )} 
+        {
+          loading ? (<CircularProgress />): 
+            (error || !data["records"]) ? (<ServerErrorPage />): 
+              data["records"].length > 0 ? (<CollapsibleTable collapseOthers={false} data={data["records"]} /> ) : 
+                (<p>No data found.</p>)
+        } 
 
         {/* have not been able to get the virtuoso table working so far...
         <VCollapsibleTable /> */}

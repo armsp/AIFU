@@ -1,32 +1,79 @@
-# Material UI - Gatsby example
+# AIFU
 
-## How to use
+ **Algorithmic or AI fuck ups**
+ 
+AIFU is a one stop solution for researchers and anyone looking for a place to learn about the repercussions of using Algorithms and AI blatently, too soon, indiscriminately, harmfully.
 
-Download the example [or clone the repo](https://github.com/mui/material-ui):
+**How to contribute?**
 
-<!-- #default-branch-switch -->
+Steps -
+1. Go to the country of the concerned article/news.
+2. Enter the article, organization and other details you could discern (you see an example when you go to the country)
+3. Press `Submit`
 
-```sh
-curl https://codeload.github.com/mui/material-ui/tar.gz/master | tar -xz --strip=2  material-ui-master/examples/material-gatsby
-cd material-gatsby
-```
+## Outline
+1. Motivation, 
+2. Related literature, 
+3. Data, 
+4. Approach.
 
-Install it and run:
+## Features to come
 
-```sh
-npm install
-npm run develop
-```
+- [ ] automatic extraction of Affected Group
 
-## The idea behind the example
+- [ ] Automtic extraction of Perpeterator
 
-The project uses [Gatsby](https://github.com/gatsbyjs/gatsby), which is a static site generator for React.
-It includes `@mui/material` and its peer dependencies, including [Emotion](https://emotion.sh/docs/introduction), the default style engine in Material UI v5.
-If you prefer, you can [use styled-components instead](https://mui.com/material-ui/guides/interoperability/#styled-components).
+- [ ] Analysis of text (NLP) to extract the **cause** and the **effect**, short summary
 
-## What's next?
+- [ ]  Graph representations of relations
 
-<!-- #default-branch-switch -->
+- [ ] take snapshots of articles using github actions becasue articles may expire or move
+- [ ] Extracting more technical information from the links as you said in the meeting – we either do this using ChatGPT “API calls” or make our own Q&A model for:
+  * Who developed the model/AI system?
+  * How and where was it deployed?
+  * What ORG/group of people used it and how?
+  * Other technical details
+  * Its subsequent effects… 
+  * Did the state/party accept their error?
+  * Were there compensations made? Apologies?
+  * Did they address the issue in a more tangible way through any legislation/bills and (or) regulation?
+  * Where there any regulations/bills & legislation already in place that still failed to prevent this?
+  * Did something similar happen again? Why?
+  * Are there any legislations in the pipeline?
+  * Were there any legislations that got blocked? Why? What were the arguements? Who blocked it?
+ 
+- [ ] Provide an API or ability to download the whole dataset we are curating so that others could it for other purposes.
+- [ ] Filepond? securedrop?
 
-You now have a working example project.
-You can head back to the documentation, continuing browsing it from the [templates](https://mui.com/material-ui/getting-started/templates/) section.
+
+## Technical Workflow
+
+1. From the website people submit the form
+
+2. The website makes a POST request to a server that validates the input data so as to make sure that only valid data is pushed to the DB, and to avoid attacks, script executions etc.
+
+3. The server then pushes the data to the DB - perhaps after also a second human validation (can do it via Telegram bot)
+
+4. The updated DB table is reflected on the website after a few hours.
+
+## Development Activities
+- [ ] Link https://aifu.shantam.io/about to README.md
+- [ ] Form Submission: add optional entries for [GitHub, Twitter, Other(scholarly sites)] usernames
+- [ ] CSS for countries
+- [ ] Fix Home page for number of articles
+- [ ] Finish footer
+- [ ] Grey/Disable countries for which there is no information
+- [ ] Make an automatic Last Updated <date> tag like the WIP one we have
+- [ ] Whats the best way to show more detailed information about the issue?
+- [ ] How can users request for snapshots if the article link is down?
+- [ ] Caching of DB reuests for countries as well as the whole dataset
+- [ ] Testimonial Page : If you found this useful or if it helped you in your work or if you used the informaiton here to do somehting then I would love to hear from you.
+
+## Change Log
+ * Frontend Tech Stack - React, gatsby, vega-lite, MUIv5
+ * Cases are shown as tables where rows can be expanded. This is the current approach until we face performance issues.
+ * Setup a MongoDB database on Azure. Integration with Python server left.
+
+## Decision Log
+
+**Clock** - 40 hrs

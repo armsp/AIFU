@@ -21,19 +21,19 @@ import {
 } from '@mui/material';
 import { KeyboardArrowDown, KeyboardArrowUp } from '@mui/icons-material';
 import AnswerMe from './AnswerMe';
-const moredata = [
-  {"Affected Group": {"A": "the affected group", "tag": ["GPT 3.5", "human"]}},
-  {"Who developed the model/AI system?": {"A": "some contractor", "tag": ["GPT 3.5", "human"]}},
-  {"How and where was it deployed?": {"A":"xyz farm/datacenter", tag:["human"]}},
-  {"What was its effect?": {A:"bad stuff happened",tag:["GPT 4"]}},
-  {"Did the state/party accept their error?": {A:"not yet", tag:["human"]}},
-  {"Were there compensations/apologies made?": {A: "is that even a thing?", tag:["human"]}},
-  {"Did they address the issue through any legislation and (or) regulation?": {A:"very funny", tag:["human"]}},
-  {"Where there any regulations & legislation already in place that still failed to prevent this?": {A:"hahaha", tag:["human"]}},
-  {"Did something similar happen again? Why?": {A:"ofcourse",tag:["human"]}},
-  {"Are there any legislations in the making to address something like this?": {A:"parliament's not in session", tag:["human"]}},
-  {"Were there any legislations that got blocked? Why? What were the arguements? Who blocked it?": {A:"right is quite popular these days",tag:["human"]}}
-];
+// const moredata = [
+//   {"Affected Group": {"A": "the affected group", "tag": ["GPT 3.5", "human"]}},
+//   {"Who developed the model/AI system?": {"A": "some contractor", "tag": ["GPT 3.5", "human"]}},
+//   {"How and where was it deployed?": {"A":"xyz farm/datacenter", tag:["human"]}},
+//   {"What was its effect?": {A:"bad stuff happened",tag:["GPT 4"]}},
+//   {"Did the state/party accept their error?": {A:"not yet", tag:["human"]}},
+//   {"Were there compensations/apologies made?": {A: "is that even a thing?", tag:["human"]}},
+//   {"Did they address the issue through any legislation and (or) regulation?": {A:"very funny", tag:["human"]}},
+//   {"Where there any regulations & legislation already in place that still failed to prevent this?": {A:"hahaha", tag:["human"]}},
+//   {"Did something similar happen again? Why?": {A:"ofcourse",tag:["human"]}},
+//   {"Are there any legislations in the making to address something like this?": {A:"parliament's not in session", tag:["human"]}},
+//   {"Were there any legislations that got blocked? Why? What were the arguements? Who blocked it?": {A:"right is quite popular these days",tag:["human"]}}
+// ];
 const Row = React.memo((props) => {
   const { row, open, setOpen, collapseOthers } = props;
 
@@ -65,9 +65,9 @@ const Row = React.memo((props) => {
             {isOpen ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
           </IconButton>
         </TableCell>
-        <TableCell>{row.Headline}</TableCell>
-        <TableCell>{row['Media org']}</TableCell>
-        <TableCell>{row.URL}</TableCell>
+        <TableCell>{row.headline}</TableCell>
+        <TableCell>{row['media_org']}</TableCell>
+        <TableCell>{row.uri}</TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={3}>
@@ -80,7 +80,7 @@ const Row = React.memo((props) => {
       ))} */}
       <List >
         {
-          moredata.map((item, index) => ([
+          row['details'].map((item, index) => ([
 
           <ListItem key={index} 
           // primaryAction={ 
@@ -92,19 +92,19 @@ const Row = React.memo((props) => {
           >
 
             <ListItemText
-              primary={<strong>{Object.keys(item)[0]}</strong>}
+              primary={<strong>{Object.values(item)[0]}</strong>}
               secondary={
                 <>
-                {Object.values(item)[0].A}
+                {Object.values(item)[1]}
                 {"  "}
-                { Object.values(item)[0].tag.map(who => (
+                { Object.values(item)[2].map(who => (
                   <Chip label={who} color="info" sx={{borderRadius: 1}} size="small"  variant="inset" component="span" />))
                 }
                 </>
               }
             />
             
-            <AnswerMe question={Object.keys(item)[0]} answer={Object.values(item)[0].A} />
+            <AnswerMe question={Object.keys(item)[0]} answer={Object.values(item)[1]} />
             {/* <>{   Object.values(item)[0].tag.map(who => (
              <Chip label={who} />
              ))}</> */}
@@ -158,7 +158,7 @@ const CollapsibleTable = ({ collapseOthers = true, data }) => {
   //   }
   //   fetchData();
   // }, []);
-  {moredata.map(item => (Object.values(item)[0].tag.map(who => (console.log(who)))))}
+  // {row['details'].map(item => (Object.values(item)[0].tag.map(who => (console.log(who)))))}
   return (
     
     <TableContainer component={Paper}>
@@ -175,7 +175,7 @@ const CollapsibleTable = ({ collapseOthers = true, data }) => {
           {data.map((row, index) => (
             <Row
               key={index}
-              row={row}
+              row={JSON.parse(row)}
               open={open}
               setOpen={setOpen}
               collapseOthers={collapseOthers}

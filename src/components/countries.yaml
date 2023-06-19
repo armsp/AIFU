@@ -1,22 +1,22 @@
 countries:
   - title: USA
-    url: "/us"
+    url: /us
     flag: https://hatscripts.github.io/circle-flags/flags/us.svg
     wip: true
     reports: 1
-    # desc: This is an example project, configured in _data/home.yml
+    # desc: some other data
 
   - title: China
     url: /cn
     flag: https://hatscripts.github.io/circle-flags/flags/cn.svg
     highlight: WIP
     reports: 0
-    # desc: This is an example project, configured in _data/home.yml  
+    # desc: some other data
 
   - title: Japan
     url: /jp
     flag: https://hatscripts.github.io/circle-flags/flags/jp.svg
-    # desc: This is an example project, configured in _data/home.yml
+    # desc: some other data
 
   - title: India
     url: /in
@@ -26,24 +26,22 @@ countries:
   - title: Switzerland
     url: /ch
     flag: https://hatscripts.github.io/circle-flags/flags/ch.svg
-    # desc: You can control visibility from _config.yml file
+    # desc: some other data
 
   - title: Greece
     url: /gr
     flag: https://hatscripts.github.io/circle-flags/flags/gr.svg
-    # desc: This project uses highlight markup, configured in _data/home.yml
     highlight: WIP
 
   - title: Germany
     url: /de
     flag: https://hatscripts.github.io/circle-flags/flags/de.svg
-    # desc: Moonwalk also has horizontal list (used in header and footer)
     highlight: WIP
 
   - title: UK
     url: /gb
     flag: https://hatscripts.github.io/circle-flags/flags/gb.svg
-    # desc: It also has a scalable vertical list (in case you need it)
+    reports: 2
   
   - title: South Korea
     url: "/kr"
@@ -52,7 +50,6 @@ countries:
   - title: Israel
     url: "/il"
     flag: "https://hatscripts.github.io/circle-flags/flags/il.svg"
-
 
   - title: Sweden
     url: "/se"
@@ -69,6 +66,7 @@ countries:
   - title: Netherlands
     url: "/nl"
     flag: "https://hatscripts.github.io/circle-flags/flags/nl.svg"
+    reports: 1
 
   - title: Canada
     url: "/ca"
@@ -81,8 +79,6 @@ countries:
   - title: France
     url: "/fr"
     flag: "https://hatscripts.github.io/circle-flags/flags/fr.svg"
-
-
 
   - title: Norway
     url: "/no"

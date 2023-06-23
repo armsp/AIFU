@@ -1,6 +1,6 @@
 # AIFU
 
- **Algorithmic or AI fuck ups**
+ **Algorithmic or AI flub ups**
  
 AIFU is a one stop solution for researchers and anyone looking for a place to learn about the repercussions of using Algorithms and AI blatently, too soon, indiscriminately, harmfully.
 

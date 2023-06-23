@@ -44,6 +44,7 @@ Steps -
  
 - [ ] Provide an API or ability to download the whole dataset we are curating so that others could it for other purposes.
 - [ ] Filepond? securedrop?
+- [ ] ^ use Azure Blob Storage and Azure Functions to upload small image, PDF, txt files. Exclude executables.
 
 
 ## Technical Workflow
@@ -73,7 +74,8 @@ Steps -
  * Frontend Tech Stack - React, gatsby, vega-lite, MUIv5
  * Cases are shown as tables where rows can be expanded. This is the current approach until we face performance issues.
  * Setup a MongoDB database on Azure. Integration with Python server left.
+ * Letting gpt do everything: search the internet, summarize, answer, extract information (Langchain), we don't want to link to paywalled articles???, figure out what goes in the db and what does not on its own
 
 ## Decision Log
 
-**Clock** - 40 hrs
+**Clock** - 45 hrs

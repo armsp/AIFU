@@ -12,10 +12,43 @@ Steps -
 3. Press `Submit`
 
 ## Outline
-1. Motivation, 
-2. Related literature, 
-3. Data, 
-4. Approach.
+The objective of this project is to establish a comprehensive archive or repository that serves as a centralized resource for policymakers, researchers, students, and other stakeholders seeking to acquire knowledge regarding the potential adverse consequences arising from the indiscriminate, premature, or injudicious use of algorithms and AI.
+
+Through this platform, my aim is to monitor the utilization of AI by governmental entities. By conducting thorough analysis of the collected data, I want to find out if we can provide "concrete course(s) of action" or policy recommendations to lawmakers, the general public, and other stakeholders regarding their engagement with AI-based services. Crucially, this initiative will enable us to gain insights into the preferences and purposes of government agencies in employing AI. By doing so, we can proactively address potential risks associated with AI based implementation in specific domains such as child welfare and recidivism, while promoting fair and equitable utilization of AI.
+
+**Motivation**
+Necessity: Knowing about something harmful is crucial for several reasons -
+* By identifying the underlying factors that led to the harmful event, steps can be taken to prevent similar incidents from occurring in the future.
+* important for developing a deeper understanding of the risks and downsides associated with a particular technology, process, or behavior. Armed with this knowledge, we can take proactive steps to mitigate risks and prevent harm, improving the safety and wellbeing of ourselves and those around us.
+* knowledge of the harmful consequences of AI can help to drive the development of better, more responsible AI technology. By understanding the ways in which AI can be harmful, researchers and developers can work to address these issues and build AI systems that are safer, more transparent, and more trustworthy.
+* It is imperative for policymakers and the general public to be aware of the potential harmful consequences of using AI for several reasons.Policymakers have a responsibility to regulate the use of AI technology to ensure that it is safe, ethical, and serves the public interest. In order to do this effectively, they need to have a comprehensive understanding of the risks and downsides associated with AI.
+* The general public needs to be informed about the potential harmful impacts of AI so that they can make informed decisions about how they interact with the technology. By being aware of the potential risks, individuals can take steps to protect their privacy, security, and well-being when using AI-powered tools and services.
+
+What makes this project intresting is that I plan to archive, extract and collate relevant information from the articles using AI itself. Therefore this platform and project is an exercise in -
+- collaborating with AI to examine the misuses and harm from the tool in a meta-analysis
+- working together to explore its possible negative impacts in a self-reflective manner.
+- leveraging AI to gain insights into the potential risks and downsides of AI technology
+- using AI to inform our understanding of the possible negative impacts and consequences associated with AI
+
+
+**Related literature**
+Most of the existing databases and projects around this are more about general (deeper) understanding of AI, accountability, fairness and transparency where real life examples are just case studies. They are very broad in their general reach which I believe dilutes their effectiveness, or not about the harms of AI but in general about developments, tracking the growth of AI in various countries, skill market share, economy etc. For example: The AI Index, The AI Now Institute
+The closest database is the AI Incident Databse...
+
+
+**Data**
+**How does the corpus help you answer your research question?**
+Citing possible solutions based on implementations in other countries, latest developments in AI that successfully mitigate the shortcomings of previous scenarios/models, guardrails placed by other countries and regulations in other countries.
+With all the information and analysis, I want to find out if in the end we can “Recommend” some “concrete” course of action(s) or policy decisions to lawmakers, general public and other stakeholders.
+
+**Approach**
+See below
+
+**Definition of Success**
+* Data: plateaus over time
+* Views: Increase and then decrease and plateau 
+Information about removing bias, increasing fairness would become commonplace and part of the development lifecycle itself. 
+Ethicists would be part of the team
 
 ## Features to come
 

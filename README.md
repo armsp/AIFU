@@ -20,13 +20,9 @@ Steps -
 ## Features to come
 
 - [ ] automatic extraction of Affected Group
-
 - [ ] Automtic extraction of Perpeterator
-
 - [ ] Analysis of text (NLP) to extract the **cause** and the **effect**, short summary
-
 - [ ]  Graph representations of relations
-
 - [ ] take snapshots of articles using github actions becasue articles may expire or move
 - [ ] Extracting more technical information from the links as you said in the meeting – we either do this using ChatGPT “API calls” or make our own Q&A model for:
   * Who developed the model/AI system?
@@ -41,7 +37,6 @@ Steps -
   * Did something similar happen again? Why?
   * Are there any legislations in the pipeline?
   * Were there any legislations that got blocked? Why? What were the arguements? Who blocked it?
- 
 - [ ] Provide an API or ability to download the whole dataset we are curating so that others could it for other purposes.
 - [ ] Filepond? securedrop?
 - [ ] ^ use Azure Blob Storage and Azure Functions to upload small image, PDF, txt files. Exclude executables.
@@ -60,9 +55,9 @@ Steps -
 ## Development Activities
 - [ ] Link https://aifu.shantam.io/about to README.md
 - [ ] Form Submission: add optional entries for [GitHub, Twitter, Other(scholarly sites)] usernames
-- [ ] CSS for countries
-- [ ] Fix Home page for number of articles
-- [ ] Finish footer
+- [x] CSS for countries
+- [x] Fix Home page for number of articles
+- [x] Finish footer
 - [ ] Grey/Disable countries for which there is no information
 - [ ] Make an automatic Last Updated <date> tag like the WIP one we have
 - [ ] Whats the best way to show more detailed information about the issue?
@@ -71,11 +66,14 @@ Steps -
 - [ ] Testimonial Page : If you found this useful or if it helped you in your work or if you used the informaiton here to do somehting then I would love to hear from you.
 
 ## Change Log
- * Frontend Tech Stack - React, gatsby, vega-lite, MUIv5
+ * Frontend Tech Stack - React, gatsby, vega-lite, MUIv5 
  * Cases are shown as tables where rows can be expanded. This is the current approach until we face performance issues.
- * Setup a MongoDB database on Azure. Integration with Python server left.
+ * Setup a MongoDB database on Azure
  * Letting gpt do everything: search the internet, summarize, answer, extract information (Langchain), we don't want to link to paywalled articles???, figure out what goes in the db and what does not on its own
 
 ## Decision Log
+Using AI for meta-analysis. Using AI for everything!
+The whole platform has AI generated data and information.
+You input a link. Agent decides if the link is relevant or not. If it is relevant then it extracts information (answers to questions above) from the text. Can ask for more info or gather more info from other articles about the same issue. Can identify an article that talks about the same issue and update information instead of adding new information about the issue. The idea is not to provide an exact text from the articles but "generated text" (asking LM to make a "report", because we don't want to provide links to paywalled websites). The agent itself updates the database and hooks trigger a website rebuild.
 
 **Clock** - 45 hrs

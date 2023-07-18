@@ -28,7 +28,11 @@ const CountryGrid = () => {
     if (inTransition) return;
     setInTransition(true);
 
-    const sortedCards = [...countriesyaml.countries].sort((a, b) => a.url.localeCompare(b.url));
+    const sortedCards = [...countriesyaml.countries].sort((a, b) => {
+      const reportsA = a.reports || 0;
+      const reportsB = b.reports || 0;
+      return reportsB - reportsA;
+    });
 
     setTimeout(() => {
       setCards(sortedCards);
@@ -41,7 +45,7 @@ const CountryGrid = () => {
       Articles per Country
       </Typography>
       <Button variant="outlined" onClick={handleSortByTitle}>Sort by Title</Button>
-      <Button variant="outlined" onClick={handleSortByData}>Sort by Data</Button>
+      <Button variant="outlined" onClick={handleSortByData}>Sort by Cases</Button>
       
       <Grid container spacing={2}>
       {/* {items.map((item) => (

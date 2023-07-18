@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { Box, Button} from '@mui/material'
+import { Box, Button, Link, IconButton} from '@mui/material'
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import CameraIcon from '@mui/icons-material/PhotoCamera';
 import AIFU from '../images/icons/brass-eye.svg';
+import GitHubIcon from '@mui/icons-material/GitHub';
 const styles = {
   logo: {
     height: '40px',
@@ -50,7 +51,11 @@ export default function Appbar() {
               AIFU
             </Typography>
             <Box sx={{ flexGrow: 1 }} />
-  
+            <Link href="https://github.com/armsp/AIFU" color="secondary">
+            <GitHubIcon />
+</Link>
+           
+              
             <Button color="inherit">About</Button>
             {/* <Button color="inherit">Testimonials</Button> */}
           </Toolbar>

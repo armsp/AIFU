@@ -24,40 +24,52 @@ Necessity: Knowing about something harmful is crucial for several reasons -
 * It is imperative for policymakers and the general public to be aware of the potential harmful consequences of using AI for several reasons.Policymakers have a responsibility to regulate the use of AI technology to ensure that it is safe, ethical, and serves the public interest. In order to do this effectively, they need to have a comprehensive understanding of the risks and downsides associated with AI.
 * The general public needs to be informed about the potential harmful impacts of AI so that they can make informed decisions about how they interact with the technology. By being aware of the potential risks, individuals can take steps to protect their privacy, security, and well-being when using AI-powered tools and services.
 
-What makes this project intresting is that I plan to archive, extract and collate relevant information from the articles using AI itself. Therefore this platform and project is an exercise in -
+What makes this project **intresting** is that I plan to archive, extract and collate relevant information from the articles using AI itself. Therefore this platform and project is an exercise in -
 - collaborating with AI to examine the misuses and harm from the tool in a meta-analysis
 - working together to explore its possible negative impacts in a self-reflective manner.
 - leveraging AI to gain insights into the potential risks and downsides of AI technology
 - using AI to inform our understanding of the possible negative impacts and consequences associated with AI
 
+In short LLM or AI is the judge, jury, and executioner if you will.
 
 **Related literature**
+
 Most of the existing databases and projects around this are more about general (deeper) understanding of AI, accountability, fairness and transparency where real life examples are just case studies. They are very broad in their general reach which I believe dilutes their effectiveness. Some of the important resources that I found in  my literature review research are -
 
-* [The AI Index](https://aiindex.stanford.edu/): They do not gather information about the harms caused by AI but about the developments, growth, measuring trends and progress and market of AI in various countries. They also track global AI legislation. Quoting them -
+[The AI Index](https://aiindex.stanford.edu/) by The Stanford Institute for Human-Centered Artificial Intelligence
+
+They do not gather information about the harms caused by AI but about the developments, growth, measuring trends and progress and market of AI in various countries. They also track global AI legislation. Quoting them -
 > The AI Index Report tracks, collates, distills, and visualizes data related to artificial intelligence. Its mission is to provide unbiased, rigorously vetted, and globally sourced data for policymakers, researchers, executives, journalists, and the general public to develop intuitions about the complex field of AI.
 
 Reports are available from the year 2017 with a gap in 2020.
 
-[The AI Now Institute](https://ainowinstitute.org/) by The Stanford Institute for Human-Centered Artificial Intelligence: They focus on accountability and on policy recommendations. Their aim is not to create any database of harms. However studying their reports and recommendations would be instrumental for the last step of this project which is policy recommendations. 
+[The AI Now Institute](https://ainowinstitute.org/)
 
-[Data Harm Record](https://datajusticelab.org/data-harm-record/) by Data Justice Lab: This is not a database but a running document that has not been updated since August 2020. The definition of harm is closer to the kind of cases that I wish to have in my database but the cases they have studied range from generic harm to specific harms. Since its not being maintained anymore, my plan is to use all the articles that it references and to input it to the system I have designed. The idea is that all those cases should be integrated and to observe why a particular case was rejected.
+They focus on accountability and on policy recommendations. Their aim is not to create any database of harms. However studying their reports and recommendations would be instrumental for the last step of this project which is policy recommendations. Quoting them -
+> Founded in 2017, the AI Now Institute produces diagnosis and policy research to address the concentration of power in the tech industry. We develop policy strategy to redirect away from the current trajectory: unbridled commercial surveillance, consolidation of power in very few companies, and a lack of public accountability.
 
-The closest database to what I am building is the AI Incident Databse.
-[AI Incident Database](https://incidentdatabase.ai/): Quoting them -
+[Data Harm Record](https://datajusticelab.org/data-harm-record/) by Data Justice Lab
+
+This is not a database but a running document that has not been updated since August 2020. The definition of harm is closer to the kind of cases that I wish to have in my database but the cases they have studied range from generic harm to specific harms. Since its not being maintained anymore, my plan is to use all the articles that it references and to input it to the system I have designed. The idea is that all those cases should be integrated and to observe why a particular case was rejected.
+
+
+[AI Incident Database](https://incidentdatabase.ai/)
+
+This is the closest database to what I am building. Quoting them -
 > The AI Incident Database is dedicated to indexing the collective history of harms or near harms realized in the real world by the deployment of artificial intelligence systems. Like similar databases in aviation and computer security, the AI Incident Database aims to learn from experience so we can prevent or mitigate bad outcomes.
 
-They however collect a rather broad spectrum of cases. 
-Changed a lot since the time I started working.
+They however collect a rather broad spectrum of cases. It has also changed a lot since the time I started working.
 
-To the best of my knowledge nothing like what we are trying to do has been done before.
+To the best of my knowledge, nothing like what we are trying to do has been done before.
 
 **Data**
+
 **How does the corpus help you answer your research question?**
 Citing possible solutions based on implementations in other countries, latest developments in AI that successfully mitigate the shortcomings of previous scenarios/models, guardrails placed by other countries and regulations in other countries.
 With all the information and analysis, I want to find out if in the end we can “Recommend” some “concrete” course of action(s) or policy decisions to lawmakers, general public and other stakeholders.
 
 **Approach**
+
 classification
 content moderation - we dont use moderation api to filter misuse of content because the idea is to be able to have those content
 prompt injection - when a user attempts to manipulate the AI system by providing input that tries to override or bypass the intended instructions or constraints set by us/developer.
@@ -84,6 +96,7 @@ More endpoints may be added later on based on the needs of the project.
 * Ethicists would be part of the team
 
 **Technical Details**
+
 Git/GitHub Branches
 * [gatsby](https://github.com/armsp/AIFU) - the main branch for UI. This is where the development code for the frontend resides.
 * [gh-pages](https://github.com/armsp/AIFU/tree/gh-pages) - built automatically by the GitHub Action that is triggered by a push to gatsby. This branch holds the deployment code for the Frontend.
@@ -115,7 +128,7 @@ stateDiagram-v2
 Information Extraction
 ```mermaid
 flowchart TB
-    SubmitLinkAndHeadline --> B{"`Does the headline suggest it might be related to AI and its potential harm?`"}
+    SubmitLinkAndHeadline --> B{"`Does the headline suggest<br> it might be related to AI<br> and its potential harm?`"}
     B --> |Yes| C[Extract text from article link]
     B --> |No| E[End]
     C --> D[Rate Article based on context on a scale of 1-5 if it speaks of an actual harm]

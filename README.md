@@ -58,7 +58,8 @@ This is not a database but a running document that has not been updated since Au
 This is the closest database to what I am building. Quoting them -
 > The AI Incident Database is dedicated to indexing the collective history of harms or near harms realized in the real world by the deployment of artificial intelligence systems. Like similar databases in aviation and computer security, the AI Incident Database aims to learn from experience so we can prevent or mitigate bad outcomes.
 
-They however collect a rather broad spectrum of cases. It has also changed a lot since the time I started working.
+They however collect a rather broad spectrum of cases - incidents where intelligent systems have caused safety, fairness, or other real-world problems. 
+It has also changed a lot since the time I started working. A while ago you could only browse and read the content of submitted incident's article(s). Since then they have added a multitude of features such as Named Entities, CSET Taxonomy Classifications, GMF Taxonomy Classifications, a timeline of reports and a list of similar reports/variants. However not all incidents have all this information associated with them and its not apparently clear on what basis are incients chosen to be worked upon to provide all the relevant information.
 
 To the best of my knowledge, nothing like what we are trying to do has been done before.
 
@@ -70,19 +71,21 @@ With all the information and analysis, I want to find out if in the end we can â
 
 **Approach**
 
-classification
-content moderation - we dont use moderation api to filter misuse of content because the idea is to be able to have those content
-prompt injection - when a user attempts to manipulate the AI system by providing input that tries to override or bypass the intended instructions or constraints set by us/developer.
-Information Extraction
-Serialization
-Checking for similar cases in the database
-Merging new information with existing information
-Updating the database
+Once a user submits any article by providing its URI and Headline, we first try to figure out if the article is not at all related to what we are looking for by analyzing the headline itself. The idea here is to reject irrelevant articles and not so much accept relevant articles becasue that happens in the next step.
+
+OpenAI provides a content moderation api but we dont use moderation api to filter misuse of content because the idea is not to reject content that may be talking about difficult topics. We do however check for prompt injection (when a user attempts to manipulate the AI system by providing input that tries to override or bypass the intended instructions or constraints set by us/developer). 
+
+After that, we extract the contents of the article using the provided URI. Following which, using prompt engineering, we try to extract all the relevant content by asking questions. And finally we also summarize the article. The outputs are then serialized to be stored in the database.
+
+Before actually storing the contents in the database, we also query the database for exactly similar articles (maybe the same article was already stored before or maybe a different media reported on the same case, both of which are highly likely). If an exactly similar article is found then we try to merge the information extracted now with whatever we had extracted earlier and update the database record. If the article and case is completely new then we just make a new record in the database. 
 
 API Endpoints
 * `/records` : GET Request - Responsible for providing the details of cases per country to the frontend.
 * `/submit` : POST Request - Responsible for creating Automatic GitHub issues/discussions whenever a user submits an article.
 * `/heartbeat` : GET Request - Used for testing if the server is alive.
+* `/export` : GET Request - Provides a json file of exported content from the database collection for a given country.
+* `/extract_information` : POST Request - The main information extraction endpoint that triggers all the steps listed in **Approach**.
+
 More endpoints may be added later on based on the needs of the project.
 
 **Result**

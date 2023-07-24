@@ -195,10 +195,12 @@ flowchart TB
  * Cases are shown as tables where rows can be expanded. This is the current approach until we face performance issues.
  * Setup a MongoDB database on Azure
  * Letting gpt do everything: search the internet, summarize, answer, extract information (Langchain), we don't want to link to paywalled articles???, figure out what goes in the db and what does not on its own
+ * Refactored server code for easier and quicker deployments and developments in Production and Development environments
+
 
 ## Decision Log
 Using AI for meta-analysis. Using AI for everything!
 The whole platform has AI generated data and information.
 You input a link. Agent decides if the link is relevant or not. If it is relevant then it extracts information (answers to questions above) from the text. Can ask for more info or gather more info from other articles about the same issue. Can identify an article that talks about the same issue and update information instead of adding new information about the issue. The idea is not to provide an exact text from the articles but "generated text" (asking LM to make a "report", because we don't want to provide links to paywalled websites). The agent itself updates the database and hooks trigger a website rebuild.
 
-**Clock** - 55 hrs
+**Clock** - 65 hrs

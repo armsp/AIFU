@@ -17,7 +17,7 @@ export default function ExportButton({ disabled, tablename }) {
 
       // Make the API call to the "/export" endpoint
       const response = await fetch('https://aifuv2.eastus.azurecontainer.io/export?'+ new URLSearchParams({
-        table_name: tablename}), {
+        collection_name: tablename}), {
         method: 'GET',
       });
 

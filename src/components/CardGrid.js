@@ -21,7 +21,7 @@ const CountryGrid = () => {
     setTimeout(() => {
       setCards(sortedCards);
       setInTransition(false);
-    }, 500); // Adjust the duration as needed
+    }, 50); // Adjust the duration as needed
   };
 
   const handleSortByData = () => {

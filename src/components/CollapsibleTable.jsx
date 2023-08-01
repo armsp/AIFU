@@ -36,7 +36,7 @@ import AnswerMe from './AnswerMe';
 // ];
 const Row = React.memo((props) => {
   const { row, open, setOpen, collapseOthers } = props;
-
+console.log(row);
   const handleClick = () => {
     if (collapseOthers) {
       if (open === row.name) {
@@ -67,12 +67,12 @@ const Row = React.memo((props) => {
         </TableCell>
         <TableCell>{row.headline}</TableCell>
         <TableCell>{row['media_org']}</TableCell>
-        <TableCell>{row.uri}</TableCell>
+        <TableCell>{row.score}</TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={3}>
           <Collapse in={isOpen} timeout="auto" unmountOnExit>
-            <Box margin={1}>
+            <Box margin={1} sx={{ display: 'flex', flexWrap: 'nowrap', flexDirection: 'row'}}>
             {/* {moredata.map((item, index) => (
         <Typography key={index} variant="body1" component="div">
           <strong>{Object.keys(item)[0]}:</strong> {Object.values(item)[0]}
@@ -80,8 +80,7 @@ const Row = React.memo((props) => {
       ))} */}
       <List >
         {
-          row['details'].map((item, index) => ([
-
+          row['q_as'].map((item, index) => ([
           <ListItem key={index} 
           // primaryAction={ 
           //   Object.values(item)[0].tag.map(who => (
@@ -97,9 +96,10 @@ const Row = React.memo((props) => {
                 <>
                 {Object.values(item)[1]}
                 {"  "}
-                { Object.values(item)[2].map(who => (
+                {/* { Object.values(item)[2].map(who => (
                   <Chip label={who} color="info" sx={{borderRadius: 1}} size="small"  variant="inset" component="span" />))
-                }
+                } */}
+                <Chip label="GPT-4" color="info" sx={{borderRadius: 1}} size="small"  variant="inset" component="span" />
                 </>
               }
             />
@@ -116,14 +116,12 @@ const Row = React.memo((props) => {
         ))}
               
       </List>
-              {/* <Paper elevation={4}>
-                <Box p={2}>
-                  <p>{row.details}</p>
-                  <Button variant="contained" color="primary">
-                    Click me
-                  </Button>
+              
+                <Box sx={{ width: 500, flexShrink: 1 }}>
+                  <h3>Summary of the Article</h3>
+                  <p>{row.summary}</p>
+                  <p><a href={row.uri}>Link</a> to the article</p>
                 </Box>
-              </Paper> */}
             </Box>
           </Collapse>
         </TableCell>
@@ -164,11 +162,16 @@ const CollapsibleTable = ({ collapseOthers = true, data }) => {
     <TableContainer component={Paper}>
       <Table>
         <TableHead>
-          <TableRow>
+          <TableRow sx={{
+      "& th": {
+        color: "rgba(96, 96, 96)",
+        backgroundColor: "lightgrey"
+      }
+    }}>
             <TableCell />
             <TableCell>Headline</TableCell>
             <TableCell>Media Org</TableCell>
-            <TableCell>Link</TableCell>
+            <TableCell>Score</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

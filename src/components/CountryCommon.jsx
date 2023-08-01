@@ -42,11 +42,15 @@ export default function CountryData({country}) {
           method: 'GET', // or 'PUT'
         });
         const json = await response.json();
-        console.log(json);
+        // console.log(json);
         setData(json);
+        // console.log(json);
         setLoading(false);
+        // console.log(JSON.parse(data["records"][0]));
+
       } catch (error) {
         setError(error);
+        console.log("ERROR"+ error);
         setLoading(false);
       }
     }
@@ -81,7 +85,7 @@ export default function CountryData({country}) {
                 (<p>No data found.</p>)
         } 
  
-    <ExportButton />
+    <ExportButton tablename={country} />
     </Container>
     <Footer2 />
     </Box>

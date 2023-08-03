@@ -203,4 +203,4 @@ Using AI for meta-analysis. Using AI for everything!
 The whole platform has AI generated data and information.
 You input a link. Agent decides if the link is relevant or not. If it is relevant then it extracts information (answers to questions above) from the text. Can ask for more info or gather more info from other articles about the same issue. Can identify an article that talks about the same issue and update information instead of adding new information about the issue. The idea is not to provide an exact text from the articles but "generated text" (asking LM to make a "report", because we don't want to provide links to paywalled websites). The agent itself updates the database and hooks trigger a website rebuild.
 
-**Clock** - 65 hrs
+**Clock** - 75 hrs

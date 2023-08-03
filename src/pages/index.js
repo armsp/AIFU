@@ -5,7 +5,6 @@ import { Box, Divider } from '@mui/material';
 import Link from '../components/Link';
 import Copyright from '../components/Copyright';
 import CountryGrid from '../components/CardGrid';
-import SubmitArticle from '../components/SubmitArticle';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 

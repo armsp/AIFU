@@ -2,7 +2,6 @@ import { CssBaseline, Grid, Card, CardContent, Container, Typography, CardMedia,
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 // import Copyright from '../components/Copyright';
-import SubmitArticle from '../../components/SubmitArticle';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';

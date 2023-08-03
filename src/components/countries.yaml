@@ -1,4 +1,9 @@
 countries:
+  - title: Global
+    url: /global
+    flag: https://github.com/armsp/AIFU/blob/gatsby/src/images/globe.svg
+    reports: 2
+
   - title: USA
     url: /us
     flag: https://hatscripts.github.io/circle-flags/flags/us.svg

@@ -1,0 +1,60 @@
+name: Information Extractor
+
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  send-api-request:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      # - name: Set up Python
+      #   uses: actions/setup-python@v2
+      #   with:
+      #     python-version: 3.9
+
+      # - name: Install Requests
+      #   run: |
+      #     python -m pip install --upgrade pip
+      #     pip install requests
+
+      - name: Create Request Data JSON
+        id: create_request_data
+        run: |
+          echo '${{ toJSON({
+            "url": ${{ toJson(github.event.issue.body) }},
+            "headline": "Headline Value",  # Replace with actual headline
+            "media_org": "Media Org Value",  # Replace with actual media organization
+            "table": "Table Value"  # Replace with actual table name
+          }) }}' > request_data.json
+
+      - name: Make API Request
+        id: api_request
+        run: |
+          response=$(curl -X POST -H "Content-Type: application/json" -d @request_data.json https://aifuv2.eastus.azurecontainer.io/information)
+          echo "::set-output name=response::$response"
+
+      - name: Wait for API Response
+        run: sleep 100  # Adjust the waiting time as needed
+
+      - name: Get API Response
+        id: get_response
+        run: |
+          echo "API Response: ${{ steps.api_request.outputs.response }}"
+
+      - name: Comment on Issue
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `API Response: ${{ steps.get_response.outputs.response }}`
+            })

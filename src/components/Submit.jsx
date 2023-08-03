@@ -45,7 +45,7 @@ const SubmissionForm = ({tablename}) => {
         <>
           {successMessage}
           <br />
-          Visit the link to view the status of your submission:
+          Visit the link to view the status of your submission. Please wait on the page that opens when you click the link. Weather your submission was accepted or rejected will appear as a reply below your submission details:
           {' '}
           <a href={successLink} target="_blank" rel="noopener noreferrer">
             {successLink}

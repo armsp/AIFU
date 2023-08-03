@@ -96,9 +96,9 @@ const SubmissionForm = ({tablename}) => {
                   <Grid item xs={12}>
                     <TextField
                       required
-                      id="article"
-                      name="article"
-                      label="Article"
+                      id="headline"
+                      name="headline"
+                      label="Headline"
                       fullWidth
                     />
                   </Grid>

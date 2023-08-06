@@ -7,8 +7,8 @@ AIFU is a one stop solution for researchers and anyone looking for a place to le
 **How to contribute?**
 
 Steps -
-1. Go to the country of the concerned article/news.
-2. Enter the article, organization and other details you could discern (you see an example when you go to the country)
+1. Go to the country of the concerned article/news. If the article/news does not pertain to a country then submit it as `global`.
+2. Enter the article, media organization and other details you could discern (see examples when you navigate to a country)
 3. Press `Submit`
 
 ## Outline

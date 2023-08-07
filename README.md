@@ -88,6 +88,11 @@ API Endpoints
 
 More endpoints may be added later on based on the needs of the project.
 
+**Policy Recommendations Literature Review**
+* https://www.brookings.edu/articles/algorithmic-bias-detection-and-mitigation-best-practices-and-policies-to-reduce-consumer-harms/
+* https://datajusticelab.org/data-harm-record/
+
+
 **Result**
 
 **Conclusion**
@@ -153,12 +158,10 @@ flowchart TB
 ```
 ## Features to come
 
-- [ ] automatic extraction of Affected Group
-- [ ] Automtic extraction of Perpeterator
-- [ ] Analysis of text (NLP) to extract the **cause** and the **effect**, short summary
-- [ ]  Graph representations of relations
-- [ ] take snapshots of articles using github actions becasue articles may expire or move
-- [ ] Extracting more technical information from the links as you said in the meeting – we either do this using ChatGPT “API calls” or make our own Q&A model for:
+- [x] Analysis of text to extract the **cause** and the **effect**, short summary
+- [ ] Graph representations of relations
+- [ ] take snapshots of articles using github actions becasue articles may expire or move (latest selenium for chrome has an inbuilt option to do this)
+- [x] Extracting more technical information from the links – we either do this using ChatGPT “API calls” or make our own Q&A model for:
   * Who developed the model/AI system?
   * How and where was it deployed?
   * What ORG/group of people used it and how?
@@ -171,8 +174,8 @@ flowchart TB
   * Did something similar happen again? Why?
   * Are there any legislations in the pipeline?
   * Were there any legislations that got blocked? Why? What were the arguements? Who blocked it?
-- [ ] Provide an API or ability to download the whole dataset we are curating so that others could it for other purposes.
-- [ ] Filepond? securedrop?
+- [x] Provide an API or ability to download the whole dataset we are curating so that others could it for other purposes.
+- [ ] Filepond? securedrop? - Most probably won't do this
 - [ ] ^ use Azure Blob Storage and Azure Functions to upload small image, PDF, txt files. Exclude executables.
 - [ ] Switch to a vector database? Perhaps its not necessary right now since we don't have a lot of data.
 
@@ -188,7 +191,7 @@ flowchart TB
 
 ## Development Activities
 - [ ] Link https://aifu.shantam.io/about to README.md
-- [ ] Form Submission: add optional entries for [GitHub, Twitter, Other(scholarly sites)] usernames
+- [x] Form Submission: add optional entries for [GitHub, Twitter, Other(scholarly sites)] usernames
 - [x] CSS for countries
 - [x] Fix Home page for number of articles
 - [x] Finish footer
@@ -198,6 +201,7 @@ flowchart TB
 - [ ] How can users request for snapshots if the article link is down?
 - [ ] Caching of DB reuests for countries as well as the whole dataset
 - [ ] Testimonial Page : If you found this useful or if it helped you in your work or if you used the informaiton here to do somehting then I would love to hear from you.
+- [ ] Try https://github.com/fhamborg/Giveme5W1H
 
 ## Change Log
  * Frontend Tech Stack - React, gatsby, vega-lite, MUIv5 

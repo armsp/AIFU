@@ -207,9 +207,13 @@ flowchart TB
  * Refactored server code for easier and quicker deployments and developments in Production and Development environments
 
 
-## Decision Log
+## Decision Log and Tradeoffs
 Using AI for meta-analysis. Using AI for everything!
 The whole platform has AI generated data and information.
 You input a link. Agent decides if the link is relevant or not. If it is relevant then it extracts information (answers to questions above) from the text. Can ask for more info or gather more info from other articles about the same issue. Can identify an article that talks about the same issue and update information instead of adding new information about the issue. The idea is not to provide an exact text from the articles but "generated text" (asking LM to make a "report", because we don't want to provide links to paywalled websites). The agent itself updates the database and hooks trigger a website rebuild.
+
+I don't expect submissions with content larger than 5000 words. Therefore we don't need to split the content and make embeddings and find similiar splits and then do Q&A or Info Ret using prompts. The whole content can be embedded for detecting duplicates or articles that talk about the same case but are written by different media houses. 
+
+Since the content fits the context of LLM we are using, we can create and save the embedding of the whole content in a regular document database instead of using specialized ector databases which increase complexity of the deployment infrastructure and the info ret pipeline.
 
 **Clock** - 75 hrs

@@ -127,7 +127,16 @@ stateDiagram-v2
         UpdateDeploymentCodeOnBranch --> DeployToGHPages: build and deploy (yaml) |ubuntu, node, checkout, build, commit, push
     }
 ```
-
+```mermaid
+flowchart TB
+    SubmitArticle --> A[Detect Headline Language] --> |Language Supported| B[Translate]
+    A --> |Language Not Supported| C[Make GH Issue] --> Stop
+    B --> D[Classify Headline] --> |Accepted|E[Detect Content Language]
+    D --> |Rejected|C 
+    E --> |Language Not Supported| C
+    E --> |Language Supported| H[Translate Content]
+    H --> F[Make GH Issue, Save to DB] --> J[Information Retreival Pipeline] 
+```
 Information Extraction
 ```mermaid
 flowchart TB

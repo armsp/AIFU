@@ -220,4 +220,8 @@ I don't expect submissions with content larger than 5000 words. Therefore we don
 
 Since the content fits the context of LLM we are using, we can create and save the embedding of the whole content in a regular document database instead of using specialized ector databases which increase complexity of the deployment infrastructure and the info ret pipeline.
 
+I think using LangChain made things unnecessarily complicated. I could have just used openai's python library along with Microsoft's [guidance](https://github.com/microsoft/guidance/) library for mkaing LLM output's stable.
+
+Similarity and near duplicate and duplicate detection is a whole research area in itself. This needs to be tackled properly and given more time to implement properly.
+
 **Clock** - 75 hrs

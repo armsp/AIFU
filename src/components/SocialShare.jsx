@@ -13,12 +13,12 @@ const SocialShare = ({ url, title }) => {
   const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}&t=${title}`;
   const instagramShareUrl = `https://www.instagram.com/sharer.php?u=${url}&title=${title}`;
   const linkedInShareUrl = `https://www.linkedin.com/shareArticle?url=${url}&title=${title}`;
-  const researchGateShareUrl = `https://www.researchgate.net/share?url=${url}&title=${title}`;
+  // const researchGateShareUrl = `https://www.researchgate.net/share?url=${url}&title=${title}`;
 
   return (
     <ButtonGroup
-        orientation="vertical"
-        style={{ display: "flex", flexDirection: "column" }}
+      orientation="vertical"
+      style={{ display: "flex", flexDirection: "column" }}
     ><Typography>Share</Typography>
       <IconButton component="a" href={twitterShareUrl} target="_blank">
         <TwitterIcon />
@@ -35,43 +35,11 @@ const SocialShare = ({ url, title }) => {
       <IconButton component="a" href={linkedInShareUrl} target="_blank">
         <LinkedInIcon />
       </IconButton>
-      <IconButton component="a" href={researchGateShareUrl} target="_blank">
+      {/* <IconButton component="a" href={researchGateShareUrl} target="_blank">
         <ResearchIcon />
-      </IconButton>
-      </ButtonGroup>
+      </IconButton> */}
+    </ButtonGroup>
   );
 };
 
 export default SocialShare;
-
-
-// const SocialShare = () => {
-//   return (
-//     <div className="footer-right">
-//       <ButtonGroup
-//         orientation="vertical"
-//         style={{ display: "flex", flexDirection: "column" }}
-//       >
-//         <Button startIcon={<TwitterIcon />} variant="outlined">
-//           Twitter
-//         </Button>
-//         <Button startIcon={<RedditIcon />} variant="outlined">
-//           Reddit
-//         </Button>
-//         <Button startIcon={<FacebookIcon />} variant="outlined">
-//           Facebook
-//         </Button>
-//         <Button startIcon={<InstagramIcon />} variant="outlined">
-//           Instagram
-//         </Button>
-//         <Button startIcon={<LinkedInIcon />} variant="outlined">
-//           LinkedIn
-//         </Button>
-//         <Button startIcon={<ResearchIcon />} variant="outlined">
-//           Researchgate
-//         </Button>
-//       </ButtonGroup>
-//     </div>
-//   );
-// };
-

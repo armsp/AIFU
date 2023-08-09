@@ -20,20 +20,8 @@ import {
   Divider
 } from '@mui/material';
 import { KeyboardArrowDown, KeyboardArrowUp } from '@mui/icons-material';
-import AnswerMe from './AnswerMe';
-// const moredata = [
-//   {"Affected Group": {"A": "the affected group", "tag": ["GPT 3.5", "human"]}},
-//   {"Who developed the model/AI system?": {"A": "some contractor", "tag": ["GPT 3.5", "human"]}},
-//   {"How and where was it deployed?": {"A":"xyz farm/datacenter", tag:["human"]}},
-//   {"What was its effect?": {A:"bad stuff happened",tag:["GPT 4"]}},
-//   {"Did the state/party accept their error?": {A:"not yet", tag:["human"]}},
-//   {"Were there compensations/apologies made?": {A: "is that even a thing?", tag:["human"]}},
-//   {"Did they address the issue through any legislation and (or) regulation?": {A:"very funny", tag:["human"]}},
-//   {"Where there any regulations & legislation already in place that still failed to prevent this?": {A:"hahaha", tag:["human"]}},
-//   {"Did something similar happen again? Why?": {A:"ofcourse",tag:["human"]}},
-//   {"Are there any legislations in the making to address something like this?": {A:"parliament's not in session", tag:["human"]}},
-//   {"Were there any legislations that got blocked? Why? What were the arguements? Who blocked it?": {A:"right is quite popular these days",tag:["human"]}}
-// ];
+// import AnswerMe from './AnswerMe';
+
 const Row = React.memo((props) => {
   const { row, open, setOpen, collapseOthers } = props;
 console.log(row);
@@ -104,7 +92,8 @@ console.log(row);
               }
             />
             
-            <AnswerMe question={Object.keys(item)[0]} answer={Object.values(item)[1]} />
+            {/* <AnswerMe question={Object.keys(item)[0]} answer={Object.values(item)[1]} /> */}
+            
             {/* <>{   Object.values(item)[0].tag.map(who => (
              <Chip label={who} />
              ))}</> */}

@@ -124,3 +124,29 @@ countries:
   - title: Taiwan
     url: /tw
     flag: https://hatscripts.github.io/circle-flags/flags/tw.svg
+
+language_translation:
+  - Mandarin
+  - Japanese
+  - Hindi
+  - Bengali
+  - Telugu
+  - Marathi
+  - Tamil
+  - Urdu
+  - Malayalam
+  - German
+  - Italian
+  - Romansh
+  - French
+  - Greek
+  - Korean
+  - Hebrew
+  - Arabic
+  - Swedish
+  - Malay
+  - Finnish
+  - Dutch
+  - Norwegian
+  - Danish
+  - Cantonese

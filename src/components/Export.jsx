@@ -28,7 +28,7 @@ export default function ExportButton({ disabled, tablename }) {
             // Extract the filename from the response headers
             const contentDisposition = response.headers.get('content-disposition');
             const filenameMatch = contentDisposition && contentDisposition.match(/filename="(.+)"/);
-            const filename = filenameMatch ? filenameMatch[1] : 'exported-data.json';
+            const filename = filenameMatch ? filenameMatch[1] : `${tablename}.json`;
       
             // Convert the response to a Blob
             const blob = await response.blob();

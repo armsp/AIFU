@@ -14,9 +14,8 @@ import Chart from './chart.json'
 import { Vega } from 'react-vega';
 import { TableVirtuoso } from 'react-virtuoso';
 import InfoIcon from '@mui/icons-material/Info';
-import CustomSnackbar from '../../components/MySnackbar';
 import Appbar from '../../components/Appbar';
-import Footer2 from '../../components/Footer2';
+import Footer from '../../components/Footer';
 import ExportButton from '../../components/Export';
 import FixImage from '../../images/186.png';
 
@@ -227,7 +226,7 @@ export default function Usa() {
     <ExportButton />
     </Container>
     {/* <Box sx={{ flex: '0 0 auto' }}> */}
-    <Footer2 />
+    <Footer />
     {/* </Box> */}
     </Box>
   )

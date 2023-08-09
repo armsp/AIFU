@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Snackbar from '@mui/material/Snackbar';
-import Alert from '@mui/material/Alert';
-import { IconButton } from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close';
 import MuiAlert from '@mui/material/Alert';
 // const CustomSnackbar = ({ message, color, icon, duration = 3000, position = 'top' }) => {
 //   const [open, setOpen] = useState(true);

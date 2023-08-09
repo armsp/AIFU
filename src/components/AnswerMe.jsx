@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import {Button, Box, TextField, Stack} from '@mui/material'
-import CustomSnackbar from './MySnackbar';
-import InfoIcon from '@mui/icons-material/Info';
+import {Button, TextField, Stack} from '@mui/material'
 
 export default function AnswerMe({question, answer}){
     const [loading, setLoading] = useState(false);
@@ -71,7 +69,6 @@ export default function AnswerMe({question, answer}){
     setSnackbarOpen(false);
   };
     return(
-      // <Box >
         <Stack direction="row" justifyContent="center" component="form" onSubmit={handleSubmit}
             alignItems="center" spacing={1} >
             <TextField
@@ -99,6 +96,5 @@ export default function AnswerMe({question, answer}){
         />)}  */}
         
         </Stack>
-        // </Box>
     )
 }

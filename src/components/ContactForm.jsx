@@ -24,10 +24,10 @@ const ContactForm = () => {
   };
 
   return (
-    <Box bgcolor="#f5f5f5" py={4}>
+    <Box bgcolor="white" py={4}>
       <Container maxWidth="md">
         <Typography variant="h4" mb={4} align="center">
-          Contact Us
+          Contact
         </Typography>
         <form onSubmit={handleSubmit}>
           <Box display="flex" flexDirection="column" gap={2}>

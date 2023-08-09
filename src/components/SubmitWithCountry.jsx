@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Autocomplete from '@mui/material/Autocomplete';
-import CustomSnackbar from './MySnackbar';
+import CustomSnackbar from './CustomSnackbar';
 import InfoIcon from '@mui/icons-material/Info';
 
 function CountrySelect(props) {
@@ -25,7 +25,7 @@ function CountrySelect(props) {
             srcSet={`https://flagcdn.com/w40/${option.code.toLowerCase()}.png 2x`}
             alt=""
           />
-          {option.label} ({option.code}) +{option.phone}
+          {option.label} ({option.code})
         </Box>
       )}
       renderInput={(params) => (
@@ -43,7 +43,6 @@ function CountrySelect(props) {
   );
 };
 
-// From https://bitbucket.org/atlassian/atlaskit-mk-2/raw/4ad0e56649c3e6c973e226b7efaeb28cb240ccb0/packages/core/select/src/data/countries.js
 const countries = [
   { code: 'global', label: "Global", phone: "NA"},
   { code: 'AD', label: 'Andorra', phone: '376' },
@@ -536,12 +535,10 @@ const SubmissionFormWithCountry = () => {
     setSnackbarOpen(false);
   };
   return (
-      
-    
           <Box sx={{ mt: 4, mb: 4, border: '1px solid #ccc', borderRadius: 4, p: 2 }} component="form" onSubmit={handleSubmit}>
             <Typography variant="h5" sx={{ mb: 2 }}>
-        Submit Your Article
-      </Typography>
+              Your Submission
+            </Typography>
             <Grid container spacing={2}>
               <Grid item xs={12} md={6}>
                 <Typography variant="h6" gutterBottom>
@@ -599,14 +596,6 @@ const SubmissionFormWithCountry = () => {
                       fullWidth
                     />
                   </Grid>
-                  {/* <Grid item xs={12}>
-                    <TextField
-                      id="twitter"
-                      name="twitter"
-                      label="Twitter"
-                      fullWidth
-                    />
-                  </Grid> */}
                   <Grid item xs={12}>
                     <TextField
                       id="github"
@@ -615,14 +604,6 @@ const SubmissionFormWithCountry = () => {
                       fullWidth
                     />
                   </Grid>
-                  {/* <Grid item xs={12}>
-                    <TextField
-                      id="research-gate"
-                      name="research-gate"
-                      label="ResearchGate"
-                      fullWidth
-                    />
-                  </Grid> */}
                   <Grid item xs={12}>
                     <TextField
                       id="email"
@@ -631,30 +612,27 @@ const SubmissionFormWithCountry = () => {
                       fullWidth
                     />
                   </Grid>
-                  {/* </Grid> */}
-
             <Grid item xs={12}>
-              <Divider />
-      <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 2 }}>
-        <Button type="submit" variant="contained" disabled={loading}>
-          {loading ? 'Submitting...' : 'Submit'}
-        </Button>
-        {snackbarOpen && (<CustomSnackbar
-          message={snackbarMessage}
-          severity={snackbarSeverity}
-          color={snackbarSeverity}
-          icon={<InfoIcon/>}
-          duration={3000}
-          position={{ vertical: 'top', horizontal: 'center' }}
-          onClose={handleSnackbarClose}
-          open={snackbarOpen}
-        />)} 
-      </Box>
-              </Grid>
+            <Divider />
+            <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 2 }}>
+              <Button type="submit" variant="contained" disabled={loading}>
+                {loading ? 'Submitting...' : 'Submit'}
+              </Button>
+                {snackbarOpen && (<CustomSnackbar
+                  message={snackbarMessage}
+                  severity={snackbarSeverity}
+                  color={snackbarSeverity}
+                  icon={<InfoIcon/>}
+                  duration={3000}
+                  position={{ vertical: 'top', horizontal: 'center' }}
+                  onClose={handleSnackbarClose}
+                  open={snackbarOpen}
+                />)} 
+            </Box>
             </Grid>
-            </Grid>
-            </Grid>
-
+          </Grid>
+        </Grid>
+      </Grid>
     </Box>
   );
 };

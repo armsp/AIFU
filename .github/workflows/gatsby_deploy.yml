@@ -3,6 +3,8 @@ name: Gatsby Publish
 on:
   push:
     branches: gatsby
+    paths-ignore:
+      - '**.md'
     
 env:
   GH_PAGES: ${{ secrets.GH_PAGES }}

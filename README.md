@@ -7,8 +7,8 @@ AIFU is a one stop solution for researchers and anyone looking for a place to le
 **How to contribute?**
 
 Steps -
-1. Go to the country of the concerned article/news.
-2. Enter the article, organization and other details you could discern (you see an example when you go to the country)
+1. Go to the country of the concerned article/news. If the article/news does not pertain to a country then submit it as `global`.
+2. Enter the article, media organization and other details you could discern (see examples when you navigate to a country)
 3. Press `Submit`
 
 ## Outline
@@ -88,6 +88,11 @@ API Endpoints
 
 More endpoints may be added later on based on the needs of the project.
 
+**Policy Recommendations Literature Review**
+* https://www.brookings.edu/articles/algorithmic-bias-detection-and-mitigation-best-practices-and-policies-to-reduce-consumer-harms/
+* https://datajusticelab.org/data-harm-record/
+
+
 **Result**
 
 **Conclusion**
@@ -127,7 +132,16 @@ stateDiagram-v2
         UpdateDeploymentCodeOnBranch --> DeployToGHPages: build and deploy (yaml) |ubuntu, node, checkout, build, commit, push
     }
 ```
-
+```mermaid
+flowchart TB
+    SubmitArticle --> A[Detect Headline Language] --> |Language Supported| B[Translate]
+    A --> |Language Not Supported| C[Make GH Issue] --> Stop
+    B --> D[Classify Headline] --> |Accepted|E[Detect Content Language]
+    D --> |Rejected|C 
+    E --> |Language Not Supported| C
+    E --> |Language Supported| H[Translate Content]
+    H --> F[Make GH Issue, Save to DB] --> J[Information Retreival Pipeline] 
+```
 Information Extraction
 ```mermaid
 flowchart TB
@@ -144,12 +158,10 @@ flowchart TB
 ```
 ## Features to come
 
-- [ ] automatic extraction of Affected Group
-- [ ] Automtic extraction of Perpeterator
-- [ ] Analysis of text (NLP) to extract the **cause** and the **effect**, short summary
-- [ ]  Graph representations of relations
-- [ ] take snapshots of articles using github actions becasue articles may expire or move
-- [ ] Extracting more technical information from the links as you said in the meeting – we either do this using ChatGPT “API calls” or make our own Q&A model for:
+- [x] Analysis of text to extract the **cause** and the **effect**, short summary
+- [ ] Graph representations of relations
+- [ ] take snapshots of articles using github actions becasue articles may expire or move (latest selenium for chrome has an inbuilt option to do this)
+- [x] Extracting more technical information from the links – we either do this using ChatGPT “API calls” or make our own Q&A model for:
   * Who developed the model/AI system?
   * How and where was it deployed?
   * What ORG/group of people used it and how?
@@ -162,8 +174,8 @@ flowchart TB
   * Did something similar happen again? Why?
   * Are there any legislations in the pipeline?
   * Were there any legislations that got blocked? Why? What were the arguements? Who blocked it?
-- [ ] Provide an API or ability to download the whole dataset we are curating so that others could it for other purposes.
-- [ ] Filepond? securedrop?
+- [x] Provide an API or ability to download the whole dataset we are curating so that others could it for other purposes.
+- [ ] Filepond? securedrop? - Most probably won't do this
 - [ ] ^ use Azure Blob Storage and Azure Functions to upload small image, PDF, txt files. Exclude executables.
 - [ ] Switch to a vector database? Perhaps its not necessary right now since we don't have a lot of data.
 
@@ -179,7 +191,7 @@ flowchart TB
 
 ## Development Activities
 - [ ] Link https://aifu.shantam.io/about to README.md
-- [ ] Form Submission: add optional entries for [GitHub, Twitter, Other(scholarly sites)] usernames
+- [x] Form Submission: add optional entries for [GitHub, Twitter, Other(scholarly sites)] usernames
 - [x] CSS for countries
 - [x] Fix Home page for number of articles
 - [x] Finish footer
@@ -189,6 +201,8 @@ flowchart TB
 - [ ] How can users request for snapshots if the article link is down?
 - [ ] Caching of DB reuests for countries as well as the whole dataset
 - [ ] Testimonial Page : If you found this useful or if it helped you in your work or if you used the informaiton here to do somehting then I would love to hear from you.
+- [ ] Try https://github.com/fhamborg/Giveme5W1H
+- [ ] Change css to primer css
 
 ## Change Log
  * Frontend Tech Stack - React, gatsby, vega-lite, MUIv5 
@@ -198,9 +212,17 @@ flowchart TB
  * Refactored server code for easier and quicker deployments and developments in Production and Development environments
 
 
-## Decision Log
+## Decision Log and Tradeoffs
 Using AI for meta-analysis. Using AI for everything!
 The whole platform has AI generated data and information.
 You input a link. Agent decides if the link is relevant or not. If it is relevant then it extracts information (answers to questions above) from the text. Can ask for more info or gather more info from other articles about the same issue. Can identify an article that talks about the same issue and update information instead of adding new information about the issue. The idea is not to provide an exact text from the articles but "generated text" (asking LM to make a "report", because we don't want to provide links to paywalled websites). The agent itself updates the database and hooks trigger a website rebuild.
+
+I don't expect submissions with content larger than 5000 words. Therefore we don't need to split the content and make embeddings and find similiar splits and then do Q&A or Info Ret using prompts. The whole content can be embedded for detecting duplicates or articles that talk about the same case but are written by different media houses. 
+
+Since the content fits the context of LLM we are using, we can create and save the embedding of the whole content in a regular document database instead of using specialized ector databases which increase complexity of the deployment infrastructure and the info ret pipeline.
+
+I think using LangChain made things unnecessarily complicated. I could have just used openai's python library along with Microsoft's [guidance](https://github.com/microsoft/guidance/) library for mkaing LLM output's stable.
+
+Similarity and near duplicate and duplicate detection is a whole research area in itself. This needs to be tackled properly and given more time to implement properly.
 
 **Clock** - 75 hrs

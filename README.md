@@ -92,6 +92,11 @@ More endpoints may be added later on based on the needs of the project.
 * https://www.brookings.edu/articles/algorithmic-bias-detection-and-mitigation-best-practices-and-policies-to-reduce-consumer-harms/
 * https://datajusticelab.org/data-harm-record/
 
+(Near) Duplicate Detection
+This is a whole research area in itself.
+Methods tht do not yield good results - TFIDF, Jaccquard Distance, 
+Method deployed - USE and Sentence transformer. May remove Sentence Transformer since it does not work on the full text. For USE, the embedddings just get diluted.
+For Future Work - there is a research by google for huge datasets though - 
 
 **Result**
 
@@ -155,6 +160,20 @@ flowchart TB
     H --> |No| I
     H --> |Yes| J[Merge context and update extracted information]
     J --> I[Update information in Database]   
+```
+
+Database Schema
+```
+headline : str
+headline_embed : array
+reason : str
+content : str
+content_embed : array
+headline_lang : str
+scraped_text : str
+translated_text : str
+scraped_lang : str
+duplicate_to : None, list 
 ```
 ## Features to come
 

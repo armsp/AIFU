@@ -92,11 +92,12 @@ More endpoints may be added later on based on the needs of the project.
 * https://www.brookings.edu/articles/algorithmic-bias-detection-and-mitigation-best-practices-and-policies-to-reduce-consumer-harms/
 * https://datajusticelab.org/data-harm-record/
 
-(Near) Duplicate Detection
+**(Near) Duplicate Detection**
 This is a whole research area in itself.
 Methods tht do not yield good results - TFIDF, Jaccquard Distance, 
-Method deployed - USE and Sentence transformer. May remove Sentence Transformer since it does not work on the full text. For USE, the embedddings just get diluted.
-For Future Work - there is a research by google for huge datasets though - 
+Method deployed - USE and Sentence transformer. May remove Sentence Transformer since it does not work on the full text. For USE, the embedddings just get diluted.  
+For Future Work - there is a research by google for huge datasets though - https://github.com/google-research/deduplicate-text-datasets  
+Try USE based on other architectures - https://tfhub.dev/s?q=google%2Funiversal-sentence-encoder%2F4%20OR%20google%2Funiversal-sentence-encoder-large%2F5  
 
 **Result**
 

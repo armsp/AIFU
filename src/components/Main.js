@@ -26,12 +26,14 @@ export default function Main() {
         <Box
           sx={{
             bgcolor: 'background.paper',
-            pt: 8,
-            pb: 6,
+            pt: 0,
+            pb: 0,
           }}
         >
-          <Container maxWidth="md">
+          <Container maxWidth="md" sx={{ pb:0 }}>
             <ReactMarkdown>{markdown}</ReactMarkdown>
+          </Container>
+          <Container maxWidth="lg">
             <SubmissionFormWithCountry />
           </Container>
         </Box>

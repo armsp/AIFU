@@ -101,6 +101,8 @@ const SubmissionForm = ({ tablename }) => {
                   id="headline"
                   name="headline"
                   label="Headline"
+                  size="small"
+                  // sx={{ marginBottom: 0 }}
                   fullWidth
                 />
               </Grid>
@@ -110,6 +112,7 @@ const SubmissionForm = ({ tablename }) => {
                   id="url"
                   name="url"
                   label="URL"
+                  size="small"
                   fullWidth
                 />
               </Grid>
@@ -119,6 +122,7 @@ const SubmissionForm = ({ tablename }) => {
                   id="media_org"
                   name="media_org"
                   label="Media Org"
+                  size="small"
                   fullWidth
                 />
               </Grid>
@@ -137,6 +141,7 @@ const SubmissionForm = ({ tablename }) => {
                   id="name"
                   name="name"
                   label="Your Name"
+                  size="small"
                   fullWidth
                 />
               </Grid>
@@ -153,6 +158,7 @@ const SubmissionForm = ({ tablename }) => {
                   id="github"
                   name="github"
                   label="GitHub"
+                  size="small"
                   fullWidth
                 />
               </Grid>
@@ -169,6 +175,7 @@ const SubmissionForm = ({ tablename }) => {
                   id="email"
                   name="email"
                   label="Email"
+                  size="small"
                   fullWidth
                 />
               </Grid>

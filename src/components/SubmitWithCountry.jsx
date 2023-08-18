@@ -552,6 +552,7 @@ const SubmissionFormWithCountry = () => {
                         id="headline"
                         name="headline"
                         label="Headline"
+                        size="small"
                         fullWidth
                       />
                     </Grid>
@@ -561,6 +562,7 @@ const SubmissionFormWithCountry = () => {
                         id="url"
                         name="url"
                         label="URL"
+                        size="small"
                         fullWidth
                       />
                     </Grid>
@@ -570,6 +572,7 @@ const SubmissionFormWithCountry = () => {
                         id="media_org"
                         name="media_org"
                         label="Media Org"
+                        size="small"
                         fullWidth
                       />
                     </Grid>
@@ -578,6 +581,7 @@ const SubmissionFormWithCountry = () => {
                         id="country"
                         name="table"
                         label="country"
+                        size="small"
                         fullWidth/>
                     </Grid>
                   </Grid>
@@ -593,6 +597,7 @@ const SubmissionFormWithCountry = () => {
                       id="name"
                       name="name"
                       label="Your Name"
+                      size="small"
                       fullWidth
                     />
                   </Grid>
@@ -601,6 +606,7 @@ const SubmissionFormWithCountry = () => {
                       id="github"
                       name="github"
                       label="GitHub"
+                      size="small"
                       fullWidth
                     />
                   </Grid>
@@ -609,11 +615,12 @@ const SubmissionFormWithCountry = () => {
                       id="email"
                       name="email"
                       label="Email"
+                      size="small"
                       fullWidth
                     />
                   </Grid>
             <Grid item xs={12}>
-            <Divider />
+            {/* <Divider /> */}
             <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 2 }}>
               <Button type="submit" variant="contained" disabled={loading}>
                 {loading ? 'Submitting...' : 'Submit'}

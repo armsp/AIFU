@@ -45,7 +45,7 @@ export default function Appbar() {
           <Link href="https://aifu.shantam.io">AIFU</Link>
         </Typography>
         <Box sx={{ flexGrow: 1 }} />
-        <Link href="https://github.com/armsp/AIFU" color="secondary">
+        <Link href="https://github.com/armsp/AIFU">
           <GitHubIcon />
         </Link>
         {/* <Button color="inherit">About</Button> */}

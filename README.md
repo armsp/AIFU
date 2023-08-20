@@ -74,33 +74,34 @@ With all the information and analysis, I want to find out if in the end we can â
 
 **Approach**
 
-Once a user submits any article by providing its URI and Headline, we first try to figure out if the article is not at all related to what we are looking for by analyzing the headline itself. The idea here is to reject irrelevant articles and not so much accept relevant articles becasue that happens in the next step.
+Once a user submits any article by providing its URI and Headline, we first try to figure out if the article is not at all related to what we are looking for by analyzing the headline itself. The idea here is to reject irrelevant articles and not so much accept relevant articles becasue that happens in the next step. However, it is important to understand that subsequent articles about an event may be ignored if the workflow depends too heavily on Headline itself. To mitigate that we use the content of the article itself and also provide method to "update" a case by providing subsequent articles for that case.
 
-OpenAI provides a content moderation api but we dont use moderation api to filter misuse of content because the idea is not to reject content that may be talking about difficult topics. We do however check for prompt injection (when a user attempts to manipulate the AI system by providing input that tries to override or bypass the intended instructions or constraints set by us/developer). 
+After that, we extract the contents of the article using the provided URI. Following which, using prompt engineering, we try to extract all the relevant content by asking questions. Finally we also summarize the article. The outputs are then serialized in the database.
 
-After that, we extract the contents of the article using the provided URI. Following which, using prompt engineering, we try to extract all the relevant content by asking questions. And finally we also summarize the article. The outputs are then serialized to be stored in the database.
+Before actually storing the contents in the database, we also query the database for exactly similar articles (maybe the same article was already stored before or maybe a different media reported on the same case, both of which are highly likely). If an exactly similar article is found then we try to merge the information extracted now with whatever we had extracted earlier and update the database record. If the article and case is completely new then we just make a new record in the database. However, Near Duplicate Detection or identifying similar articles by different media is a research field in itself. Currently we have observed that using using universal sentence encoder as a baseline works for us. However as the workflow becomes more complicated and streamlined and accurate, we will certainly have to revisit this part for automatic detection of duplicates and similar articles.
 
-Before actually storing the contents in the database, we also query the database for exactly similar articles (maybe the same article was already stored before or maybe a different media reported on the same case, both of which are highly likely). If an exactly similar article is found then we try to merge the information extracted now with whatever we had extracted earlier and update the database record. If the article and case is completely new then we just make a new record in the database. 
-
-API Endpoints
-* `/records` : GET Request - Responsible for providing the details of cases per country to the frontend.
-* `/submit` : POST Request - Responsible for creating Automatic GitHub issues/discussions whenever a user submits an article.
-* `/heartbeat` : GET Request - Used for testing if the server is alive.
-* `/export` : GET Request - Provides a json file of exported content from the database collection for a given country.
-* `/extract_information` : POST Request - The main information extraction endpoint that triggers all the steps listed in **Approach**.
+**API Endpoints**
+| Endpoint | Request type | Comment |
+| `/records` | GET | Responsible for providing the details of cases per country to the frontend. |
+| `/submit` | POST | Responsible for creating Automatic GitHub issues/discussions whenever a user submits an article. |
+| `/heartbeat` | GET | Used for testing if the server is alive. |
+| `/export` | GET | Provides a json file of exported content from the database collection for a given country. |
+| `/extract_information` | POST | The main information extraction endpoint that triggers all the steps listed in **Approach**. |
 
 More endpoints may be added later on based on the needs of the project.
 
-**Policy Recommendations Literature Review**
+**Policy Recommendations Literature Review and Starting Point**
 * https://www.brookings.edu/articles/algorithmic-bias-detection-and-mitigation-best-practices-and-policies-to-reduce-consumer-harms/
 * https://datajusticelab.org/data-harm-record/
 
 **(Near) Duplicate Detection**
-This is a whole research area in itself.
-Methods tht do not yield good results - TFIDF, Jaccquard Distance, 
+This is a whole research area in itself. After trying a few approaches I have settled with Universal Sentence Encoder as a baseline. This part of the pipeline would be made more robust over time.  
+Methods that do not yield good results - TFIDF, Jaccquard Distance. See jupyter notebook for experiments. 
 Method deployed - USE and Sentence transformer. May remove Sentence Transformer since it does not work on the full text. For USE, the embedddings just get diluted.  
-For Future Work - there is a research by google for huge datasets though - https://github.com/google-research/deduplicate-text-datasets  
-Try USE based on other architectures - https://tfhub.dev/s?q=google%2Funiversal-sentence-encoder%2F4%20OR%20google%2Funiversal-sentence-encoder-large%2F5  
+
+Methods to explore for Future Work - 
+1. there is a research by google for huge datasets though - https://github.com/google-research/deduplicate-text-datasets  
+2. Try USE based on other architectures - https://tfhub.dev/s?q=google%2Funiversal-sentence-encoder%2F4%20OR%20google%2Funiversal-sentence-encoder-large%2F5  
 
 **Result**
 

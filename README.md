@@ -37,7 +37,7 @@ In short causal language model is the judge, jury, and executioner.
 
 **Related literature**
 
-Most of the existing databases and projects around this are more about general (deeper) understanding of AI, accountability, fairness and transparency where real life examples are just case studies. They are very broad in their general reach which I believe dilutes their effectiveness. Some of the important resources that I found in  my literature review research are -
+Most of the existing databases and projects around this are more about general (deeper) understanding of AI, accountability, fairness and transparency, where real life examples are just case studies. They are very broad in their general reach which I believe dilutes their effectiveness. Some of the important resources that I found in  my literature review research are -
 
 [The AI Index](https://aiindex.stanford.edu/) by The Stanford Institute for Human-Centered Artificial Intelligence
 
@@ -64,7 +64,7 @@ This is the closest database to what I am building. Quoting them -
 They however collect a rather broad spectrum of cases - incidents where intelligent systems have caused safety, fairness, or other real-world problems. 
 It has also changed a lot since the time I started working. A while ago you could only browse and read the content of submitted incident's article(s). Since then they have added a multitude of features such as Named Entities, CSET Taxonomy Classifications, GMF Taxonomy Classifications, a timeline of reports and a list of similar reports/variants. However not all incidents have all this information associated with them and its not apparently clear on what basis are incients chosen to be worked upon to provide all the relevant information.
 
-To the best of my knowledge, nothing like what we are trying to do has been done before.
+To the best of my knowledge, nothing like AIFU has been done before.
 
 **Data**
 

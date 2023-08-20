@@ -5,6 +5,7 @@
 AIFU aims to be a platform for researchers and anyone looking for a place to learn about the repercussions of using AI blatently, too soon, indiscriminately, harmfully. Its an experiment in meta analysis. What makes it interesting is that all of the information is "generated" and "retreived" using language model(s). Currently, the design of the platform leans towards using causal language models as judge, jury and executioner if you will.
 
 **How to use the platform?**
+
 We intend you to submit links to articles that you may think document/inform of cases where harm "may" have been caused becasue of AI. Your submission will be recorded publicly in our GitHub repository as an issue and the processing pipeline will start. You may have to wait for a few seconds to a few minutes for the workflow to finish and a short response of the outcome of the workflow run will be posted as a reply to the issue. For example -> https://github.com/armsp/AIFU/issues/84
 
 Steps -
@@ -19,11 +20,12 @@ Through this platform, my aim is to monitor the utilization of AI by governmenta
 
 **Motivation**
 Necessity: Knowing about something harmful is crucial for several reasons -
-* By identifying the underlying factors that led to the harmful event, steps can be taken to prevent similar incidents from occurring in the future.
+* by identifying the underlying factors that led to the harmful event, steps can be taken to prevent similar incidents from occurring in the future.
 * important for developing a deeper understanding of the risks and downsides associated with a particular technology, process, or behavior. Armed with this knowledge, we can take proactive steps to mitigate risks and prevent harm, improving the safety and wellbeing of ourselves and those around us.
 * knowledge of the harmful consequences of AI can help to drive the development of better, more responsible AI technology. By understanding the ways in which AI can be harmful, researchers and developers can work to address these issues and build AI systems that are safer, more transparent, and more trustworthy.
-* It is imperative for policymakers and the general public to be aware of the potential harmful consequences of using AI for several reasons.Policymakers have a responsibility to regulate the use of AI technology to ensure that it is safe, ethical, and serves the public interest. In order to do this effectively, they need to have a comprehensive understanding of the risks and downsides associated with AI.
-* The general public needs to be informed about the potential harmful impacts of AI so that they can make informed decisions about how they interact with the technology. By being aware of the potential risks, individuals can take steps to protect their privacy, security, and well-being when using AI-powered tools and services.
+* it is imperative for policymakers and the general public to be aware of the potential harmful consequences of using AI for several reasons. Policymakers have a responsibility to regulate the use of AI technology to ensure that it is safe, ethical, and serves the public interest. In order to do this effectively, they need to have a comprehensive understanding of the risks and downsides associated with AI.
+* the general public needs to be informed about the potential harmful impacts of AI so that they can make informed decisions about how they interact with the technology. By being aware of the potential risks, individuals can take steps to protect their privacy, security, and well-being when using AI-powered tools and services.
+* to a certain extent its also addresses issues of public health and therefore national security
 
 What makes this project **intresting** is that I plan to archive, extract and collate relevant information from the articles using AI itself. Therefore this platform and project is an exercise in -
 - collaborating with AI to examine the misuses and harm from the tool in a meta-analysis
@@ -31,7 +33,7 @@ What makes this project **intresting** is that I plan to archive, extract and co
 - leveraging AI to gain insights into the potential risks and downsides of AI technology
 - using AI to inform our understanding of the possible negative impacts and consequences associated with AI
 
-In short LLM or AI is the judge, jury, and executioner if you will.
+In short causal language model is the judge, jury, and executioner.
 
 **Related literature**
 

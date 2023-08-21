@@ -59,7 +59,7 @@ export default function ExportButton({ disabled, tablename }) {
       ) : (
         
     
-      <Button
+      <Button sx={{ mt:3, mb: 3 }}
         // variant="contained"
         // color="primary"
         color="secondary" 

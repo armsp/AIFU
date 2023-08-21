@@ -63,17 +63,22 @@ const Row = React.memo((props) => {
         </TableCell>
         <TableCell>{row.headline}</TableCell>
         <TableCell>{row['media_org']}</TableCell>
-        <TableCell>{row.score}</TableCell>
+        {/* <TableCell>{row.score}</TableCell> */}
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={3}>
           <Collapse in={isOpen} timeout="auto" unmountOnExit>
-            <Box margin={1} sx={{ display: 'flex', flexWrap: 'nowrap', flexDirection: 'row' }}>
+            <Box margin={1} sx={{ display: 'flex', flexWrap: 'nowrap', flexDirection: 'column' }}>
               {/* {moredata.map((item, index) => (
         <Typography key={index} variant="body1" component="div">
           <strong>{Object.keys(item)[0]}:</strong> {Object.values(item)[0]}
         </Typography>
       ))} */}
+      <Box sx={{ m:1, }}>
+                <h3>Summary of the Article</h3>
+                <p>{row.summary}</p>
+                <p><a href={row.uri}>Link</a> to the article</p>
+              </Box>
               <List >
                 {
                   row['q_as'].map((item, index) => ([
@@ -95,7 +100,7 @@ const Row = React.memo((props) => {
                             {/* { Object.values(item)[2].map(who => (
                   <Chip label={who} color="info" sx={{borderRadius: 1}} size="small"  variant="inset" component="span" />))
                 } */}
-                            <Chip label="GPT-4" sx={{ borderRadius: 5, bgcolor: "primary.light"}} size="small" variant="inset" component="span" />
+                            <Chip label="GPT-4" sx={{ borderRadius: 5, bgcolor: 'rgba(0, 0, 255, 0.1)' }} size="small" variant="inset" component="span" />
                            
                           </>
                         }
@@ -111,15 +116,12 @@ const Row = React.memo((props) => {
                     // <Divider variant="inset" component="li" />,
                     <Divider />
                   ]
-                  ))}
+                  ))
+                }
 
               </List>
 
-              <Box sx={{ width: 500, flexShrink: 1, p:1, m:1 }}>
-                <h3>Summary of the Article</h3>
-                <p>{row.summary}</p>
-                <p><a href={row.uri}>Link</a> to the article</p>
-              </Box>
+              
             </Box>
           </Collapse>
         </TableCell>
@@ -183,7 +185,7 @@ const handleRowClick = (index) => {
             <TableCell />
             <TableCell>Headline</TableCell>
             <TableCell>Media Org</TableCell>
-            <TableCell>Score</TableCell>
+            {/* <TableCell>Score</TableCell> */}
           </TableRow>
         </TableHead>
         <TableBody>

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Divider } from '@mui/material';
+import { Box, Divider, Container } from '@mui/material';
 import CountryGrid from '../components/CountryGrid';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -7,6 +7,7 @@ import Appbar from '../components/Appbar';
 import Main from '../components/Main';
 import Footer from '../components/Footer'
 import ContactForm from '../components/ContactForm';
+import SubmissionFormWithCountry from '../components/SubmitWithCountry';
 
 // const theme = createTheme({
 //   typography: {
@@ -70,6 +71,10 @@ export default function Index() {
       <Appbar />
       <Main />
       <CountryGrid />
+      <Container id="submitmain" maxWidth="lg">
+        <SubmissionFormWithCountry />
+      </Container>
+      <Divider light />
       <ContactForm />
       <Divider dark />
       <Footer />

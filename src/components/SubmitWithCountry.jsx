@@ -537,7 +537,7 @@ const SubmissionFormWithCountry = () => {
   return (
           <Box sx={{ mt: 4, mb: 4, border: '1px solid #ccc', borderRadius: 4, p: 2 }} component="form" onSubmit={handleSubmit}>
             <Typography variant="h5" sx={{ mb: 2 }}>
-              Your Submission
+              Submit an article
             </Typography>
             <Grid container spacing={2}>
               <Grid item xs={12} md={6}>

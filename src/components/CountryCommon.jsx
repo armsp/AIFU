@@ -42,7 +42,7 @@ export default function CountryData({ country }) {
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <CssBaseline />
       <Appbar />
-      <Container sx={{ flex: '1 0 auto' }} maxWidth="xxl">
+      <Container sx={{ flex: '1 0 auto' }} maxWidth="xl">
         <SubmissionForm tablename={country} />
 
         {/* the snackbar works! just uncomment it... */}

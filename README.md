@@ -2,27 +2,30 @@
 
  **AI flub ups**
  
-AIFU is a one stop solution for researchers and anyone looking for a place to learn about the repercussions of using AI blatently, too soon, indiscriminately, harmfully.
+AIFU aims to be a platform for researchers and anyone looking for a place to learn about the repercussions of using AI blatently, too soon, indiscriminately, harmfully. Its an experiment in meta analysis. What makes it interesting is that all of the information is "generated" and "retreived" using language model(s). Currently, the design of the platform leans towards using causal language models as judge, jury and executioner if you will.
 
-**How to contribute?**
+**How to use the platform?**
+
+We intend you to submit links to articles that you may think document/inform of cases where harm "may" have been caused becasue of AI. Your submission will be recorded publicly in our GitHub repository as an issue and the processing pipeline will start. You may have to wait for a few seconds to a few minutes for the workflow to finish and a short response of the outcome of the workflow run will be posted as a reply to the issue. For example -> https://github.com/armsp/AIFU/issues/84
 
 Steps -
 1. Go to the country of the concerned article/news. If the article/news does not pertain to a country then submit it as `global`.
-2. Enter the article, media organization and other details you could discern (see examples when you navigate to a country)
-3. Press `Submit`
+2. Enter the headline, url, media organization and other details you can discern (see examples when you navigate to a country)
+3. Press `Submit` to start the workflow
 
 ## Outline
-The objective of this project is to establish a comprehensive archive or repository that serves as a centralized resource for policymakers, researchers, students, and other stakeholders seeking to acquire knowledge regarding the potential adverse consequences arising from the indiscriminate, premature, or injudicious use of algorithms and AI.
+The objective of this project is to establish a comprehensive archive or repository that serves as a resource for policymakers, researchers, students, and other stakeholders seeking to acquire knowledge regarding the potential adverse consequences arising from the indiscriminate, premature, or injudicious use of algorithms and AI.
 
 Through this platform, my aim is to monitor the utilization of AI by governmental entities. By conducting thorough analysis of the collected data, I want to find out if we can provide "concrete course(s) of action" or policy recommendations to lawmakers, the general public, and other stakeholders regarding their engagement with AI-based services. Crucially, this initiative will enable us to gain insights into the preferences and purposes of government agencies in employing AI. By doing so, we can proactively address potential risks associated with AI based implementation in specific domains such as child welfare and recidivism, while promoting fair and equitable utilization of AI.
 
 **Motivation**
 Necessity: Knowing about something harmful is crucial for several reasons -
-* By identifying the underlying factors that led to the harmful event, steps can be taken to prevent similar incidents from occurring in the future.
+* by identifying the underlying factors that led to the harmful event, steps can be taken to prevent similar incidents from occurring in the future.
 * important for developing a deeper understanding of the risks and downsides associated with a particular technology, process, or behavior. Armed with this knowledge, we can take proactive steps to mitigate risks and prevent harm, improving the safety and wellbeing of ourselves and those around us.
 * knowledge of the harmful consequences of AI can help to drive the development of better, more responsible AI technology. By understanding the ways in which AI can be harmful, researchers and developers can work to address these issues and build AI systems that are safer, more transparent, and more trustworthy.
-* It is imperative for policymakers and the general public to be aware of the potential harmful consequences of using AI for several reasons.Policymakers have a responsibility to regulate the use of AI technology to ensure that it is safe, ethical, and serves the public interest. In order to do this effectively, they need to have a comprehensive understanding of the risks and downsides associated with AI.
-* The general public needs to be informed about the potential harmful impacts of AI so that they can make informed decisions about how they interact with the technology. By being aware of the potential risks, individuals can take steps to protect their privacy, security, and well-being when using AI-powered tools and services.
+* it is imperative for policymakers and the general public to be aware of the potential harmful consequences of using AI for several reasons. Policymakers have a responsibility to regulate the use of AI technology to ensure that it is safe, ethical, and serves the public interest. In order to do this effectively, they need to have a comprehensive understanding of the risks and downsides associated with AI.
+* the general public needs to be informed about the potential harmful impacts of AI so that they can make informed decisions about how they interact with the technology. By being aware of the potential risks, individuals can take steps to protect their privacy, security, and well-being when using AI-powered tools and services.
+* to a certain extent its also addresses issues of public health and therefore national security
 
 What makes this project **intresting** is that I plan to archive, extract and collate relevant information from the articles using AI itself. Therefore this platform and project is an exercise in -
 - collaborating with AI to examine the misuses and harm from the tool in a meta-analysis
@@ -30,11 +33,11 @@ What makes this project **intresting** is that I plan to archive, extract and co
 - leveraging AI to gain insights into the potential risks and downsides of AI technology
 - using AI to inform our understanding of the possible negative impacts and consequences associated with AI
 
-In short LLM or AI is the judge, jury, and executioner if you will.
+In short causal language model is the judge, jury, and executioner.
 
 **Related literature**
 
-Most of the existing databases and projects around this are more about general (deeper) understanding of AI, accountability, fairness and transparency where real life examples are just case studies. They are very broad in their general reach which I believe dilutes their effectiveness. Some of the important resources that I found in  my literature review research are -
+Most of the existing databases and projects around this are more about general (deeper) understanding of AI, accountability, fairness and transparency, where real life examples are just case studies. They are very broad in their general reach which I believe dilutes their effectiveness. Some of the important resources that I found in  my literature review research are -
 
 [The AI Index](https://aiindex.stanford.edu/) by The Stanford Institute for Human-Centered Artificial Intelligence
 
@@ -61,7 +64,7 @@ This is the closest database to what I am building. Quoting them -
 They however collect a rather broad spectrum of cases - incidents where intelligent systems have caused safety, fairness, or other real-world problems. 
 It has also changed a lot since the time I started working. A while ago you could only browse and read the content of submitted incident's article(s). Since then they have added a multitude of features such as Named Entities, CSET Taxonomy Classifications, GMF Taxonomy Classifications, a timeline of reports and a list of similar reports/variants. However not all incidents have all this information associated with them and its not apparently clear on what basis are incients chosen to be worked upon to provide all the relevant information.
 
-To the best of my knowledge, nothing like what we are trying to do has been done before.
+To the best of my knowledge, nothing like AIFU has been done before.
 
 **Data**
 
@@ -71,33 +74,34 @@ With all the information and analysis, I want to find out if in the end we can â
 
 **Approach**
 
-Once a user submits any article by providing its URI and Headline, we first try to figure out if the article is not at all related to what we are looking for by analyzing the headline itself. The idea here is to reject irrelevant articles and not so much accept relevant articles becasue that happens in the next step.
+Once a user submits any article by providing its URI and Headline, we first try to figure out if the article is not at all related to what we are looking for by analyzing the headline itself. The idea here is to reject irrelevant articles and not so much accept relevant articles becasue that happens in the next step. However, it is important to understand that subsequent articles about an event may be ignored if the workflow depends too heavily on Headline itself. To mitigate that we use the content of the article itself and also provide method to "update" a case by providing subsequent articles for that case.
 
-OpenAI provides a content moderation api but we dont use moderation api to filter misuse of content because the idea is not to reject content that may be talking about difficult topics. We do however check for prompt injection (when a user attempts to manipulate the AI system by providing input that tries to override or bypass the intended instructions or constraints set by us/developer). 
+After that, we extract the contents of the article using the provided URI. Following which, using prompt engineering, we try to extract all the relevant content by asking questions. Finally we also summarize the article. The outputs are then serialized in the database.
 
-After that, we extract the contents of the article using the provided URI. Following which, using prompt engineering, we try to extract all the relevant content by asking questions. And finally we also summarize the article. The outputs are then serialized to be stored in the database.
+Before actually storing the contents in the database, we also query the database for exactly similar articles (maybe the same article was already stored before or maybe a different media reported on the same case, both of which are highly likely). If an exactly similar article is found then we try to merge the information extracted now with whatever we had extracted earlier and update the database record. If the article and case is completely new then we just make a new record in the database. However, Near Duplicate Detection or identifying similar articles by different media is a research field in itself. Currently we have observed that using using universal sentence encoder as a baseline works for us. However as the workflow becomes more complicated and streamlined and accurate, we will certainly have to revisit this part for automatic detection of duplicates and similar articles.
 
-Before actually storing the contents in the database, we also query the database for exactly similar articles (maybe the same article was already stored before or maybe a different media reported on the same case, both of which are highly likely). If an exactly similar article is found then we try to merge the information extracted now with whatever we had extracted earlier and update the database record. If the article and case is completely new then we just make a new record in the database. 
-
-API Endpoints
-* `/records` : GET Request - Responsible for providing the details of cases per country to the frontend.
-* `/submit` : POST Request - Responsible for creating Automatic GitHub issues/discussions whenever a user submits an article.
-* `/heartbeat` : GET Request - Used for testing if the server is alive.
-* `/export` : GET Request - Provides a json file of exported content from the database collection for a given country.
-* `/extract_information` : POST Request - The main information extraction endpoint that triggers all the steps listed in **Approach**.
+**API Endpoints**
+| Endpoint | Request type | Comment |
+| `/records` | GET | Responsible for providing the details of cases per country to the frontend. |
+| `/submit` | POST | Responsible for creating Automatic GitHub issues/discussions whenever a user submits an article. |
+| `/heartbeat` | GET | Used for testing if the server is alive. |
+| `/export` | GET | Provides a json file of exported content from the database collection for a given country. |
+| `/extract_information` | POST | The main information extraction endpoint that triggers all the steps listed in **Approach**. |
 
 More endpoints may be added later on based on the needs of the project.
 
-**Policy Recommendations Literature Review**
+**Policy Recommendations Literature Review and Starting Point**
 * https://www.brookings.edu/articles/algorithmic-bias-detection-and-mitigation-best-practices-and-policies-to-reduce-consumer-harms/
 * https://datajusticelab.org/data-harm-record/
 
 **(Near) Duplicate Detection**
-This is a whole research area in itself.
-Methods tht do not yield good results - TFIDF, Jaccquard Distance, 
+This is a whole research area in itself. After trying a few approaches I have settled with Universal Sentence Encoder as a baseline. This part of the pipeline would be made more robust over time.  
+Methods that do not yield good results - TFIDF, Jaccquard Distance. See jupyter notebook for experiments. 
 Method deployed - USE and Sentence transformer. May remove Sentence Transformer since it does not work on the full text. For USE, the embedddings just get diluted.  
-For Future Work - there is a research by google for huge datasets though - https://github.com/google-research/deduplicate-text-datasets  
-Try USE based on other architectures - https://tfhub.dev/s?q=google%2Funiversal-sentence-encoder%2F4%20OR%20google%2Funiversal-sentence-encoder-large%2F5  
+
+Methods to explore for Future Work - 
+1. there is a research by google for huge datasets though - https://github.com/google-research/deduplicate-text-datasets  
+2. Try USE based on other architectures - https://tfhub.dev/s?q=google%2Funiversal-sentence-encoder%2F4%20OR%20google%2Funiversal-sentence-encoder-large%2F5  
 
 **Result**
 

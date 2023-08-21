@@ -8,7 +8,7 @@ countries:
     url: /us
     flag: https://hatscripts.github.io/circle-flags/flags/us.svg
     wip: true
-    reports: 1
+    reports: 5
     # desc: some other data
 
   - title: China
@@ -96,6 +96,7 @@ countries:
   - title: Belgium
     url: "/be"
     flag: "https://hatscripts.github.io/circle-flags/flags/be.svg"
+    reports: 1
 
   - title: Austria
     url: "/at"

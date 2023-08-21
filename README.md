@@ -82,6 +82,7 @@ Before actually storing the contents in the database, we also query the database
 
 **API Endpoints**
 | Endpoint | Request type | Comment |
+| --- | --- | --- | 
 | `/records` | GET | Responsible for providing the details of cases per country to the frontend. |
 | `/submit` | POST | Responsible for creating Automatic GitHub issues/discussions whenever a user submits an article. Also triggers the information extraction endpoint in the background (steps listed in **Approach**). |
 | `/heartbeat` | GET | Used for testing if the server is alive. |
@@ -129,7 +130,7 @@ stateDiagram-v2
     BuildAndTagDockerImage --> PushImageToRegistry
     PushImageToRegistry --> AzureContainerGroupDeploy: az container create --resource-group <"resource group name"> --file <"deploymentfile.yml">
 ```
-
+---
 **FRONTEND UI**
 ```mermaid
 stateDiagram-v2
@@ -141,6 +142,8 @@ stateDiagram-v2
         UpdateDeploymentCodeOnBranch --> DeployToGHPages: build and deploy (yaml) |ubuntu, node, checkout, build, commit, push
     }
 ```
+---
+**User Submission**
 ```mermaid
 flowchart TB
     SubmitArticle --> A[Detect Headline Language] --> |Language Supported| B[Translate]
@@ -149,12 +152,13 @@ flowchart TB
     D --> |Rejected|C 
     E --> |Language Not Supported| C
     E --> |Language Supported| H[Translate Content]
-    H --> F[Make GH Issue, Save to DB] --> J[Information Retreival Pipeline] 
+    H --> F[Make GH Issue, Save to DB] --> J[Run Information Extraction Pipeline] 
 ```
-**Information Extraction**
+---
+**Information Extraction Pipeline**
 ```mermaid
 flowchart TB
-    SubmitLinkAndHeadline --> B{"`Does the headline suggest<br> it might be related to AI<br> and its potential harm?`"}
+    A[Submit Link and Headline] --> B{"Does the headline suggest<br> it might be related to AI<br> and its potential harm?"}
     B --> |Yes| C[Extract text from article link]
     B --> |No| E[End]
     C --> D[Rate Article based on context on a scale of 1-5 if it speaks of an actual harm]
@@ -165,7 +169,7 @@ flowchart TB
     H --> |Yes| J[Merge context and update extracted information]
     J --> I[Update information in Database]   
 ```
-
+---
 ## Major Changes Log
  * Frontend Tech Stack - React, gatsby, vega-lite, MUIv5 
  * Cases are shown as tables where rows can be expanded. This is the current approach until we face performance issues.

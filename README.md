@@ -96,8 +96,8 @@ More endpoints may be added later on based on the needs of the project.
 
 **(Near) Duplicate Detection**
 This is a whole research area in itself. After trying a few approaches I have settled with Universal Sentence Encoder as a baseline. This part of the pipeline would be made more robust over time.  
-Methods that do not yield good results - TFIDF, Jaccquard Distance. See jupyter notebook for experiments. 
-Method deployed - USE and Sentence transformer. May remove Sentence Transformer since it does not work on the full text. For USE, the embedddings just get diluted.  
+Methods that do not yield good results - TFIDF, Jaccquard Distance. See jupyter notebook for experiments. My first attempt was to use TFIDF. For making the vocabulary and TFIDF weights I used the latest news dataset from [n24 news](https://github.com/billywzh717/N24News) released as part of the research [N24News: A New Dataset for Multimodal News Classification](https://arxiv.org/abs/2108.13327)
+Method deployed - Universal Sentence Encoder. USE can work on full text, the embedddings just get diluted.  
 
 Methods to explore for Future Work - 
 1. there is a research by google for huge datasets though - https://github.com/google-research/deduplicate-text-datasets  

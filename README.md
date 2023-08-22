@@ -82,11 +82,11 @@ Before actually storing the contents in the database, we also query the database
 
 **API Endpoints**
 | Endpoint | Request type | Comment |
+| --- | --- | --- | 
 | `/records` | GET | Responsible for providing the details of cases per country to the frontend. |
-| `/submit` | POST | Responsible for creating Automatic GitHub issues/discussions whenever a user submits an article. |
+| `/submit` | POST | Responsible for creating Automatic GitHub issues/discussions whenever a user submits an article. Also triggers the information extraction endpoint in the background (steps listed in **Approach**). |
 | `/heartbeat` | GET | Used for testing if the server is alive. |
 | `/export` | GET | Provides a json file of exported content from the database collection for a given country. |
-| `/extract_information` | POST | The main information extraction endpoint that triggers all the steps listed in **Approach**. |
 
 More endpoints may be added later on based on the needs of the project.
 
@@ -96,8 +96,8 @@ More endpoints may be added later on based on the needs of the project.
 
 **(Near) Duplicate Detection**
 This is a whole research area in itself. After trying a few approaches I have settled with Universal Sentence Encoder as a baseline. This part of the pipeline would be made more robust over time.  
-Methods that do not yield good results - TFIDF, Jaccquard Distance. See jupyter notebook for experiments. 
-Method deployed - USE and Sentence transformer. May remove Sentence Transformer since it does not work on the full text. For USE, the embedddings just get diluted.  
+Methods that do not yield good results - TFIDF, Jaccquard Distance. See jupyter notebook for experiments. My first attempt was to use TFIDF. For making the vocabulary and TFIDF weights I used the latest news dataset from [n24 news](https://github.com/billywzh717/N24News) released as part of the research [N24News: A New Dataset for Multimodal News Classification](https://arxiv.org/abs/2108.13327)
+Method deployed - Universal Sentence Encoder. USE can work on full text, the embedddings just get diluted.  
 
 Methods to explore for Future Work - 
 1. there is a research by google for huge datasets though - https://github.com/google-research/deduplicate-text-datasets  
@@ -107,20 +107,20 @@ Methods to explore for Future Work -
 
 **Conclusion**
 
-**Definition of Success**
+**Definition of Success for the project**
 * Data: plateaus over time
 * Views: Increase and then decrease and plateau 
 * Information about removing bias, increasing fairness would become commonplace and part of the development lifecycle itself. 
 * Ethicists would be part of the team
 
-**Technical Details**
+**Technical Details and Workflow**
 
 Git/GitHub Branches
-* [gatsby](https://github.com/armsp/AIFU) - the main branch for UI. This is where the development code for the frontend resides.
-* [gh-pages](https://github.com/armsp/AIFU/tree/gh-pages) - built automatically by the GitHub Action that is triggered by a push to gatsby. This branch holds the deployment code for the Frontend.
+* [gatsby](https://github.com/armsp/AIFU) - the main branch for UI. This is where the development code for the frontend resides. The frontend is designed using Gatsby, React and MUI.
+* [gh-pages](https://github.com/armsp/AIFU/tree/gh-pages) - built automatically by the GitHub Action that is triggered by a push to gatsby branch. This branch holds the deployment code for the Frontend.
 * [backend](https://github.com/armsp/AIFU/tree/backend) - this branch contains the code for the backend server that runs on Azure. It also has jupyter notebooks with experiments on NLP tasks. It is important to note that the backend code is redacted and not all files are present since some files contain private credentials for deploying to Azure or otherwise. 
 
-BACKEND SERVER
+**BACKEND SERVER**
 ```mermaid
 stateDiagram-v2
       
@@ -130,8 +130,8 @@ stateDiagram-v2
     BuildAndTagDockerImage --> PushImageToRegistry
     PushImageToRegistry --> AzureContainerGroupDeploy: az container create --resource-group <"resource group name"> --file <"deploymentfile.yml">
 ```
-
-FRONTEND UI
+---
+**FRONTEND UI**
 ```mermaid
 stateDiagram-v2
 
@@ -142,6 +142,8 @@ stateDiagram-v2
         UpdateDeploymentCodeOnBranch --> DeployToGHPages: build and deploy (yaml) |ubuntu, node, checkout, build, commit, push
     }
 ```
+---
+**User Submission**
 ```mermaid
 flowchart TB
     SubmitArticle --> A[Detect Headline Language] --> |Language Supported| B[Translate]
@@ -150,12 +152,13 @@ flowchart TB
     D --> |Rejected|C 
     E --> |Language Not Supported| C
     E --> |Language Supported| H[Translate Content]
-    H --> F[Make GH Issue, Save to DB] --> J[Information Retreival Pipeline] 
+    H --> F[Make GH Issue, Save to DB] --> J[Run Information Extraction Pipeline] 
 ```
-Information Extraction
+---
+**Information Extraction Pipeline**
 ```mermaid
 flowchart TB
-    SubmitLinkAndHeadline --> B{"`Does the headline suggest<br> it might be related to AI<br> and its potential harm?`"}
+    A[Submit Link and Headline] --> B{"Does the headline suggest<br> it might be related to AI<br> and its potential harm?"}
     B --> |Yes| C[Extract text from article link]
     B --> |No| E[End]
     C --> D[Rate Article based on context on a scale of 1-5 if it speaks of an actual harm]
@@ -166,87 +169,64 @@ flowchart TB
     H --> |Yes| J[Merge context and update extracted information]
     J --> I[Update information in Database]   
 ```
+---
+## Major Changes Log
+ * Frontend Tech Stack - React, gatsby, vega-lite, MUIv5 
+ * Cases are shown as tables where rows can be expanded. This is the current approach until we face performance issues.
+ * Setup a MongoDB database on Azure
+ * Letting gpt do everything: ~~search the internet~~, summarize, answer, extract information (Langchain), we don't want to link to paywalled articles, figure out what goes in the db and what does not on its own
+ * Refactored server code for easier and quicker deployments and developments in Production and Development environments
 
-Database Schema
-```
-headline : str
-headline_embed : array
-reason : str
-content : str
-content_embed : array
-headline_lang : str
-scraped_text : str
-translated_text : str
-scraped_lang : str
-duplicate_to : None, list 
-```
+
 ## Features to come
-
 - [x] Analysis of text to extract the **cause** and the **effect**, short summary
-- [ ] Graph representations of relations
+- [ ] ~~Graph representations of relations~~
 - [ ] take snapshots of articles using github actions becasue articles may expire or move (latest selenium for chrome has an inbuilt option to do this)
 - [x] Extracting more technical information from the links – we either do this using ChatGPT “API calls” or make our own Q&A model for:
-  * Who developed the model/AI system?
-  * How and where was it deployed?
-  * What ORG/group of people used it and how?
-  * Other technical details
-  * Its subsequent effects… 
-  * Did the state/party accept their error?
-  * Were there compensations made? Apologies?
-  * Did they address the issue in a more tangible way through any legislation/bills and (or) regulation?
-  * Where there any regulations/bills & legislation already in place that still failed to prevent this?
-  * Did something similar happen again? Why?
-  * Are there any legislations in the pipeline?
-  * Were there any legislations that got blocked? Why? What were the arguements? Who blocked it?
+      * Who developed the model/AI system?
+      * How and where was it deployed?
+      * What ORG/group of people used it and how?
+      * Other technical details
+      * Its subsequent effects… 
+      * Did the state/party accept their error?
+      * Were there compensations made? Apologies?
+      * Did they address the issue in a more tangible way through any legislation/bills and (or) regulation?
+      * Where there any regulations/bills & legislation already in place that still failed to prevent this?
+      * Did something similar happen again? Why?
+      * Are there any legislations in the pipeline?
+      * Were there any legislations that got blocked? Why? What were the arguements? Who blocked it?
 - [x] Provide an API or ability to download the whole dataset we are curating so that others could it for other purposes.
-- [ ] Filepond? securedrop? - Most probably won't do this
+- [ ] File and document upload for analysis using Filepond? or securedrop?
 - [ ] ^ use Azure Blob Storage and Azure Functions to upload small image, PDF, txt files. Exclude executables.
 - [ ] Switch to a vector database? Perhaps its not necessary right now since we don't have a lot of data.
+- [ ] Use a Bot instead of your own username when making github api calls that reply to and make github issues 
 
-## Technical Workflow
 
-1. From the website people submit the form
-
-2. The website makes a POST request to a server that validates the input data so as to make sure that only valid data is pushed to the DB, and to avoid attacks, script executions etc.
-
-3. The server then pushes the data to the DB - perhaps after also a second human validation (can do it via Telegram bot)
-
-4. The updated DB table is reflected on the website after a few hours.
-
-## Development Activities
-- [ ] Link https://aifu.shantam.io/about to README.md
+## Future Development Activities
+- [x] Link https://aifu.shantam.io/about to README.md
 - [x] Form Submission: add optional entries for [GitHub, Twitter, Other(scholarly sites)] usernames
 - [x] CSS for countries
 - [x] Fix Home page for number of articles
 - [x] Finish footer
-- [ ] Grey/Disable countries for which there is no information
-- [ ] Make an automatic Last Updated <date> tag like the WIP one we have
-- [ ] Whats the best way to show more detailed information about the issue?
+- [ ] ~~Grey/Disable countries for which there is no information~~ 
+- [ ] Make an automatic Last Updated <date> tag
 - [ ] How can users request for snapshots if the article link is down?
 - [ ] Caching of DB reuests for countries as well as the whole dataset
-- [ ] Testimonial Page : If you found this useful or if it helped you in your work or if you used the informaiton here to do somehting then I would love to hear from you.
+- [ ] Testimonial Page: If you found this useful or if it helped you in your work or if you used the informaiton here to do somehting then I would love to hear from you.
 - [ ] Try https://github.com/fhamborg/Giveme5W1H
-- [ ] Change css to primer css
-
-## Change Log
- * Frontend Tech Stack - React, gatsby, vega-lite, MUIv5 
- * Cases are shown as tables where rows can be expanded. This is the current approach until we face performance issues.
- * Setup a MongoDB database on Azure
- * Letting gpt do everything: search the internet, summarize, answer, extract information (Langchain), we don't want to link to paywalled articles???, figure out what goes in the db and what does not on its own
- * Refactored server code for easier and quicker deployments and developments in Production and Development environments
+- [ ] Change mui css to primer css
 
 
 ## Decision Log and Tradeoffs
-Using AI for meta-analysis. Using AI for everything!
-The whole platform has AI generated data and information.
-You input a link. Agent decides if the link is relevant or not. If it is relevant then it extracts information (answers to questions above) from the text. Can ask for more info or gather more info from other articles about the same issue. Can identify an article that talks about the same issue and update information instead of adding new information about the issue. The idea is not to provide an exact text from the articles but "generated text" (asking LM to make a "report", because we don't want to provide links to paywalled websites). The agent itself updates the database and hooks trigger a website rebuild.
+* Using AI for meta-analysis. Using AI for everything!
+* The whole platform has AI generated data and information.
+* You input a link. LLM decides if the link is relevant or not. If it is relevant then it extracts information (answers to questions above) from the text. Can ask for more info or gather more info from other articles about the same issue. Can identify an article that talks about the same issue and update information instead of adding new information about the issue. The idea is not to provide an exact text from the articles but "generated text" (asking LM to make a "report", because we don't want to provide links to paywalled websites). The agent itself updates the database.
 
-I don't expect submissions with content larger than 5000 words. Therefore we don't need to split the content and make embeddings and find similiar splits and then do Q&A or Info Ret using prompts. The whole content can be embedded for detecting duplicates or articles that talk about the same case but are written by different media houses. 
+* I don't expect submissions with content larger than 5000 words. Therefore we don't need to split the content and make embeddings and find similiar splits and then do Q&A or Info Retreival using prompts. The whole content can be embedded for detecting duplicates or articles that talk about the same case but are written by different media houses. 
 
-Since the content fits the context of LLM we are using, we can create and save the embedding of the whole content in a regular document database instead of using specialized ector databases which increase complexity of the deployment infrastructure and the info ret pipeline.
+* Since the content fits the context of LLM we are using, we can create and save the embedding of the whole content in a regular document database instead of using specialized vector databases which increase complexity of the deployment infrastructure and the info ret pipeline.
 
-I think using LangChain made things unnecessarily complicated. I could have just used openai's python library along with Microsoft's [guidance](https://github.com/microsoft/guidance/) library for mkaing LLM output's stable.
+* I think using LangChain made things unnecessarily complicated. I could have just used openai's python library along with Microsoft's [guidance](https://github.com/microsoft/guidance/) library for making LLM outputs stable.
+* Similarity and near duplicate and duplicate detection is a whole research area in itself. This needs to be tackled properly and given more time to implement properly.
 
-Similarity and near duplicate and duplicate detection is a whole research area in itself. This needs to be tackled properly and given more time to implement properly.
-
-**Clock** - 75 hrs
+**Clock** - 90 hrs

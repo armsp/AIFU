@@ -199,6 +199,7 @@ flowchart TB
 - [ ] File and document upload for analysis using Filepond? or securedrop?
 - [ ] ^ use Azure Blob Storage and Azure Functions to upload small image, PDF, txt files. Exclude executables.
 - [ ] Switch to a vector database? Perhaps its not necessary right now since we don't have a lot of data.
+- [ ] Use a Bot instead of your own username when making github api calls that reply to and make github issues 
 
 
 ## Future Development Activities

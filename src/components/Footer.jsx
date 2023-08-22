@@ -13,9 +13,20 @@ function Footer() {
         <p>
           Artificial intelligence (AI) has the potential to revolutionize various aspects of our lives, from healthcare to transportation. However, the rapid development and deployment of AI technologies have raised a multitude of ethical concerns, including bias, fairness, transparency, accountability and harm. It is crucial that AI developers, policymakers, and stakeholders work together to address these challenges and ensure that AI technologies are designed, implemented, and governed in a responsible and inclusive manner. By fostering a culture of ethical AI development, we can harness the transformative power of AI to improve the well-being of individuals and communities across the globe, while mitigating the risks associated with its misuse and unintended consequences.
         </p>
-        <Box>Cite: <span className="footer-citation">
-          Shantam Raj (2023). AIFU. University of Zurich
-        </span></Box>
+        <Box sx={{ fontSize: "xs" }}>Cite: <br></br>
+        <pre>
+        <code>
+          @misc{'{'}raj_2023_ai,{`\n`}
+          {`   `}author = {'{'}Raj, Shantam{'}'},{`\n`}
+          {`   `}month = {'{'}09{'}'},{`\n`}
+          {`   `}title = {'{'}AI Flub Ups{'}'},{`\n`}
+          {`   `}url = {'{'}https://aifu.shantam.io/{'}'},{`\n`}
+          {`   `}year = {'{'}2023{'}'},{`\n`}
+          {`   `}organization = {'{'}ETH Zurich{'}'}{`\n`}
+          {'}'}
+        </code>
+      </pre>
+        </Box>
         <p className="footer-citation">© 2023 Shantam Raj</p>
       </div>
       <Divider orientation="vertical" flexItem></Divider>

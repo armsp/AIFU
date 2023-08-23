@@ -1,5 +1,11 @@
 # AIFU
 
+<div align="center">
+  <video src="https://raw.githubusercontent.com/armsp/AIFU/gatsby/doc/demo.mp4" width="400" />
+</div>
+
+![Demo](https://raw.githubusercontent.com/armsp/AIFU/gatsby/doc/demo.mp4)
+
  **AI flub ups**
  
 AIFU aims to be a platform for researchers and anyone looking for a place to learn about the repercussions of using AI blatently, too soon, indiscriminately, harmfully. Its an experiment in meta analysis. What makes it interesting is that all of the information is "generated" and "retreived" using language model(s). Currently, the design of the platform leans towards using causal language models as judge, jury and executioner if you will.
@@ -196,6 +202,8 @@ flowchart TB
       * Are there any legislations in the pipeline?
       * Were there any legislations that got blocked? Why? What were the arguements? Who blocked it?
 - [x] Provide an API or ability to download the whole dataset we are curating so that others could it for other purposes.
+- [x] Export data
+- [ ] Entities extraction for an article
 - [ ] File and document upload for analysis using Filepond? or securedrop?
 - [ ] ^ use Azure Blob Storage and Azure Functions to upload small image, PDF, txt files. Exclude executables.
 - [ ] Switch to a vector database? Perhaps its not necessary right now since we don't have a lot of data.

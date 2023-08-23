@@ -200,6 +200,7 @@ flowchart TB
       * Are there any legislations in the pipeline?
       * Were there any legislations that got blocked? Why? What were the arguements? Who blocked it?
 - [x] Provide an API or ability to download the whole dataset we are curating so that others could it for other purposes.
+- [x] Export data
 - [ ] File and document upload for analysis using Filepond? or securedrop?
 - [ ] ^ use Azure Blob Storage and Azure Functions to upload small image, PDF, txt files. Exclude executables.
 - [ ] Switch to a vector database? Perhaps its not necessary right now since we don't have a lot of data.

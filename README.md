@@ -1,5 +1,9 @@
 # AIFU
 
+<div align="center">
+  <video src="https://raw.githubusercontent.com/armsp/AIFU/gatsby/doc/demo.mp4" width="400" />
+</div>
+
  **AI flub ups**
  
 AIFU aims to be a platform for researchers and anyone looking for a place to learn about the repercussions of using AI blatently, too soon, indiscriminately, harmfully. Its an experiment in meta analysis. What makes it interesting is that all of the information is "generated" and "retreived" using language model(s). Currently, the design of the platform leans towards using causal language models as judge, jury and executioner if you will.

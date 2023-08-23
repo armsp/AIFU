@@ -1,9 +1,5 @@
 # AIFU
 
-<div align="center">
-  <video src="https://raw.githubusercontent.com/armsp/AIFU/gatsby/doc/demo.gif" width="400" />
-</div>
-
 ![Demo](https://raw.githubusercontent.com/armsp/AIFU/gatsby/doc/demo.gif)
 
  **AI flub ups**

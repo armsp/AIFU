@@ -3,6 +3,9 @@
 <div align="center">
   <video src="https://raw.githubusercontent.com/armsp/AIFU/gatsby/doc/demo.mp4" width="400" />
 </div>
+    
+![Demo](https://github.com/armsp/AIFU/blob/gatsby/doc/demo.mp4)
+
 
  **AI flub ups**
  

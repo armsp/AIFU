@@ -5,6 +5,7 @@ on:
     branches: gatsby
     paths-ignore:
       - '**.md'
+      - doc/*
     
 env:
   GH_PAGES: ${{ secrets.GH_PAGES }}

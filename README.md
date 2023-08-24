@@ -1,10 +1,6 @@
 # AIFU
 
-<div align="center">
-  <video src="https://raw.githubusercontent.com/armsp/AIFU/gatsby/doc/demo.mp4" width="400" />
-</div>
-
-![Demo](https://raw.githubusercontent.com/armsp/AIFU/gatsby/doc/demo.mp4)
+![Demo](https://raw.githubusercontent.com/armsp/AIFU/gatsby/doc/demo.gif)
 
  **AI flub ups**
  
@@ -18,6 +14,15 @@ Steps -
 1. Go to the country of the concerned article/news. If the article/news does not pertain to a country then submit it as `global`.
 2. Enter the headline, url, media organization and other details you can discern (see examples when you navigate to a country)
 3. Press `Submit` to start the workflow
+
+## Research Question
+
+AI is going to pervade software systems just as software systems have pervaded the social fabric. And this work is quite prescient because we have already seen how AI systems can cause widespread harm.
+
+> “Had a great conversation with Yoshua Bengio. Both of us agreed that a good step forward for AI risk is to articulate the concrete scenarios where AI can lead to significant harm.” - Andrew Ng
+
+Through this platform, my aim is to monitor the utilization of AI by governmental entities. By conducting thorough analysis of the collected data, I want to find out if we can provide "concrete course(s) of action" or policy recommendations to lawmakers, the general public, and other stakeholders regarding their engagement with AI-based services. Crucially, this initiative will enable us to gain insights into the preferences and purposes of government agencies in employing AI. By doing so, we can proactively address potential risks associated with AI based implementation in specific domains such as child welfare and recidivism, while promoting fair and equitable utilization of AI.
+
 
 ## Outline
 The objective of this project is to establish a comprehensive archive or repository that serves as a resource for policymakers, researchers, students, and other stakeholders seeking to acquire knowledge regarding the potential adverse consequences arising from the indiscriminate, premature, or injudicious use of algorithms and AI.

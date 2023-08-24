@@ -112,7 +112,8 @@ Method deployed - Universal Sentence Encoder. USE can work on full text, the emb
 
 Methods to explore for Future Work - 
 1. there is a research by google for huge datasets though - https://github.com/google-research/deduplicate-text-datasets  
-2. Try USE based on other architectures - https://tfhub.dev/s?q=google%2Funiversal-sentence-encoder%2F4%20OR%20google%2Funiversal-sentence-encoder-large%2F5  
+2. Try USE based on other architectures - https://tfhub.dev/s?q=google%2Funiversal-sentence-encoder%2F4%20OR%20google%2Funiversal-sentence-encoder-large%2F5
+3. Try a multi modal approach where we use similarity with topic modelling as well as journalistic five W and one H questions ([5W1H](https://github.com/fhamborg/Giveme5W1H)) from news articles: who did what, when, where, why, and how? 
 
 **Result**
 

@@ -209,7 +209,7 @@ flowchart TB
       * Were there any legislations that got blocked? Why? What were the arguements? Who blocked it?
 - [x] Provide an API or ability to download the whole dataset we are curating so that others could it for other purposes.
 - [x] Export data
-- [ ] Entities extraction for an article
+- [x] Entities extraction for an article
 - [ ] File and document upload for analysis using Filepond? or securedrop?
 - [ ] ^ use Azure Blob Storage and Azure Functions to upload small image, PDF, txt files. Exclude executables.
 - [ ] Switch to a vector database? Perhaps its not necessary right now since we don't have a lot of data.
@@ -243,4 +243,4 @@ flowchart TB
 * I think using LangChain made things unnecessarily complicated. I could have just used openai's python library along with Microsoft's [guidance](https://github.com/microsoft/guidance/) library for making LLM outputs stable.
 * Similarity and near duplicate and duplicate detection is a whole research area in itself. This needs to be tackled properly and given more time to implement properly.
 
-**Clock** - 90 hrs
+**Clock** - 95 hrs

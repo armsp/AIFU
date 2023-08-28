@@ -17,7 +17,7 @@ export default function CountryData({ country }) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('https://aifuv2.eastus.azurecontainer.io/records?' + new URLSearchParams({
+        const response = await fetch('http://localhost:8001/records?' + new URLSearchParams({
           table_name: country
         }), {
           method: 'GET', // or 'PUT'

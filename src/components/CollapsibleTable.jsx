@@ -22,6 +22,8 @@ import {
 import { KeyboardArrowDown, KeyboardArrowUp } from '@mui/icons-material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 // import AnswerMe from './AnswerMe';
+import EntityChips from './EntityChip';
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -58,7 +60,7 @@ const Row = React.memo((props) => {
       <TableRow>
         <TableCell>
           <IconButton size="small" onClick={onRowClick}>
-            {isOpen ? <KeyboardArrowUp color="info"/> : <KeyboardArrowDown color="success"/>}
+            {isOpen ? <KeyboardArrowUp color="info" /> : <KeyboardArrowDown color="success" />}
           </IconButton>
         </TableCell>
         <TableCell>{row.headline}</TableCell>
@@ -74,11 +76,12 @@ const Row = React.memo((props) => {
           <strong>{Object.keys(item)[0]}:</strong> {Object.values(item)[0]}
         </Typography>
       ))} */}
-      <Box sx={{ m:1, }}>
+              <Box sx={{ m: 1, }}>
                 <h3>Summary of the Article</h3>
                 <p>{row.summary}</p>
                 <p><a href={row.uri}>Link</a> to the article</p>
               </Box>
+              {row.entities && <EntityChips entities={row.entities} />}
               <List >
                 {
                   row['q_as'].map((item, index) => ([
@@ -100,8 +103,8 @@ const Row = React.memo((props) => {
                             {/* { Object.values(item)[2].map(who => (
                   <Chip label={who} color="info" sx={{borderRadius: 1}} size="small"  variant="inset" component="span" />))
                 } */}
-                            <Chip label="GPT-4" sx={{ borderRadius: 5, bgcolor: 'rgba(0, 0, 255, 0.1)' }} size="small" variant="inset" component="span" />
-                           
+                            <Chip label="GPT 4" sx={{ borderRadius: 5, bgcolor: 'rgba(0, 0, 255, 0.1)' }} size="small" variant="inset" component="span" />
+
                           </>
                         }
                       />
@@ -121,7 +124,7 @@ const Row = React.memo((props) => {
 
               </List>
 
-              
+
             </Box>
           </Collapse>
         </TableCell>
@@ -135,12 +138,12 @@ const CollapsibleTable = ({ collapseOthers = true, data }) => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   // const [open, setOpen] = React.useState(collapseOthers ? null : []);
-    const [openRows, setOpenRows] = useState(new Array(data.length).fill(false));
+  const [openRows, setOpenRows] = useState(new Array(data.length).fill(false));
 
-const handleRowClick = (index) => {
+  const handleRowClick = (index) => {
     setOpenRows((prevOpenRows) => {
       const newOpenRows = [...prevOpenRows];
-      
+
       if (collapseOthers) {
         newOpenRows[index] = !newOpenRows[index]; // Toggle the clicked row
       } else {
@@ -179,12 +182,13 @@ const handleRowClick = (index) => {
           <TableRow sx={{
             "& th": {
               color: "rgba(96, 96, 96)",
-              backgroundColor: "lightgrey"
+              backgroundColor: "lightgrey",
+              // fontSize: "xl"
             }
           }}>
             <TableCell />
-            <TableCell>Headline</TableCell>
-            <TableCell>Media Org</TableCell>
+            <TableCell><strong>Headline</strong></TableCell>
+            <TableCell><strong>Media Org</strong></TableCell>
             {/* <TableCell>Score</TableCell> */}
           </TableRow>
         </TableHead>
@@ -195,8 +199,8 @@ const handleRowClick = (index) => {
               row={JSON.parse(row)}
               // open={open}
               // setOpen={setOpen}
-            
-                isOpen={openRows[index]} // Use the open state from the array
+
+              isOpen={openRows[index]} // Use the open state from the array
               onRowClick={() => handleRowClick(index)} // Pass the index to the click handler
               collapseOthers={collapseOthers}
             />

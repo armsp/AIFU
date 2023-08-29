@@ -148,7 +148,8 @@ stateDiagram-v2
 stateDiagram-v2
 
     [maintainer] --> CommitFrontEnd: update frontend
-    CommitFrontEnd --> RunGitHubAction : GitHub PAT, Secret Key
+    CommitFrontEnd --> PushToGitHub
+    PushToGitHub --> RunGitHubAction : GitHub PAT, Secret Key
     RunGitHubAction --> Deployment
     state Deployment {
         UpdateDeploymentCodeOnBranch --> DeployToGHPages: build and deploy (yaml) |ubuntu, node, checkout, build, commit, push

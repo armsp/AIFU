@@ -165,7 +165,7 @@ flowchart TB
     D --> |Rejected|C 
     E --> |Language Not Supported| C
     E --> |Language Supported| H[Translate Content]
-    H --> F[Make GH Issue, Save to DB] --> J[Run Information Extraction Pipeline] 
+    H --> F[Make GH Issue] --> J[Run Information Extraction Pipeline] 
 ```
 ---
 **Information Extraction Pipeline**

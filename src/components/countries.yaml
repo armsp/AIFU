@@ -125,6 +125,10 @@ countries:
   - title: Taiwan
     url: /tw
     flag: https://hatscripts.github.io/circle-flags/flags/tw.svg
+  
+  - title: Italy
+    url: /it
+    flag: https://hatscripts.github.io/circle-flags/flags/it.svg
 
 language_translation:
   - Mandarin

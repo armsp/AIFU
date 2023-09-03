@@ -115,9 +115,6 @@ Methods to explore for Future Work -
 2. Try USE based on other architectures - https://tfhub.dev/s?q=google%2Funiversal-sentence-encoder%2F4%20OR%20google%2Funiversal-sentence-encoder-large%2F5
 3. Try a multi modal approach where we use similarity with topic modelling as well as journalistic five W and one H questions ([5W1H](https://github.com/fhamborg/Giveme5W1H)) from news articles: who did what, when, where, why, and how? 
 
-**Result**
-
-**Conclusion**
 
 **Definition of Success for the project**
 * Data: plateaus over time
@@ -148,7 +145,8 @@ stateDiagram-v2
 stateDiagram-v2
 
     [maintainer] --> CommitFrontEnd: update frontend
-    CommitFrontEnd --> RunGitHubAction : GitHub PAT, Secret Key
+    CommitFrontEnd --> PushToGitHub
+    PushToGitHub --> RunGitHubAction : GitHub PAT, Secret Key
     RunGitHubAction --> Deployment
     state Deployment {
         UpdateDeploymentCodeOnBranch --> DeployToGHPages: build and deploy (yaml) |ubuntu, node, checkout, build, commit, push
@@ -164,7 +162,7 @@ flowchart TB
     D --> |Rejected|C 
     E --> |Language Not Supported| C
     E --> |Language Supported| H[Translate Content]
-    H --> F[Make GH Issue, Save to DB] --> J[Run Information Extraction Pipeline] 
+    H --> F[Make GH Issue] --> J[Run Information Extraction Pipeline] 
 ```
 ---
 **Information Extraction Pipeline**
@@ -242,5 +240,6 @@ flowchart TB
 
 * I think using LangChain made things unnecessarily complicated. I could have just used openai's python library along with Microsoft's [guidance](https://github.com/microsoft/guidance/) library for making LLM outputs stable.
 * Similarity and near duplicate and duplicate detection is a whole research area in itself. This needs to be tackled properly and given more time to implement properly.
+* (Harm) Scoring does not work because we do not have a reference. There is high noise becasue GPT 4 can't do direct scoring (give a score to an input or response).
 
 **Clock** - 95 hrs

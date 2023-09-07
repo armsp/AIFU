@@ -3,7 +3,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import countriesyaml from './countries.yaml';
 import { Link } from 'gatsby';
-
+import Stack from '@mui/material/Stack';
 const CountryGrid = () => {
   // console.log(countriesyaml.countries);
   const [cards, setCards] = useState(countriesyaml.countries);
@@ -62,14 +62,23 @@ const CountryGrid = () => {
                 <CardActionArea sx={{ p: 1 }} component={Link} to={item.url}>
                   <CardMedia style={{ backgroundSize: "contain" }} sx={{ height: 175 }} image={item.flag} />
                   <CardContent>
-                    <Typography variant="h5" component="div">
+                    
+                  <Stack
+                    direction="row"
+                    justifyContent="space-between"
+                    alignItems="center"
+                    spacing={2}
+                  >
+
+                    <Typography variant="h5">
                       {item.title}
                     </Typography>
-                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                    <Typography color="text.secondary">
                       {item.url}
                     </Typography>
+                  </Stack>
 
-                    <Chip color="warning" label={item.reports ? `${item.reports} known cases` : "No known cases"} />
+                    {/* <Chip color="warning" label={item.reports ? `${item.reports} known cases` : "No known cases"} /> */}
                     {/* <Chip color="warning" label={ }/> */}
 
                   </CardContent>

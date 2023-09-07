@@ -130,6 +130,30 @@ countries:
     url: /it
     flag: https://hatscripts.github.io/circle-flags/flags/it.svg
 
+  - title: Brazil
+    url: /br
+    flag: https://hatscripts.github.io/circle-flags/flags/br.svg
+
+  - title: Spain
+    url: /es
+    flag: https://hatscripts.github.io/circle-flags/flags/es.svg
+
+  - title: Indonesia
+    url: /id
+    flag: https://hatscripts.github.io/circle-flags/flags/id.svg
+
+  - title: Turkey
+    url: /tr
+    flag: https://hatscripts.github.io/circle-flags/flags/tr.svg
+
+  - title: Mexico
+    url:  /mx
+    flag: https://hatscripts.github.io/circle-flags/flags/mx.svg
+
+  - title: South Africa
+    url: /za
+    flag: https://hatscripts.github.io/circle-flags/flags/za.svg
+
 language_translation:
   - Mandarin
   - Japanese

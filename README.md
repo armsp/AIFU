@@ -156,13 +156,13 @@ stateDiagram-v2
 **User Submission**
 ```mermaid
 flowchart TB
-    SubmitArticle --> A[Detect Headline Language] --> |Language Supported| B[Translate]
+    SubmitArticle --> A[Detect Headline Language] --> |Language Supported| D
     A --> |Language Not Supported| C[Make GH Issue] --> Stop
-    B --> D[Classify Headline] --> |Accepted|E[Detect Content Language]
+    D[Classify Headline] --> |Accepted|E[Detect Content Language]
     D --> |Rejected|C 
     E --> |Language Not Supported| C
-    E --> |Language Supported| H[Translate Content]
-    H --> F[Make GH Issue] --> J[Run Information Extraction Pipeline] 
+    E --> |Language Supported| F
+    F[Make GH Issue] --> J[Information Retreival Pipeline] 
 ```
 ---
 **Information Extraction Pipeline**

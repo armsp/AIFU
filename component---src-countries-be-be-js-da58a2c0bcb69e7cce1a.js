@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmaterial_gatsby=self.webpackChunkmaterial_gatsby||[]).push([[250],{2062:function(e,t,n){n.r(t),n.d(t,{default:function(){return u}});var a=n(7294),r=n(1408);function u(){return a.createElement(r.Z,{country:"bel"})}}}]);
+//# sourceMappingURL=component---src-countries-be-be-js-da58a2c0bcb69e7cce1a.js.map

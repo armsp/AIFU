@@ -171,13 +171,13 @@ flowchart TB
     A[Submit Link and Headline] --> B{"Does the headline suggest<br> it might be related to AI<br> and its potential harm?"}
     B --> |Yes| C[Extract text from article link]
     B --> |No| E[End]
-    C --> D[Rate Article based on context on a scale of 1-5 if it speaks of an actual harm]
-    D --> |score is 1-2| F[Reject, save in a different collection]
-    D --> |score is 3-5| G[Extract Information based on provided Prompt]
+    C --> D[Assess from content if it concerns actual harm caused to humans]
+    D --> |No harm to humans| F[Reject, save in a different collection]
+    D --> |Harm caused to humans| G[Extract Information based on provided Prompts]
     G --> H[Check if exactly similar article exists in the database]
     H --> |No| I
     H --> |Yes| J[Merge context and update extracted information]
-    J --> I[Update information in Database]   
+    J --> I[Update information in Database] 
 ```
 ---
 ## Major Changes Log
